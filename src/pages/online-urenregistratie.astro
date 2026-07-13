@@ -1,0 +1,123 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Wat is online urenregistratie?',
+    answer:
+      'Online of digitale urenregistratie betekent dat je gewerkte uren vastlegt in software (een app of webdienst) in plaats van op papier of in een los spreadsheet. Totalen worden automatisch berekend en je uren zijn gekoppeld aan klanten, projecten en tarieven.',
+  },
+  {
+    question: 'Wat is het verschil tussen een urenregistratie app en een urenregistratie systeem?',
+    answer:
+      'Een systeem is meestal software voor bedrijven met meerdere medewerkers: roosters, goedkeuring en koppelingen met salarisadministratie. Een app zoals Uurwerk is gemaakt voor een zelfstandige: snel uren invoeren, overzichten en facturen, zonder beheerlaag eromheen.',
+  },
+  {
+    question: 'Is digitale urenregistratie veilig?',
+    answer:
+      'Digitale registratie is in de praktijk betrouwbaarder dan losse bestanden of papier: je raakt geen versies kwijt en oude periodes blijven terugvindbaar, wat prettig is met de fiscale bewaarplicht van 7 jaar. Controleer per aanbieder hoe gegevens worden opgeslagen.',
+  },
+  {
+    question: 'Heb ik internet nodig om mijn uren bij te houden?',
+    answer:
+      'Bij webdiensten wel. Uurwerk is een iOS-app die op je iPhone draait, zodat je ook op locaties zonder goede verbinding gewoon uren kunt registreren.',
+  },
+];
+---
+
+<Guide
+  slug="online-urenregistratie"
+  metaTitle="Online urenregistratie: digitaal uren bijhouden | Uurwerk"
+  description="Wat is online urenregistratie en waarom is digitaal uren bijhouden handiger dan papier of Excel? Voordelen, aandachtspunten en hoe je vandaag begint."
+  h1="Online urenregistratie: digitaal uren bijhouden"
+  answer="Online urenregistratie is het digitaal bijhouden van je gewerkte uren in een app of webdienst, in plaats van op papier of in Excel. De voordelen: je registreert op het moment zelf, totalen en bedragen worden automatisch berekend, uren zijn gekoppeld aan klanten en projecten, en je administratie blijft compleet en terugvindbaar. Voor een zzp&rsquo;er volstaat een lichte app op de telefoon."
+  faq={faq}
+>
+  <h2>Van papier en Excel naar digitaal</h2>
+  <p>
+    Uren bijhouden kan op drie manieren: op papier, in een spreadsheet of digitaal in
+    software die ervoor is gemaakt. Papier en Excel lijken gratis, maar kosten in de praktijk het
+    meest: invullen wordt uitgesteld, totalen kloppen niet en aan het einde van de maand moet
+    alles alsnog worden overgetypt op een factuur. Digitale urenregistratie draait dat om: het
+    moment van registreren wordt zo klein dat het een gewoonte wordt, en alles wat erna komt
+    (totalen, overzichten, facturen) is automatisch.
+  </p>
+
+  <h2>De voordelen op een rij</h2>
+  <ul>
+    <li>
+      <strong>Registreren op het moment zelf.</strong> Je telefoon is er altijd; een timer of
+      snelle invoer legt de uren vast terwijl je werkt. Dat maakt je registratie betrouwbaar in
+      plaats van gereconstrueerd.
+    </li>
+    <li>
+      <strong>Automatisch rekenen.</strong> Duur, bedrag en btw worden uitgerekend op basis van
+      je tarief. Geen formules die breken, geen telfouten.
+    </li>
+    <li>
+      <strong>Gekoppeld aan klanten en projecten.</strong> Elke urenregel hoort ergens bij, dus
+      overzichten per klant of klus staan altijd klaar.
+    </li>
+    <li>
+      <strong>Compleet archief.</strong> Met de fiscale bewaarplicht van 7 jaar wil je geen
+      zoekgeraakte bestanden. Digitale registratie houdt oude periodes terugvindbaar.
+    </li>
+    <li>
+      <strong>Direct door naar facturatie.</strong> Openstaande uren worden een factuurregel in
+      plaats van kopieerwerk.
+    </li>
+  </ul>
+
+  <h2>App of systeem: wat past bij jou?</h2>
+  <p>
+    De term <strong>urenregistratie systeem</strong> wordt vooral gebruikt voor software voor
+    bedrijven met personeel: roosters, verlof, goedkeuringsflows en koppelingen met de
+    salarisadministratie. Werk je alleen, dan is dat ballast. Voor zzp&rsquo;ers en freelancers
+    is een <a href="/urenregistratie-app/">urenregistratie app</a> op de telefoon de praktischer
+    keuze: minder functies, maar precies de juiste, en altijd binnen handbereik.
+  </p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>App voor zelfstandigen</th>
+          <th>Systeem voor teams</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gemaakt voor</td>
+          <td>1 persoon</td>
+          <td>Meerdere medewerkers</td>
+        </tr>
+        <tr>
+          <td>Invoeren</td>
+          <td>Timer of snelle invoer op telefoon</td>
+          <td>Vaak webformulieren en goedkeuring</td>
+        </tr>
+        <tr>
+          <td>Facturatie</td>
+          <td>Uren direct naar factuur</td>
+          <td>Via koppelingen met andere software</td>
+        </tr>
+        <tr>
+          <td>Complexiteit</td>
+          <td>Laag</td>
+          <td>Beheer en instellingen nodig</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Vandaag beginnen</h2>
+  <p>
+    Digitaal uren bijhouden begint klein: zet je klanten en lopende projecten in een app en
+    registreer vanaf nu elke werksessie. Uurwerk is daarvoor een eenvoudig startpunt: een
+    Nederlandstalige iPhone-app met timer, handmatige invoer, overzichten per week of maand en
+    facturen van je openstaande uren. Gratis te gebruiken voor urenregistratie, klanten,
+    projecten en conceptfacturen. Kom je uit een spreadsheet, lees dan
+    ook <a href="/uren-bijhouden-zonder-excel/">uren bijhouden zonder Excel</a>.
+  </p>
+</Guide>

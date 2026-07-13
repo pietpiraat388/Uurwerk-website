@@ -1,0 +1,113 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Hoeveel uur is het urencriterium?',
+    answer:
+      'Het urencriterium is 1.225 uur per kalenderjaar. Dat komt neer op gemiddeld zo&rsquo;n 24 uur per week. De actuele regels en uitzonderingen vind je bij de Belastingdienst.',
+  },
+  {
+    question: 'Welke uren tellen mee voor het urencriterium?',
+    answer:
+      'In de basis alle uren die je aan je onderneming besteedt: declarabele uren voor klanten, maar ook administratie, acquisitie, offertes schrijven, reistijd voor je werk en het bijhouden van je website. De Belastingdienst beoordeelt of uren aannemelijk en zakelijk zijn.',
+  },
+  {
+    question: 'Tellen reisuren mee voor het urencriterium?',
+    answer:
+      'Reistijd voor je onderneming, bijvoorbeeld naar een klant of opdracht, telt in de regel mee als tijd besteed aan je onderneming. Leg reisuren daarom ook vast in je urenregistratie, met een omschrijving.',
+  },
+  {
+    question: 'Hoe bewijs ik dat ik aan het urencriterium voldoe?',
+    answer:
+      'Er is geen verplicht format, maar je moet je uren aannemelijk kunnen maken. Een doorlopend bijgehouden urenregistratie met datum, activiteit en duur per dag is de gebruikelijke onderbouwing. Achteraf gereconstrueerde lijsten zijn veel minder overtuigend.',
+  },
+  {
+    question: 'Geldt het urencriterium ook als ik parttime onderneem?',
+    answer:
+      'Het urencriterium van 1.225 uur geldt onafhankelijk van hoeveel je werkt. Ben je geen starter, dan geldt daarnaast dat je meer dan de helft van je totale werktijd aan je onderneming moet besteden. Check de voorwaarden bij de Belastingdienst voor jouw situatie.',
+  },
+];
+---
+
+<Guide
+  slug="urencriterium"
+  metaTitle="Urencriterium 1.225 uur: welke uren tellen mee? | Uurwerk"
+  description="Het urencriterium is 1.225 uur per jaar en bepaalt of je recht hebt op onder meer zelfstandigenaftrek. Lees welke uren meetellen en hoe je ze aannemelijk maakt."
+  h1="Urenregistratie en het urencriterium (1.225 uur)"
+  answer="Het urencriterium houdt in dat je minimaal 1.225 uur per kalenderjaar aan je onderneming besteedt. Voldoe je eraan, dan kun je in aanmerking komen voor ondernemersaftrek zoals de zelfstandigenaftrek. Naast declarabele uren tellen ook indirecte uren mee, zoals administratie, acquisitie en reistijd. Je moet je uren aannemelijk kunnen maken, bijvoorbeeld met een doorlopend bijgehouden urenregistratie."
+  faq={faq}
+  ctaTitle="Houd je uren voor het urencriterium bij met Uurwerk"
+  ctaText="Registreer declarabele en indirecte uren per dag, met omschrijving. Zo bouw je zonder extra moeite een onderbouwing op voor je aangifte."
+>
+  <h2>Wat is het urencriterium?</h2>
+  <p>
+    Het urencriterium is een voorwaarde van de Belastingdienst voor een aantal
+    ondernemersregelingen in de inkomstenbelasting, waaronder de zelfstandigenaftrek en de
+    startersaftrek. De kern: je besteedt in een kalenderjaar minimaal
+    <strong>1.225 uur</strong> aan je onderneming. Ben je geen starter, dan moet je daarnaast
+    meer dan de helft van je totale arbeidstijd aan je onderneming besteden.
+  </p>
+  <blockquote>
+    De exacte voorwaarden en uitzonderingen (bijvoorbeeld bij zwangerschap of
+    arbeidsongeschiktheid) staan op de website van
+    de <a
+      href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/veranderingen-inkomstenbelasting/urencriterium/"
+      rel="noopener nofollow"
+    >Belastingdienst</a>. Deze pagina is uitleg, geen fiscaal advies.
+  </blockquote>
+
+  <h2>Welke uren tellen mee?</h2>
+  <p>
+    Alle tijd die je aan je onderneming besteedt telt in de basis mee, niet alleen de uren die je
+    factureert. Denk aan:
+  </p>
+  <ul>
+    <li><strong>Declarabele uren:</strong> werk voor klanten en opdrachten.</li>
+    <li><strong>Administratie:</strong> boekhouding, facturen maken, btw-aangifte voorbereiden.</li>
+    <li><strong>Acquisitie:</strong> offertes schrijven, gesprekken met potenti&euml;le klanten, netwerken.</li>
+    <li><strong>Reistijd:</strong> reizen naar klanten, opdrachten of zakelijke afspraken.</li>
+    <li><strong>Ontwikkeling van je bedrijf:</strong> je website bijhouden, cursussen die je vak bijhouden.</li>
+  </ul>
+  <p>
+    Het gaat erom dat de uren zakelijk en aannemelijk zijn. Wie 1.230 uur claimt met alleen een
+    jaartotaal, zonder onderliggende registratie, staat zwak bij vragen van de Belastingdienst.
+  </p>
+
+  <h2>Hoe toon je je uren aan?</h2>
+  <p>
+    Er is geen verplicht format voor een urenregistratie. In de praktijk werkt een registratie
+    die aan deze eisen voldoet:
+  </p>
+  <ol>
+    <li><strong>Per dag bijgehouden</strong>, niet achteraf gereconstrueerd.</li>
+    <li><strong>Concreet:</strong> datum, activiteit of project, en duur.</li>
+    <li><strong>Volledig:</strong> ook indirecte uren zoals administratie en reistijd.</li>
+    <li><strong>Consistent:</strong> het hele jaar door, ook in rustige weken.</li>
+  </ol>
+  <p>
+    1.225 uur per jaar is gemiddeld ongeveer 24 uur per week (uitgaande van enkele weken
+    vakantie). Door wekelijks je totaal te bekijken, zie je op tijd of je op koers ligt.
+  </p>
+
+  <h2>Praktisch: zo houd je het vol</h2>
+  <p>
+    De grootste valkuil is niet de regelgeving, maar discipline. Een registratie die je aan het
+    einde van het kwartaal moet &ldquo;inhalen&rdquo; is onbetrouwbaar en kost een middag. Maak
+    het jezelf makkelijk:
+  </p>
+  <ul>
+    <li>Registreer op het moment zelf, met je telefoon.</li>
+    <li>
+      Maak aparte projecten voor indirecte uren, bijvoorbeeld &ldquo;Administratie&rdquo; en
+      &ldquo;Acquisitie&rdquo;, zodat ook die uren een plek hebben.
+    </li>
+    <li>Gebruik omschrijvingen, zodat elke regel later nog te verklaren is.</li>
+  </ul>
+  <p>
+    Met een <a href="/urenregistratie-app/">urenregistratie app</a> zoals Uurwerk leg je uren
+    vast met een timer of handmatige invoer en zie je per week en maand je totaal. Zo is je
+    onderbouwing een bijproduct van je normale werkdag, in plaats van een aparte klus.
+  </p>
+</Guide>

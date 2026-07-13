@@ -1,0 +1,20 @@
+---
+import type { FaqEntry } from '../lib/schema';
+
+interface Props {
+  entries: FaqEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<div class="faq-list">
+  {entries.map((entry) => (
+    <details class="faq-item">
+      <summary>{entry.question}</summary>
+      <div class="faq-answer">
+        <p set:html={entry.answer} />
+      </div>
+    </details>
+  ))}
+</div>

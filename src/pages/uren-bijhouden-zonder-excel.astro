@@ -1,0 +1,101 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Is Excel goed genoeg voor urenregistratie?',
+    answer:
+      'Voor een enkele klant en een strak ritme kan Excel werken. In de praktijk gaat het vaak mis op discipline (invullen uitstellen), fouten in formules en het ontbreken van koppeling met klanten, tarieven en facturen. Een app lost precies die drie problemen op.',
+  },
+  {
+    question: 'Hoe stap ik over van Excel naar een app?',
+    answer:
+      'Begin op een natuurlijk moment, bijvoorbeeld een nieuwe maand. Zet je klanten en lopende projecten in de app, bewaar je oude Excel-bestand als archief (bewaarplicht) en registreer vanaf dat moment alle nieuwe uren in de app.',
+  },
+  {
+    question: 'Wat is het voordeel van een app boven een spreadsheet?',
+    answer:
+      'Snelheid en betrouwbaarheid: uren invoeren kost seconden op je telefoon, totalen en bedragen worden automatisch berekend en je uren zijn direct gekoppeld aan klanten, projecten en facturen. Er breken geen formules en je vergeet minder.',
+  },
+  {
+    question: 'Is een timer voor gewerkte uren beter dan achteraf invullen?',
+    answer:
+      'Een timer is preciezer voor aaneengesloten werk en voorkomt schattingen. Handmatig invullen is handig voor uren die je toch achteraf verwerkt. De beste aanpak is een app die beide ondersteunt, zodat je per situatie kiest.',
+  },
+];
+---
+
+<Guide
+  slug="uren-bijhouden-zonder-excel"
+  metaTitle="Uren bijhouden zonder Excel: het alternatief | Uurwerk"
+  description="Urenregistratie in Excel gaat vaak mis: uitstel, kapotte formules en geen koppeling met facturen. Zo houd je je uren eenvoudiger bij met een app."
+  h1="Uren bijhouden zonder Excel"
+  answer="Uren bijhouden zonder Excel doe je met een urenregistratie app op je telefoon: je registreert uren op het moment zelf met een timer of snelle invoer, totalen en bedragen worden automatisch berekend en je uren zijn direct gekoppeld aan klanten, projecten en facturen. Daarmee vervallen de drie grootste Excel-problemen: uitstel, formulefouten en losse bestanden."
+  faq={faq}
+>
+  <h2>Waarom bijna iedereen met Excel begint</h2>
+  <p>
+    Een urenstaat in Excel of Google Sheets is gratis, vertrouwd en in vijf minuten opgezet:
+    kolommen voor datum, klant, omschrijving en uren, en een SOM-formule eronder. Voor de eerste
+    weken werkt dat prima. De problemen komen later, als het aantal klanten groeit en de
+    registratie een gewoonte moet worden.
+  </p>
+
+  <h2>Waar het misgaat met een urenlijst in Excel</h2>
+  <ul>
+    <li>
+      <strong>Invullen wordt uitgesteld.</strong> Je spreadsheet staat op je laptop, je werk
+      gebeurt overal. Uren van dinsdag worden vrijdag gereconstrueerd, en dat wordt gokwerk.
+    </li>
+    <li>
+      <strong>Formules breken ongemerkt.</strong> Een rij tussenvoegen, een cel overschrijven, en
+      je maandtotaal klopt niet meer. Vaak zie je het pas op de factuur, of helemaal niet.
+    </li>
+    <li>
+      <strong>Geen koppeling met tarieven en facturen.</strong> Uurtarief, btw en factuurregels
+      leven in andere bestanden. Elke factuur is opnieuw overtypen, met kans op fouten.
+    </li>
+    <li>
+      <strong>Versies en bestanden raken zoek.</strong> &ldquo;uren2026-definitief-v3.xlsx&rdquo;
+      op drie plekken is geen administratie waar je op wilt leunen, zeker niet met een
+      bewaarplicht van 7 jaar.
+    </li>
+    <li>
+      <strong>Geen overzicht onderweg.</strong> Wil je bij een klant even weten hoeveel uren er
+      open staan, dan heb je je laptop nodig.
+    </li>
+  </ul>
+
+  <h2>Het alternatief: registreren op het moment zelf</h2>
+  <p>
+    De kern van een goede urenregistratie is niet het bestandsformaat, maar het moment van
+    invoeren. Wie uren vastlegt terwijl het werk gebeurt, heeft een betrouwbare registratie; wie
+    achteraf invult, heeft een schatting. Een telefoon-app maakt registreren op het moment zelf
+    realistisch:
+  </p>
+  <ol>
+    <li><strong>Timer voor gewerkte uren:</strong> start bij aanvang, pauzeer tussendoor, stop bij afronding.</li>
+    <li><strong>Snelle handmatige invoer:</strong> datum, start- en eindtijd, pauze; het totaal wordt berekend.</li>
+    <li><strong>Klant en project kies je uit een lijst</strong>, met tarief en btw er al aan gekoppeld.</li>
+    <li><strong>Totalen per week of maand</strong> staan klaar zonder formules.</li>
+  </ol>
+
+  <h2>Van uren naar factuur zonder overtypen</h2>
+  <p>
+    Het grootste praktische verschil met Excel zit aan het einde van de maand. In Uurwerk kies je
+    de openstaande uren van een klant en maakt de app er een conceptfactuur van, met uurtarief,
+    btw en totaalbedrag. Die exporteer je als PDF. Geen kopieerwerk tussen bestanden, geen
+    vergeten urenregels. Hoe dat eruitziet lees je ook in de
+    gids <a href="/urenstaat-maken/">urenstaat maken</a>.
+  </p>
+
+  <h2>Overstappen in een kwartier</h2>
+  <ol>
+    <li>Download <a href="/urenregistratie-app/">een urenregistratie app</a> zoals Uurwerk (gratis voor iPhone).</li>
+    <li>Zet je klanten erin, met uurtarief en btw-tarief.</li>
+    <li>Maak projecten aan voor lopende opdrachten en voor indirecte uren (administratie, acquisitie).</li>
+    <li>Archiveer je Excel-bestand; dat blijft onderdeel van je administratie.</li>
+    <li>Registreer vanaf vandaag elke werksessie in de app.</li>
+  </ol>
+</Guide>

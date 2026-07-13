@@ -1,0 +1,96 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Is Uurwerk echt gratis?',
+    answer:
+      'Ja. Urenregistratie met timer en handmatige invoer, klanten, projecten, overzichten en conceptfacturen zijn gratis te gebruiken. Alleen voor het versturen van facturen vanuit de app heb je Uurwerk Pro nodig.',
+  },
+  {
+    question: 'Wat kost Uurwerk Pro?',
+    answer:
+      'De actuele prijs van Uurwerk Pro vind je in de app en op de App Store-pagina. We noemen hier bewust geen bedragen, zodat je nooit verouderde informatie leest.',
+  },
+  {
+    question: 'Waar moet ik op letten bij gratis urenregistratie apps?',
+    answer:
+      'Controleer drie dingen: wat er gebeurt na een eventuele proefperiode, of je gegevens exporteerbaar of terug te lezen blijven als je niet betaalt, en of de gratis versie de kernfuncties bevat die je dagelijks nodig hebt (uren invoeren, klanten, overzichten).',
+  },
+  {
+    question: 'Kan ik gratis facturen maken in Uurwerk?',
+    answer:
+      'Je kunt gratis conceptfacturen maken van je openstaande uren, inclusief btw en totaalbedrag. Voor het daadwerkelijk versturen van facturen vanuit de app is Uurwerk Pro nodig.',
+  },
+];
+---
+
+<Guide
+  slug="urenregistratie-app-gratis"
+  metaTitle="Gratis urenregistratie app: dit krijg je bij Uurwerk"
+  description="Eerlijk overzicht van wat gratis is in Uurwerk: urenregistratie, klanten, projecten, overzichten en conceptfacturen. Alleen facturen versturen vereist Uurwerk Pro."
+  h1="Gratis urenregistratie app: wat krijg je bij Uurwerk?"
+  answer="Uurwerk is gratis te downloaden en gratis te gebruiken voor de kern van urenregistratie: uren invoeren met timer of handmatig, klanten en projecten beheren, overzichten bekijken en conceptfacturen maken. Alleen voor het versturen van facturen vanuit de app is de betaalde versie Uurwerk Pro nodig."
+  faq={faq}
+>
+  <h2>Wat is gratis in Uurwerk?</h2>
+  <p>Zonder te betalen gebruik je in Uurwerk:</p>
+  <ul>
+    <li><strong>Urenregistratie:</strong> uren invoeren met de timer of handmatig, met datum, start- en eindtijd, pauze en omschrijving.</li>
+    <li><strong>Klanten en projecten:</strong> klanten en projecten beheren, met eigen uurtarief en btw-tarief.</li>
+    <li><strong>Overzichten:</strong> totaal uren en totaal bedrag per week, maand of eigen periode, plus dagdoelen en voortgang.</li>
+    <li><strong>Conceptfacturen:</strong> openstaande uren omzetten in een conceptfactuur met btw en totaalbedrag.</li>
+  </ul>
+  <p>
+    Dat is bewust de complete dagelijkse kern: je kunt maandenlang uren bijhouden zonder ooit
+    tegen een betaalmuur aan te lopen voor je registratie zelf.
+  </p>
+
+  <h2>Waarvoor heb je Uurwerk Pro nodig?</h2>
+  <p>
+    <strong>Uurwerk Pro is nodig om facturen te versturen</strong> vanuit de app. De actuele
+    prijs en voorwaarden vind je in de app en op
+    de <a href="https://apps.apple.com/app/id6781654951" rel="noopener">App Store-pagina</a>; we
+    noemen hier bewust geen bedragen zodat deze pagina niet veroudert.
+  </p>
+
+  <h2>Eerlijk vergelijken: waar je bij &ldquo;gratis&rdquo; op let</h2>
+  <p>
+    Veel apps adverteren met gratis, maar bedoelen een proefperiode of een versie waarin de
+    kernfuncties zijn dichtgezet. Waar je op let, bij elke aanbieder (dus ook bij ons):
+  </p>
+  <ol>
+    <li>
+      <strong>Is het gratis of tijdelijk gratis?</strong> Een proefperiode is prima, als dat er
+      duidelijk bij staat. Bij Uurwerk is de urenregistratie-kern gewoon gratis te gebruiken.
+    </li>
+    <li>
+      <strong>Blijf je bij je gegevens kunnen?</strong> Je administratie valt onder de fiscale
+      bewaarplicht. Controleer dat geregistreerde uren leesbaar blijven, ook zonder
+      betaald abonnement.
+    </li>
+    <li>
+      <strong>Zit de dagelijkse kern in de gratis versie?</strong> Uren invoeren, klanten en
+      overzichten horen niet achter een betaalmuur; betaalde functies horen extra&rsquo;s te
+      zijn, zoals bij Uurwerk het versturen van facturen.
+    </li>
+    <li>
+      <strong>Hoe verdient de app zijn geld?</strong> Een helder betaalmodel (zoals een
+      Pro-versie) is transparanter dan advertenties of dataverkoop.
+    </li>
+  </ol>
+
+  <h2>Voor wie is de gratis versie genoeg?</h2>
+  <p>
+    Houd je vooral uren bij voor je eigen inzicht, je opdrachtgever of
+    het <a href="/urencriterium/">urencriterium</a>, en maak je je facturen elders (of stuur je de
+    PDF-conceptfactuur zelf), dan kom je met de gratis versie ver. Verstuur je regelmatig
+    facturen direct vanuit je urenregistratie, dan is Pro de logische stap, omdat uren en
+    facturatie dan in &eacute;&eacute;n flow zitten.
+  </p>
+  <p>
+    Benieuwd hoe de app werkt? Lees <a href="/urenregistratie-app/">hoe je een urenregistratie
+    app kiest</a> of bekijk de <a href="/#screenshots">screenshots op de homepage</a>.
+  </p>
+</Guide>

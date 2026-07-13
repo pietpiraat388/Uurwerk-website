@@ -1,0 +1,107 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Hoe houd ik als zzp&rsquo;er in de bouw mijn uren bij?',
+    answer:
+      'Registreer per klus: opdrachtgever, project of werkadres, wat je hebt gedaan en de gewerkte tijd inclusief pauzes. Doe dit op de bouwplaats zelf via je telefoon, bijvoorbeeld in de bus voordat je naar huis rijdt. Zo kloppen je uren als je gaat factureren.',
+  },
+  {
+    question: 'Kan ik per klus of werkadres uren bijhouden?',
+    answer:
+      'Ja. Maak per opdrachtgever een klant aan en per klus of werkadres een project. Elke urenregel koppel je aan dat project, zodat je aan het einde precies weet hoeveel uren de klus heeft gekost.',
+  },
+  {
+    question: 'Hoe factureer ik gewerkte uren in de bouw?',
+    answer:
+      'Werk je op regiebasis (uurtarief), dan factureer je de geregistreerde uren per klus of periode. In Uurwerk kies je de openstaande uren van een opdrachtgever en maakt de app er een conceptfactuur met btw van, die je als PDF kunt exporteren.',
+  },
+  {
+    question: 'Tellen reisuren naar de bouwplaats mee?',
+    answer:
+      'Voor je facturatie hangt dat af van je afspraken met de opdrachtgever. Voor het urencriterium van de Belastingdienst telt zakelijke reistijd in de regel wel mee als tijd besteed aan je onderneming. Registreer reisuren daarom apart, dan kun je ze altijd wel of niet meenemen.',
+  },
+];
+---
+
+<Guide
+  slug="urenregistratie-bouw"
+  metaTitle="Urenregistratie bouw: uren per klus bijhouden | Uurwerk"
+  description="Uren bijhouden als zzp'er in de bouw: per klus en opdrachtgever, direct vanaf de bouwplaats. Praktische aanpak plus factureren van je gewerkte uren."
+  h1="Urenregistratie in de bouw"
+  answer="In de bouw houd je uren het beste per klus en per opdrachtgever bij, direct op de bouwplaats via je telefoon. Registreer per dag: opdrachtgever, klus of werkadres, wat je hebt gedaan en de gewerkte tijd inclusief pauzes. Werk je op regiebasis, dan is die registratie meteen de basis voor je factuur; daarnaast onderbouwt hij het urencriterium voor de Belastingdienst."
+  faq={faq}
+  ctaTitle="Uren bijhouden vanaf de bouwplaats"
+  ctaText="Registreer je uren per klus in Uurwerk voordat je naar huis rijdt. Aan het einde van de klus staat je factuur in een paar tikken klaar."
+>
+  <h2>Waarom urenregistratie in de bouw net even anders is</h2>
+  <p>
+    Wie in de bouw werkt, heeft zelden een vaste werkplek en vaak meerdere klussen naast elkaar:
+    een verbouwing op regiebasis, een aangenomen klus en tussendoor kleine reparaties. Dat maakt
+    twee dingen belangrijk:
+  </p>
+  <ul>
+    <li>
+      <strong>Registreren moet op locatie kunnen.</strong> Een spreadsheet op de laptop thuis
+      betekent uren reconstrueren aan de keukentafel. Een telefoon heb je op elke bouwplaats bij
+      je.
+    </li>
+    <li>
+      <strong>Uren moeten per klus gescheiden blijven.</strong> Alleen dan weet je wat je per
+      opdrachtgever kunt factureren en of een aangenomen klus uit kan.
+    </li>
+  </ul>
+
+  <h2>Zo richt je het in</h2>
+  <ol>
+    <li>
+      <strong>Opdrachtgevers als klanten.</strong> Zet elke opdrachtgever (particulier of
+      aannemer) als klant in je administratie, met uurtarief en btw-tarief.
+    </li>
+    <li>
+      <strong>Klussen als projecten.</strong> Maak per klus of werkadres een project aan,
+      bijvoorbeeld &ldquo;Badkamer Prinsengracht&rdquo; of &ldquo;Dakkapel fam. De Vries&rdquo;.
+    </li>
+    <li>
+      <strong>Vast registratiemoment.</strong> Registreer je uren voordat je van de bouwplaats
+      vertrekt, met een korte omschrijving (&ldquo;tegels gezet badkamer&rdquo;). Twee minuten in
+      de bus, en je administratie klopt.
+    </li>
+    <li>
+      <strong>Reisuren apart.</strong> Leg reistijd vast onder een eigen project of duidelijke
+      omschrijving. Dan kun je per opdrachtgever afspreken of ze op de factuur komen, en tellen
+      ze mee voor je <a href="/urencriterium/">urencriterium</a>.
+    </li>
+  </ol>
+
+  <h2>Regie of aanneemsom: registreer allebei</h2>
+  <p>
+    Op <strong>regiebasis</strong> zijn je geregistreerde uren direct je omzet: uren maal tarief,
+    plus materiaal. Zonder sluitende registratie geef je geld weg of krijg je discussie met de
+    opdrachtgever. Een duidelijke urenlijst per dag, met omschrijving, voorkomt dat gesprek.
+  </p>
+  <p>
+    Bij een <strong>aanneemsom</strong> factureer je een vast bedrag, maar wil je alsnog weten
+    hoeveel uren de klus kostte. Alleen dan zie je of je de volgende klus scherper of juist
+    ruimer moet calculeren. Urenregistratie is hier je nacalculatie.
+  </p>
+
+  <h2>Uren omzetten in een factuur</h2>
+  <p>
+    Werk je met een <a href="/urenregistratie-app/">urenregistratie app</a> zoals Uurwerk, dan
+    staan je uren al bij de juiste opdrachtgever en klus. Aan het einde van de week of klus kies
+    je de openstaande uren en maakt de app er een conceptfactuur van met btw en totaalbedrag,
+    als PDF klaar om te delen. Zie ook de gids <a href="/urenstaat-maken/">urenstaat
+    maken</a> als je opdrachtgever een gespecificeerde urenlijst wil bij de factuur.
+  </p>
+
+  <h2>Voor je administratie</h2>
+  <p>
+    Ook als zzp&rsquo;er in de bouw geldt: wil je aftrekposten zoals de zelfstandigenaftrek
+    gebruiken, dan moet je het urencriterium aannemelijk kunnen maken. Je klusuren tellen mee,
+    maar ook offertes maken, materiaal halen en administratie. Lees hoe dat werkt in de
+    gids <a href="/urenregistratie-belastingdienst/">urenregistratie voor de Belastingdienst</a>.
+  </p>
+</Guide>

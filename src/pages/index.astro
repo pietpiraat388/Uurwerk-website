@@ -1,0 +1,765 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import AppStoreButton from '../components/AppStoreButton.astro';
+import Faq from '../components/Faq.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import { faqSchema, softwareApplicationSchema, websiteSchema, type FaqEntry } from '../lib/schema';
+import { GUIDES, guideUrl } from '../lib/site';
+
+import shotFactuur from '../assets/screenshots/screenshot-01.png';
+import shotTimer from '../assets/screenshots/screenshot-02.png';
+import shotKlanten from '../assets/screenshots/screenshot-03.png';
+import shotUren from '../assets/screenshots/screenshot-04.png';
+import shotInvoer from '../assets/screenshots/screenshot-05.png';
+import shotPdf from '../assets/screenshots/screenshot-06.png';
+import shotBetaal from '../assets/screenshots/screenshot-07.png';
+import heroVandaag from '../assets/uurwerk-urenregistratie-app-vandaag-iphone.png';
+import heroOverzicht from '../assets/uurwerk-urenoverzicht-maand-iphone.png';
+import featureInvoer from '../assets/uurwerk-uren-registreren-handmatig-invoeren-iphone.png';
+import featureKlanten from '../assets/uurwerk-uren-per-klant-uurtarief-iphone.png';
+import featureProjecten from '../assets/uurwerk-projecten-urenoverzicht-per-project-iphone.png';
+import featureFactuur from '../assets/uurwerk-factuur-maken-van-uren-iphone.png';
+
+const title = 'Urenregistratie app voor zzp’ers | Uurwerk voor iPhone';
+const description =
+  'Uurwerk is een eenvoudige urenregistratie app voor iPhone. Registreer uren met timer of handmatig, houd uren bij per klant en project en maak facturen van je uren. Gratis te downloaden.';
+
+const faqEntries: FaqEntry[] = [
+  {
+    question: 'Wat is Uurwerk?',
+    answer:
+      'Uurwerk is een Nederlandstalige urenregistratie app voor iPhone, gemaakt voor zzp&rsquo;ers, freelancers en kleine ondernemers. Je registreert uren met een timer of handmatig, koppelt ze aan klanten en projecten en maakt er facturen van.',
+  },
+  {
+    question: 'Is Uurwerk gratis?',
+    answer:
+      'Ja. Urenregistratie, klanten, projecten en conceptfacturen zijn gratis te gebruiken. Alleen voor het versturen van facturen heb je Uurwerk Pro nodig. Lees meer op de pagina <a href="/urenregistratie-app-gratis/">gratis urenregistratie app</a>.',
+  },
+  {
+    question: 'Hoe houd ik mijn uren bij als zzp&rsquo;er?',
+    answer:
+      'Registreer per werkdag welke uren je aan welke klant of welk project besteedt, inclusief een korte omschrijving. Dat kan met een timer terwijl je werkt, of achteraf met handmatige invoer. In de gids <a href="/urenregistratie-zzp/">urenregistratie voor zzp&rsquo;ers</a> lees je precies hoe je dit aanpakt.',
+  },
+  {
+    question: 'Welke uren tellen mee voor het urencriterium?',
+    answer:
+      'Voor het urencriterium tellen alle uren mee die je aan je onderneming besteedt: declarabele uren, maar ook acquisitie, administratie en reistijd. De Belastingdienst bepaalt de exacte regels. In de gids over <a href="/urencriterium/">het urencriterium</a> leggen we het uit, met verwijzing naar de offici&euml;le bron.',
+  },
+  {
+    question: 'Kan ik uren per klant en project bijhouden?',
+    answer:
+      'Ja. Je legt klanten en projecten vast met een eigen uurtarief en btw-tarief. Elke urenregel koppel je aan een klant en project, zodat je overzichten en facturen per klant kunt maken.',
+  },
+  {
+    question: 'Kan ik facturen maken van mijn geregistreerde uren?',
+    answer:
+      'Ja. Je zet openstaande uren om in een conceptfactuur, controleert het voorbeeld en exporteert de factuur als PDF. Voor het versturen van facturen is Uurwerk Pro nodig.',
+  },
+  {
+    question: 'Is Uurwerk geschikt voor mijn administratie richting de Belastingdienst?',
+    answer:
+      'Je legt per urenregel datum, klant, project, omschrijving en duur vast en bekijkt totalen per week of maand. Dat is een goede basis voor je administratie. Wat de Belastingdienst precies verwacht lees je in de gids <a href="/urenregistratie-belastingdienst/">urenregistratie voor de Belastingdienst</a>.',
+  },
+  {
+    question: 'Op welke apparaten werkt Uurwerk?',
+    answer:
+      'Uurwerk is een iOS-app voor iPhone en vereist iOS 18.6 of nieuwer. De actuele vereisten vind je op de <a href="https://apps.apple.com/app/id6781654951" rel="noopener">App Store-pagina</a>.',
+  },
+];
+
+const schemas = [softwareApplicationSchema(), websiteSchema(), faqSchema(faqEntries)];
+
+const screenshots = [
+  {
+    src: shotTimer,
+    alt: 'Uurwerk app screenshot: Vandaag-scherm met lopende urentimer, totaal gewerkte uren vandaag en laatste urenregels per klant',
+  },
+  {
+    src: shotInvoer,
+    alt: 'Uurwerk app screenshot: handmatig werkuren toevoegen met datum, klant, project, omschrijving, start- en eindtijd en pauze',
+  },
+  {
+    src: shotUren,
+    alt: 'Uurwerk app screenshot: urenoverzicht per week met totaal uren, totaal bedrag en urenregels gekoppeld aan klanten en projecten',
+  },
+  {
+    src: shotKlanten,
+    alt: 'Uurwerk app screenshot: klantenlijst met uurtarief per klant, openstaande uren en knoppen voor uren en factuur maken',
+  },
+  {
+    src: shotFactuur,
+    alt: 'Uurwerk app screenshot: factuur maken van geregistreerde uren met factuurvoorbeeld inclusief btw en totaalbedrag',
+  },
+  {
+    src: shotPdf,
+    alt: 'Uurwerk app screenshot: factuur exporteren als PDF en versturen naar je klant per e-mail',
+  },
+  {
+    src: shotBetaal,
+    alt: 'Uurwerk app screenshot: betaalopvolging met openstaand bedrag en facturen voorbij de vervaldatum',
+  },
+];
+---
+
+<Base title={title} description={description} schemas={schemas}>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Urenregistratie app voor iPhone</p>
+        <h1>Uren bijhouden zonder gedoe, gemaakt voor zzp&rsquo;ers</h1>
+        <p class="hero-sub">
+          Uurwerk is een eenvoudige urenregistratie app voor zzp&rsquo;ers, freelancers en kleine
+          ondernemers. Start een timer of voer uren handmatig in, houd uren bij per klant en
+          project en maak er met een paar tikken een factuur van.
+        </p>
+        <div class="hero-actions">
+          <AppStoreButton />
+          <a class="btn btn-ghost" href="#functies">Bekijk de functies</a>
+        </div>
+        <p class="hero-note">
+          Gratis te downloaden &middot; Nederlandstalig &middot; Geen boekhoudkennis nodig
+        </p>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-fan">
+          <Image
+            src={heroOverzicht}
+            alt="Urenoverzicht per maand in de Uurwerk urenregistratie app, met totaal uren en totaal bedrag"
+            width={300}
+            widths={[240, 300, 460]}
+            sizes="(max-width: 700px) 48vw, 280px"
+            loading="eager"
+            class="fan-shot fan-back"
+          />
+          <Image
+            src={heroVandaag}
+            alt="Uurwerk urenregistratie app op iPhone: Vandaag-scherm met dagdoel, urentimer en laatste urenregels"
+            width={300}
+            widths={[240, 300, 460]}
+            sizes="(max-width: 700px) 48vw, 280px"
+            loading="eager"
+            fetchpriority="high"
+            class="fan-shot fan-front"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento functies -->
+  <section class="section" id="functies">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Functies</span>
+        <h2>Alles voor je urenregistratie, niets wat je niet nodig hebt</h2>
+        <p>
+          Geen zware boekhoudsoftware, maar precies de functies die je als zelfstandige dagelijks
+          gebruikt.
+        </p>
+      </div>
+
+      <div class="bento">
+        <div class="card card-ink span-3 bento-card">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/></svg>
+          </span>
+          <h3>Start en stop je urentimer</h3>
+          <p>
+            Begin met werken en start de timer. Pauzeer tussendoor en stop wanneer je klaar bent:
+            je uren staan direct als urenregel bij de juiste klant.
+          </p>
+        </div>
+
+        <div class="card span-3 bento-card">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </span>
+          <h3>Voeg uren ook handmatig toe</h3>
+          <p>
+            Timer vergeten? Voer datum, start- en eindtijd en pauze achteraf in. Uurwerk berekent
+            het totaal en het bedrag automatisch.
+          </p>
+        </div>
+
+        <div class="card bento-card half-sm">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <h3>Uren per klant en project</h3>
+          <p>Koppel elke urenregel aan een klant en project, met eigen uurtarief en btw.</p>
+        </div>
+
+        <div class="card bento-card half-sm">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          </span>
+          <h3>Duidelijke urenoverzichten</h3>
+          <p>Bekijk totaal uren en bedrag per week, maand of eigen periode.</p>
+        </div>
+
+        <div class="card bento-card half-sm">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/></svg>
+          </span>
+          <h3>Dagdoelen en voortgang</h3>
+          <p>Stel een dagdoel in en zie direct hoeveel uren je vandaag al hebt gemaakt.</p>
+        </div>
+
+        <div class="card card-accent span-3 bento-card">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+          </span>
+          <h3>Van uren naar factuur</h3>
+          <p>
+            Zet openstaande uren om in een conceptfactuur met btw, exporteer als PDF en zie welke
+            facturen nog openstaan of verlopen zijn.
+          </p>
+        </div>
+
+        <div class="card card-ink span-3 bento-card">
+          <span class="chip">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          </span>
+          <h3>Gemaakt voor iPhone</h3>
+          <p>
+            Volledig Nederlandstalig, licht en snel. Je registreert uren onderweg, op kantoor of op
+            de bouwplaats, precies op het moment zelf.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hoe het werkt -->
+  <section class="section how" id="hoe-het-werkt">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Hoe het werkt</span>
+        <h2>In drie stappen grip op je uren</h2>
+      </div>
+      <ol class="steps">
+        <li class="card">
+          <span class="step-number">1</span>
+          <h3>Voeg klanten en projecten toe</h3>
+          <p>
+            Zet je klanten in de app met uurtarief, btw-tarief en contactgegevens. Maak per klant
+            een of meer projecten aan.
+          </p>
+        </li>
+        <li class="card">
+          <span class="step-number">2</span>
+          <h3>Registreer je uren</h3>
+          <p>
+            Start de timer terwijl je werkt of voer uren achteraf handmatig in, met een korte
+            omschrijving van wat je hebt gedaan.
+          </p>
+        </li>
+        <li class="card">
+          <span class="step-number">3</span>
+          <h3>Bekijk overzichten en factureer</h3>
+          <p>
+            Zie per week of maand hoeveel uren en omzet je hebt gedraaid en zet openstaande uren om
+            in een factuur.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section class="section screenshots" id="screenshots">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Screenshots</span>
+        <h2>Zo ziet Uurwerk eruit</h2>
+        <p>Echte schermen uit de app, zoals je ze ook in de App Store vindt.</p>
+      </div>
+    </div>
+    <div class="shot-strip" tabindex="0" aria-label="App-screenshots, horizontaal scrollbaar">
+      {screenshots.map((shot) => (
+        <Image
+          src={shot.src}
+          alt={shot.alt}
+          width={320}
+          widths={[240, 320, 480]}
+          sizes="(max-width: 600px) 66vw, 300px"
+          loading="lazy"
+          class="shot"
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Timer en handmatig -->
+  <section class="section feature-row">
+    <div class="container split">
+      <div class="split-copy">
+        <span class="kicker">Timer en handmatige invoer</span>
+        <h2>Uren registreren zoals het jou uitkomt</h2>
+        <p>
+          Werk je geconcentreerd aan een klus? Start de timer en Uurwerk houdt de tijd bij,
+          inclusief pauzes. Achteraf invullen kan net zo makkelijk: kies datum, start- en eindtijd
+          en pauze, en het totaal wordt automatisch berekend.
+        </p>
+        <ul class="check-list">
+          <li>Timer met pauze- en stopknop</li>
+          <li>Handmatige invoer met start, einde en pauze</li>
+          <li>Omschrijving per urenregel, zodat je later weet wat je deed</li>
+          <li>Totaal vandaag en dagdoel in &eacute;&eacute;n oogopslag</li>
+        </ul>
+      </div>
+      <div class="split-visual">
+        <Image
+          src={featureInvoer}
+          alt="Handmatig uren registreren in Uurwerk met datum, klant, project, omschrijving, start- en eindtijd en pauze"
+          width={260}
+          widths={[260, 390, 520]}
+          sizes="(max-width: 700px) 60vw, 260px"
+          loading="lazy"
+          class="split-shot"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Klanten en projecten -->
+  <section class="section feature-row alt">
+    <div class="container split reverse">
+      <div class="split-copy">
+        <span class="kicker">Klanten en projecten</span>
+        <h2>Elk uur op de juiste plek</h2>
+        <p>
+          Leg per klant het uurtarief, btw-tarief en de contactgegevens vast. Koppel uren aan
+          projecten, zodat je precies ziet hoeveel tijd een opdracht kost en wat er nog open staat
+          om te factureren.
+        </p>
+        <ul class="check-list">
+          <li>Eigen uurtarief en btw per klant of project</li>
+          <li>Open uren en openstaand bedrag per klant</li>
+          <li>Vanuit de klantenlijst direct uren bekijken of een factuur maken</li>
+        </ul>
+      </div>
+      <div class="split-visual">
+        <Image
+          src={featureKlanten}
+          alt="Klantenlijst in Uurwerk met uurtarief per klant, open uren en knoppen voor uren en factuur maken"
+          width={260}
+          widths={[260, 390, 520]}
+          sizes="(max-width: 700px) 60vw, 260px"
+          loading="lazy"
+          class="split-shot"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Rapportages -->
+  <section class="section feature-row">
+    <div class="container split">
+      <div class="split-copy">
+        <span class="kicker">Overzichten</span>
+        <h2>Weten waar je tijd naartoe gaat</h2>
+        <p>
+          Filter je uren per week, maand of eigen periode en zie direct het totaal aantal uren en
+          het bijbehorende bedrag. Handig voor je facturatie, je administratie en voor het
+          bijhouden van het urencriterium.
+        </p>
+        <ul class="check-list">
+          <li>Totaal uren en totaal bedrag per periode</li>
+          <li>Urenregels per dag, met klant, project en omschrijving</li>
+          <li>Betaalopvolging: zie welke facturen openstaan of verlopen zijn</li>
+        </ul>
+      </div>
+      <div class="split-visual">
+        <Image
+          src={featureProjecten}
+          alt="Projectenoverzicht in Uurwerk met per project het aantal uren en het bijbehorende bedrag"
+          width={260}
+          widths={[260, 390, 520]}
+          sizes="(max-width: 700px) 60vw, 260px"
+          loading="lazy"
+          class="split-shot"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Facturatie -->
+  <section class="section feature-row alt">
+    <div class="container split reverse">
+      <div class="split-copy">
+        <span class="kicker">Facturatie</span>
+        <h2>Van geregistreerde uren naar een nette factuur</h2>
+        <p>
+          Kies de openstaande uren van een klant, controleer het factuurvoorbeeld met btw en
+          totaalbedrag en exporteer de factuur als PDF. Verzonden en betaalde facturen vind je
+          altijd terug.
+        </p>
+        <ul class="check-list">
+          <li>Conceptfacturen maken is gratis</li>
+          <li>Factuur als PDF, klaar om te delen</li>
+          <li>Versturen vanuit de app met Uurwerk Pro</li>
+        </ul>
+      </div>
+      <div class="split-visual">
+        <Image
+          src={featureFactuur}
+          alt="Factuur controleren in Uurwerk met factuurvoorbeeld inclusief urenregels, btw en totaalbedrag"
+          width={260}
+          widths={[260, 390, 520]}
+          sizes="(max-width: 700px) 60vw, 260px"
+          loading="lazy"
+          class="split-shot"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Gidsen -->
+  <section class="section" id="gidsen">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Gidsen</span>
+        <h2>Alles over urenregistratie in Nederland</h2>
+        <p>
+          Praktische, feitelijke uitleg over uren bijhouden als zelfstandige: van het urencriterium
+          tot het maken van een urenstaat.
+        </p>
+      </div>
+      <div class="guides-grid">
+        {GUIDES.map((guide) => (
+          <a class="card guide-card" href={guideUrl(guide.slug)}>
+            <h3>{guide.navTitle}</h3>
+            <p>{guide.hook}</p>
+            <span class="guide-more">Lees de gids &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container faq-container">
+      <div class="section-head">
+        <span class="kicker">FAQ</span>
+        <h2>Veelgestelde vragen</h2>
+      </div>
+      <Faq entries={faqEntries} />
+    </div>
+  </section>
+
+  <CtaBanner />
+</Base>
+
+<style>
+  /* Hero */
+  .hero {
+    padding: clamp(2.5rem, 7vw, 5rem) 0 0;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 54ch;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-note {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-fan {
+    position: relative;
+    width: min(88vw, 440px);
+    aspect-ratio: 100 / 141;
+  }
+
+  :global(.fan-shot) {
+    position: absolute;
+    width: 58%;
+    height: auto;
+    border-radius: clamp(22px, 4.5vw, 34px);
+    border: 6px solid var(--ink-950);
+    background: var(--ink-950);
+    box-shadow: 0 32px 64px -28px rgba(19, 30, 23, 0.5);
+  }
+
+  :global(.fan-back) {
+    top: 7%;
+    right: 0;
+    transform: rotate(6deg);
+  }
+
+  :global(.fan-front) {
+    top: 0;
+    left: 0;
+    transform: rotate(-5deg);
+    z-index: 2;
+  }
+
+  /* Bento */
+  .bento-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .bento-card p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .bento-card.card-ink p {
+    color: var(--text-inverse-muted);
+  }
+
+  .bento-card.card-accent p {
+    color: #dbe7de;
+  }
+
+  /* Steps */
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.9rem, 2vw, 1.4rem);
+  }
+
+  @media (max-width: 860px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .steps li {
+    margin: 0;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--ink-900);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .steps h3 {
+    margin-bottom: 0.4rem;
+  }
+
+  .steps p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  /* Screenshot strip */
+  .shot-strip {
+    display: flex;
+    gap: 1.1rem;
+    overflow-x: auto;
+    padding: 0.4rem clamp(1.1rem, 4vw, 2rem) 1.4rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :global(.shot) {
+    flex: 0 0 auto;
+    width: min(66vw, 300px);
+    border-radius: var(--radius-lg);
+    scroll-snap-align: center;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Split feature rows */
+  .feature-row.alt {
+    background: linear-gradient(180deg, #edf1ec, var(--bg));
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .split.reverse {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .split.reverse .split-copy {
+    order: 2;
+  }
+
+  .split.reverse .split-visual {
+    order: 1;
+  }
+
+  @media (max-width: 860px) {
+    .split,
+    .split.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .split.reverse .split-copy {
+      order: 1;
+    }
+
+    .split.reverse .split-visual {
+      order: 2;
+    }
+  }
+
+  .split-copy .kicker {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+
+  .split-copy p {
+    color: var(--text-secondary);
+    max-width: 56ch;
+  }
+
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.4rem 0 0;
+  }
+
+  .check-list li {
+    position: relative;
+    padding-left: 1.9rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.28em;
+    width: 1.05em;
+    height: 1.05em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23537565'/%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+      center / contain no-repeat;
+  }
+
+  .split-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  :global(.split-shot) {
+    border-radius: clamp(22px, 4.5vw, 34px);
+    border: 6px solid var(--ink-950);
+    background: var(--ink-950);
+    box-shadow: 0 32px 64px -28px rgba(19, 30, 23, 0.4);
+  }
+
+  /* Guides */
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(0.9rem, 2vw, 1.4rem);
+  }
+
+  @media (max-width: 960px) {
+    .guides-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .guides-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .guide-card:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+
+  .guide-card h3 {
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+  }
+
+  .guide-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .guide-more {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  /* FAQ */
+  .faq-container {
+    max-width: 820px;
+  }
+</style>

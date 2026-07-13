@@ -1,0 +1,51 @@
+---
+import AppStoreButton from './AppStoreButton.astro';
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = 'Begin vandaag met uren bijhouden',
+  text = 'Download Uurwerk gratis in de App Store en registreer je eerste uren binnen een minuut. Geen account of creditcard nodig om te starten.',
+} = Astro.props;
+---
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="card card-ink cta-card">
+      <div>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div class="cta-actions">
+        <AppStoreButton />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: clamp(2rem, 5vw, 3.25rem);
+  }
+
+  .cta-card h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-card p {
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .cta-actions {
+    flex-shrink: 0;
+  }
+</style>

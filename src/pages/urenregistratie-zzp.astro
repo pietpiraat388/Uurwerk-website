@@ -1,0 +1,135 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Ben ik als zzp&rsquo;er verplicht om uren bij te houden?',
+    answer:
+      'Er is geen algemene wettelijke plicht om elk uur te registreren, maar wil je gebruikmaken van ondernemersaftrek zoals de zelfstandigenaftrek, dan moet je aannemelijk kunnen maken dat je aan het urencriterium voldoet. Een sluitende urenregistratie is daarvoor de gebruikelijke onderbouwing. Raadpleeg de Belastingdienst voor de actuele regels.',
+  },
+  {
+    question: 'Hoe houd ik mijn uren bij als zzp&rsquo;er?',
+    answer:
+      'Registreer per werkdag: datum, klant of project, een korte omschrijving van het werk en het aantal uren. Doe dit op de dag zelf, want achteraf reconstrueren is foutgevoelig. Een app met timer en handmatige invoer maakt dit een gewoonte van seconden.',
+  },
+  {
+    question: 'Wat is een urenregistratie voorbeeld voor zzp&rsquo;ers?',
+    answer:
+      'Een goede urenregel bevat: datum (17 juni), klant (Acme Bouw), project (Website onderhoud), omschrijving (homepage bijgewerkt), duur (2u 30m) en eventueel het tarief en bedrag. Een reeks van zulke regels per dag vormt samen je urenregistratie.',
+  },
+  {
+    question: 'Moet ik ook niet-declarabele uren bijhouden?',
+    answer:
+      'Voor het urencriterium tellen ook indirecte uren mee, zoals administratie, acquisitie en reistijd. Het is daarom verstandig om ook deze uren te registreren, bijvoorbeeld onder een eigen project per soort werk. Zie de gids over <a href="/urencriterium/">het urencriterium</a>.',
+  },
+  {
+    question: 'Welke app is handig voor urenregistratie als zzp&rsquo;er?',
+    answer:
+      'Kies een app die snel invoert, uren aan klanten en projecten koppelt en overzichten geeft. Uurwerk voor iPhone is hiervoor gemaakt en is gratis te gebruiken voor urenregistratie, klanten, projecten en conceptfacturen.',
+  },
+];
+---
+
+<Guide
+  slug="urenregistratie-zzp"
+  metaTitle="Urenregistratie zzp: zo houd je je uren bij | Uurwerk"
+  description="Hoe houd je als zzp'er je uren bij? Waarom urenregistratie belangrijk is, welke uren je vastlegt en hoe je het simpel houdt met een app in plaats van Excel."
+  h1="Urenregistratie voor zzp&rsquo;ers: zo houd je je uren bij"
+  answer="Als zzp&rsquo;er houd je per werkdag bij hoeveel uren je aan welke klant of welk project besteedt, inclusief een korte omschrijving. Je gebruikt die registratie voor je facturen, je inzicht in projecten en als onderbouwing van het urencriterium voor de Belastingdienst. De simpelste aanpak: registreer direct op de dag zelf, met een timer of snelle handmatige invoer op je telefoon."
+  faq={faq}
+>
+  <h2>Waarom uren bijhouden als zzp&rsquo;er?</h2>
+  <p>Urenregistratie is voor een zelfstandige geen administratieve hobby; je gebruikt dezelfde gegevens op drie plekken:</p>
+  <ul>
+    <li>
+      <strong>Facturatie.</strong> Je factureert wat je hebt gewerkt. Zonder registratie vergeet
+      je losse kwartiertjes en dat telt op. Wie op uurbasis werkt, factureert alleen betrouwbaar
+      met een sluitende urenlijst per klant.
+    </li>
+    <li>
+      <strong>Belastingdienst.</strong> Voor de zelfstandigenaftrek en sommige andere regelingen
+      geldt het urencriterium van 1.225 uur per jaar. Je moet aannemelijk kunnen maken dat je die
+      uren hebt gemaakt; een doorlopende urenregistratie is daarvoor de gebruikelijke
+      onderbouwing. Lees de details in de
+      gids <a href="/urenregistratie-belastingdienst/">urenregistratie voor de Belastingdienst</a>.
+    </li>
+    <li>
+      <strong>Inzicht.</strong> Pas als je uren registreert, zie je welke klussen renderen en
+      welke stilletjes verlieslatend zijn.
+    </li>
+  </ul>
+
+  <h2>Wat leg je per urenregel vast?</h2>
+  <p>Een bruikbare urenregistratie is concreter dan een totaal per week. Leg per regel vast:</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Onderdeel</th>
+          <th>Voorbeeld</th>
+          <th>Waarom</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Datum</td>
+          <td>17 juni</td>
+          <td>Maakt je registratie controleerbaar</td>
+        </tr>
+        <tr>
+          <td>Klant</td>
+          <td>Acme Bouw</td>
+          <td>Nodig voor facturatie per klant</td>
+        </tr>
+        <tr>
+          <td>Project</td>
+          <td>Website onderhoud</td>
+          <td>Inzicht per opdracht</td>
+        </tr>
+        <tr>
+          <td>Omschrijving</td>
+          <td>Homepage bijgewerkt</td>
+          <td>Later nog te herleiden wat je deed</td>
+        </tr>
+        <tr>
+          <td>Duur</td>
+          <td>2u 30m</td>
+          <td>Basis voor factuur en urencriterium</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Registreer ook indirecte uren, zoals administratie, offertes schrijven en reistijd. Voor je
+    facturen tellen ze niet, voor het urencriterium meestal wel.
+  </p>
+
+  <h2>De grootste valkuil: achteraf reconstrueren</h2>
+  <p>
+    De meeste urenregistraties mislukken niet door de verkeerde tool, maar door uitstel. Wie aan
+    het einde van de week zijn uren probeert terug te halen, gokt. Maak er daarom een moment van
+    seconden van: start een timer als je begint, of voer de uren in zodra je een klus afrondt.
+    Een app op je telefoon werkt hiervoor beter dan een spreadsheet op je laptop, omdat je je
+    telefoon altijd bij je hebt.
+  </p>
+
+  <h2>Zo doe je het met Uurwerk</h2>
+  <ol>
+    <li>Zet je klanten in de app, met uurtarief en btw-tarief.</li>
+    <li>Maak per klant projecten aan, bijvoorbeeld per opdracht of per soort werk.</li>
+    <li>
+      Registreer je uren op de dag zelf: met de timer terwijl je werkt, of handmatig met start-
+      en eindtijd en pauze.
+    </li>
+    <li>
+      Controleer wekelijks het overzicht: totaal uren, totaal bedrag en wat er nog te factureren
+      staat.
+    </li>
+    <li>Zet openstaande uren aan het einde van de maand om in een factuur.</li>
+  </ol>
+  <p>
+    Uurwerk is gratis te downloaden voor iPhone. Urenregistratie, klanten, projecten en
+    conceptfacturen zijn gratis; voor het versturen van facturen is Uurwerk Pro nodig.
+  </p>
+</Guide>

@@ -1,0 +1,98 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Hoe lang moet ik mijn urenregistratie bewaren?',
+    answer:
+      'Voor je administratie geldt bij de Belastingdienst een fiscale bewaarplicht van in de basis 7 jaar. Bewaar je urenregistratie daarom net zo zorgvuldig als je facturen en bonnetjes.',
+  },
+  {
+    question: 'Accepteert de Belastingdienst een urenregistratie uit een app?',
+    answer:
+      'Er is geen verplicht format: een app, spreadsheet of schrift kan allemaal, zolang de registratie aannemelijk, concreet en doorlopend bijgehouden is. Een app heeft als voordeel dat elke regel een datum, klant en omschrijving heeft en dat je totalen per periode direct kunt laten zien.',
+  },
+  {
+    question: 'Moet ik mijn uren meesturen met de aangifte?',
+    answer:
+      'Nee, je stuurt je urenregistratie niet mee met je aangifte inkomstenbelasting. Je moet hem wel kunnen laten zien als de Belastingdienst erom vraagt, bijvoorbeeld bij een controle van je zelfstandigenaftrek.',
+  },
+  {
+    question: 'Wat gebeurt er als mijn urenregistratie niet klopt?',
+    answer:
+      'Kun je het urencriterium niet aannemelijk maken, dan kan de Belastingdienst aftrekposten zoals de zelfstandigenaftrek corrigeren, met naheffing tot gevolg. Een doorlopend bijgehouden registratie voorkomt die discussie grotendeels.',
+  },
+];
+---
+
+<Guide
+  slug="urenregistratie-belastingdienst"
+  metaTitle="Urenregistratie Belastingdienst: wat wordt verwacht? | Uurwerk"
+  description="Wat verwacht de Belastingdienst van je urenregistratie als ondernemer? Wat je vastlegt, hoe lang je het bewaart en hoe je het praktisch bijhoudt."
+  h1="Urenregistratie voor de Belastingdienst"
+  answer="De Belastingdienst schrijft geen vast format voor, maar verwacht dat je aannemelijk kunt maken hoeveel uren je aan je onderneming besteedt, vooral als je aftrekposten claimt die aan het urencriterium zijn gekoppeld. Dat doe je met een doorlopend bijgehouden registratie: per dag de datum, activiteit of klant, en de duur. Je administratie, inclusief urenregistratie, bewaar je in de basis 7 jaar."
+  faq={faq}
+  ctaTitle="Bouw je onderbouwing op terwijl je werkt"
+  ctaText="Met Uurwerk registreer je uren per dag met klant, project en omschrijving. Je overzichten per week en maand staan altijd klaar."
+>
+  <h2>Waarom wil de Belastingdienst je uren zien?</h2>
+  <p>
+    Een aantal aftrekposten in de inkomstenbelasting is gekoppeld aan
+    het <a href="/urencriterium/">urencriterium van 1.225 uur</a>, waaronder de zelfstandigenaftrek.
+    Claim je zo&rsquo;n aftrekpost, dan moet je bij vragen of een controle kunnen onderbouwen dat
+    je die uren daadwerkelijk aan je onderneming hebt besteed. De urenregistratie is die
+    onderbouwing.
+  </p>
+  <blockquote>
+    Deze pagina geeft algemene uitleg en is geen fiscaal advies. De actuele regels vind je bij
+    de <a
+      href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/veranderingen-inkomstenbelasting/urencriterium/"
+      rel="noopener nofollow"
+    >Belastingdienst</a> en bij de <a href="https://www.kvk.nl/" rel="noopener nofollow">KVK</a>. Twijfel je over je
+    situatie, overleg dan met een boekhouder of belastingadviseur.
+  </blockquote>
+
+  <h2>Wat legt een goede registratie vast?</h2>
+  <p>Een registratie die vragen kan doorstaan, bevat per werkdag:</p>
+  <ul>
+    <li><strong>Datum</strong> van de gewerkte uren.</li>
+    <li><strong>Activiteit</strong>: voor welke klant, welk project of welk soort werk (administratie, acquisitie, reistijd).</li>
+    <li><strong>Omschrijving</strong> van wat je hebt gedaan.</li>
+    <li><strong>Duur</strong>: begintijd en eindtijd, of het aantal uren.</li>
+  </ul>
+  <p>
+    Registreer ook niet-declarabele uren. Juist bij ondernemers met weinig declarabele uren maakt
+    de optelsom van administratie, acquisitie en reistijd het verschil voor het urencriterium.
+  </p>
+
+  <h2>Doorlopend bijhouden weegt zwaarder dan het format</h2>
+  <p>
+    Een schrift, spreadsheet of app: het mag allemaal. Wat telt is dat de registratie
+    <strong>doorlopend</strong> is bijgehouden en niet achteraf in &eacute;&eacute;n keer is
+    opgesteld. Een lijst die in december wordt gereconstrueerd voor het hele jaar is herkenbaar
+    en overtuigt niet. Praktische kenmerken van een geloofwaardige registratie:
+  </p>
+  <ul>
+    <li>Regels per dag, met wisselende tijden en omschrijvingen (echte werkweken zijn niet uniform).</li>
+    <li>Consistentie met de rest van je administratie: facturen, agenda en offertes sluiten aan op je uren.</li>
+    <li>Ook rustige weken zijn geregistreerd, niet alleen de drukke.</li>
+  </ul>
+
+  <h2>Bewaarplicht</h2>
+  <p>
+    Voor je administratie geldt een fiscale bewaarplicht van in de basis
+    <strong>7 jaar</strong>. Je urenregistratie hoort daarbij. Een digitale registratie heeft
+    hier een praktisch voordeel: je raakt geen jaren kwijt en kunt oude periodes altijd
+    terugvinden.
+  </p>
+
+  <h2>Praktische aanpak met een app</h2>
+  <p>
+    Met een <a href="/urenregistratie-app/">urenregistratie app</a> zoals Uurwerk leg je elke
+    urenregel vast met datum, klant, project, omschrijving en duur, op het moment zelf. Het
+    urenoverzicht per week of maand laat direct je totalen zien. Zo is je registratie altijd
+    actueel, zonder aparte administratieve momenten. Maak voor indirecte uren aparte projecten
+    aan (bijvoorbeeld &ldquo;Administratie&rdquo;), zodat ook die uren netjes geteld worden.
+  </p>
+</Guide>

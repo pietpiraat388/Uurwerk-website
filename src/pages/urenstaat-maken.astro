@@ -1,0 +1,132 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  {
+    question: 'Wat is een urenstaat?',
+    answer:
+      'Een urenstaat is een overzicht van gewerkte uren over een periode, meestal per dag gespecificeerd met omschrijving en aantal uren. Zelfstandigen gebruiken hem als bijlage of onderbouwing bij de factuur, of omdat de opdrachtgever erom vraagt.',
+  },
+  {
+    question: 'Wat moet er op een urenstaat staan?',
+    answer:
+      'Minimaal: jouw naam of bedrijfsnaam, de klant, de periode, per regel de datum, omschrijving en het aantal uren, en een totaal. Vaak komen daar het project, het uurtarief en het totaalbedrag bij.',
+  },
+  {
+    question: 'Is een urenstaat hetzelfde als een factuur?',
+    answer:
+      'Nee. De urenstaat specificeert de gewerkte uren; de factuur is het betaaldocument met wettelijke factuureisen zoals factuurnummer, btw-bedrag en gegevens van beide partijen. In de praktijk stuur je de urenstaat mee als specificatie bij de factuur.',
+  },
+  {
+    question: 'Hoe maak ik snel een urenstaat voor mijn klant?',
+    answer:
+      'Registreer je uren doorlopend per klant en project. Een urenoverzicht per periode is dan direct je urenstaat. In Uurwerk filter je op week, maand of eigen periode en zie je alle urenregels met omschrijving, duur en bedrag bij elkaar.',
+  },
+];
+---
+
+<Guide
+  slug="urenstaat-maken"
+  metaTitle="Urenstaat maken: voorbeeld en uitleg | Uurwerk"
+  description="Wat staat er op een goede urenstaat voor je klant? Duidelijk voorbeeld met alle onderdelen, en de snelste manier om een urenstaat te maken vanuit je urenregistratie."
+  h1="Urenstaat maken: voorbeeld en uitleg"
+  answer="Een urenstaat is een gespecificeerd overzicht van je gewerkte uren voor een klant over een bepaalde periode. Er staat minimaal op: je naam of bedrijfsnaam, de klant, de periode, per regel de datum, omschrijving en duur, en het totaal aantal uren (vaak met tarief en bedrag). De snelste manier om er een te maken: houd je uren doorlopend bij per klant en project, dan is het periodeoverzicht meteen je urenstaat."
+  faq={faq}
+  ctaTitle="Je urenstaat staat al klaar in Uurwerk"
+  ctaText="Registreer je uren per klant en project en filter op periode: elke urenregel met datum, omschrijving, duur en bedrag staat direct bij elkaar."
+>
+  <h2>Wanneer heb je een urenstaat nodig?</h2>
+  <p>Een urenstaat (ook wel urenlijst, urenbriefje of timesheet) gebruik je in drie situaties:</p>
+  <ul>
+    <li>
+      <strong>Bij je factuur.</strong> Klanten die op uurbasis betalen willen zien waar de uren
+      in zijn gaan zitten. Een specificatie voorkomt discussie en versnelt betaling.
+    </li>
+    <li>
+      <strong>Op verzoek van de opdrachtgever.</strong> Bij detachering of inhuur via een bureau
+      is een goedgekeurde urenstaat vaak de basis voor uitbetaling.
+    </li>
+    <li>
+      <strong>Voor je eigen administratie.</strong> Dezelfde gegevens onderbouwen
+      het <a href="/urencriterium/">urencriterium</a> richting de Belastingdienst.
+    </li>
+  </ul>
+
+  <h2>Voorbeeld van een urenstaat</h2>
+  <p>Zo kan een eenvoudige urenstaat voor een klant eruitzien:</p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="4">
+            Urenstaat &middot; Acme Bouw &middot; Project: Website onderhoud &middot; Periode:
+            11 t/m 18 juni
+          </th>
+        </tr>
+        <tr>
+          <th>Datum</th>
+          <th>Omschrijving</th>
+          <th>Uren</th>
+          <th>Bedrag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>17 juni</td>
+          <td>Controle urenstaat en factuurregels</td>
+          <td>1,50</td>
+          <td>&euro; 127,50</td>
+        </tr>
+        <tr>
+          <td>18 juni</td>
+          <td>Homepage bijgewerkt, nieuw menu</td>
+          <td>2,50</td>
+          <td>&euro; 212,50</td>
+        </tr>
+        <tr>
+          <td>18 juni</td>
+          <td>Timerregistratie, kleine fixes</td>
+          <td>0,25</td>
+          <td>&euro; 21,25</td>
+        </tr>
+        <tr>
+          <th>Totaal</th>
+          <th></th>
+          <th>4,25</th>
+          <th>&euro; 361,25</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Vermeld bovenaan altijd je eigen (bedrijfs)naam, de klant en de periode. Werk je met
+    meerdere projecten voor dezelfde klant, groepeer de regels dan per project.
+  </p>
+
+  <h2>Checklist: dit hoort erop</h2>
+  <ol>
+    <li>Je naam of bedrijfsnaam</li>
+    <li>Naam van de klant of opdrachtgever</li>
+    <li>Periode waarover de urenstaat gaat</li>
+    <li>Per regel: datum, project, omschrijving en duur</li>
+    <li>Totaal aantal uren</li>
+    <li>Optioneel: uurtarief en bedrag per regel plus totaalbedrag</li>
+  </ol>
+
+  <h2>De snelste manier: niet maken, maar bijhouden</h2>
+  <p>
+    Een urenstaat die je aan het einde van de maand &ldquo;maakt&rdquo;, is eigenlijk een
+    reconstructie, en dat kost tijd en precisie. Draai het om: registreer elke werksessie
+    direct, met klant, project en omschrijving. De urenstaat is dan geen document dat je bouwt,
+    maar een filter dat je toepast: kies de klant en de periode, en alle regels staan er al.
+  </p>
+  <p>
+    Zo werkt het in Uurwerk: je urenregels staan per klant en project vast, met datum,
+    omschrijving, duur en bedrag. In het urenoverzicht filter je op deze week, deze maand of een
+    eigen periode. Diezelfde openstaande uren zet je vervolgens met een paar tikken om in een
+    conceptfactuur met btw, als PDF klaar voor je klant. Factuur en specificatie komen zo altijd
+    uit dezelfde bron, zonder overtypen. Meer weten? Lees
+    ook <a href="/urenregistratie-zzp/">urenregistratie voor zzp&rsquo;ers</a>.
+  </p>
+</Guide>

@@ -1,0 +1,174 @@
+---
+import Base from './Base.astro';
+import Faq from '../components/Faq.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import AppStoreButton from '../components/AppStoreButton.astro';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  type FaqEntry,
+} from '../lib/schema';
+import { GUIDES, guideUrl } from '../lib/site';
+
+interface Props {
+  /** Slug van deze gids, zonder slashes */
+  slug: string;
+  /** Title tag (mag afwijken van h1) */
+  metaTitle: string;
+  description: string;
+  h1: string;
+  /** Kort, direct antwoord op de zoekvraag (GEO) */
+  answer: string;
+  faq: FaqEntry[];
+  datePublished?: string;
+  dateModified?: string;
+  ctaTitle?: string;
+  ctaText?: string;
+}
+
+const {
+  slug,
+  metaTitle,
+  description,
+  h1,
+  answer,
+  faq,
+  datePublished = '2026-07-12',
+  dateModified = '2026-07-12',
+  ctaTitle,
+  ctaText,
+} = Astro.props;
+
+const path = guideUrl(slug);
+
+const schemas = [
+  articleSchema({ title: h1, description, path, datePublished, dateModified }),
+  breadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: h1, url: path },
+  ]),
+  ...(faq.length > 0 ? [faqSchema(faq)] : []),
+];
+
+const related = GUIDES.filter((guide) => guide.slug !== slug).slice(0, 4);
+---
+
+<Base title={metaTitle} description={description} schemas={schemas}>
+  <article class="section guide">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Kruimelpad">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">{h1}</li>
+        </ol>
+      </nav>
+
+      <div class="guide-grid">
+        <div class="prose">
+          <h1>{h1}</h1>
+
+          <div class="answer-box">
+            <span class="answer-label">Kort antwoord</span>
+            <p set:html={answer} />
+          </div>
+
+          <slot />
+
+          {faq.length > 0 && (
+            <section class="guide-faq">
+              <h2>Veelgestelde vragen</h2>
+              <Faq entries={faq} />
+            </section>
+          )}
+        </div>
+
+        <aside class="guide-aside">
+          <div class="card aside-card">
+            <h3>Uurwerk voor iPhone</h3>
+            <p class="text-secondary">
+              Eenvoudige urenregistratie met timer, klanten, projecten en facturen.
+              Gratis te downloaden.
+            </p>
+            <AppStoreButton />
+          </div>
+
+          <div class="card aside-card">
+            <h3>Meer gidsen</h3>
+            <ul class="aside-links">
+              {related.map((guide) => (
+                <li><a href={guideUrl(guide.slug)}>{guide.navTitle}</a></li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <CtaBanner title={ctaTitle} text={ctaText} />
+</Base>
+
+<style>
+  .guide-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  @media (max-width: 960px) {
+    .guide-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .guide-aside {
+    position: sticky;
+    top: 96px;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 960px) {
+    .guide-aside {
+      position: static;
+    }
+  }
+
+  .aside-card h3 {
+    margin-bottom: 0.6rem;
+  }
+
+  .aside-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .aside-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .aside-links li {
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .aside-links li:last-child {
+    border-bottom: 0;
+  }
+
+  .aside-links a {
+    display: block;
+    padding: 0.6rem 0;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.97rem;
+  }
+
+  .guide-faq {
+    margin-top: 3rem;
+  }
+</style>
