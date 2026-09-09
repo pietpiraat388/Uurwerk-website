@@ -4,16 +4,16 @@ import appIcon from '../assets/app-icon.png';
 import { NAV_LINKS, SITE } from '../lib/site';
 ---
 
-<header class="site-header">
+<header class="site-header" data-placement="header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Uurwerk homepage">
       <Image src={appIcon} alt="" width={40} height={40} class="brand-icon" loading="eager" />
       <span class="brand-name">{SITE.name}</span>
     </a>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+    <button type="button" class="nav-toggle-label" aria-label="Menu openen" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
 
-    <nav class="site-nav" aria-label="Hoofdnavigatie">
+    <nav class="site-nav" id="site-navigation" aria-label="Hoofdnavigatie">
       <ul>
         {NAV_LINKS.map((link) => (
           <li><a href={link.href}>{link.label}</a></li>
@@ -22,13 +22,22 @@ import { NAV_LINKS, SITE } from '../lib/site';
       <a class="btn btn-primary nav-cta" href={SITE.appStoreUrl} rel="noopener">Download</a>
     </nav>
 
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu openen of sluiten">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle-label');
+  const navigation = document.querySelector<HTMLElement>('#site-navigation');
+  const setOpen = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    navigation?.setAttribute('data-open', String(open));
+  };
+  toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  navigation?.addEventListener('click', (event) => { if (event.target instanceof Element && event.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); } });
+</script>
+<noscript><style>.nav-toggle-label{display:none!important}@media(max-width:860px){.header-inner{height:auto!important;flex-wrap:wrap;padding-block:1rem}.site-nav{display:flex!important;position:static!important;width:100%;box-shadow:none!important}}</style></noscript>
 
 <style>
   .site-header {
@@ -104,6 +113,8 @@ import { NAV_LINKS, SITE } from '../lib/site';
   .nav-toggle,
   .nav-toggle-label {
     display: none;
+    border: 0;
+    background: transparent;
   }
 
   /* Desktop: logo links, navigatie exact gecentreerd, download rechts */
@@ -132,6 +143,7 @@ import { NAV_LINKS, SITE } from '../lib/site';
 
   @media (max-width: 860px) {
     .nav-toggle-label {
+      order: 2;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -184,19 +196,19 @@ import { NAV_LINKS, SITE } from '../lib/site';
       justify-content: center;
     }
 
-    .nav-toggle:checked ~ .site-nav {
+    .site-nav[data-open='true'] {
       display: flex;
     }
 
-    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+    .nav-toggle-label[aria-expanded='true'] span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
 
-    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+    .nav-toggle-label[aria-expanded='true'] span:nth-child(2) {
       opacity: 0;
     }
 
-    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+    .nav-toggle-label[aria-expanded='true'] span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
   }

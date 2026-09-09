@@ -1,6 +1,6 @@
 # Uurwerk - Uren Registratie (App Store-analyse)
 
-Bron: App Store-vermelding, opgehaald op 12 juli 2026 via de iTunes Lookup API en de App Store-webpagina.
+Bron: App Store-vermelding, opnieuw gecontroleerd op 9 september 2026 via de [iTunes Lookup API](https://itunes.apple.com/lookup?id=6781654951&country=nl), de [Nederlandse App Store-pagina](https://apps.apple.com/nl/app/uurwerk-uren-registratie/id6781654951) en de gelinkte ontwikkelaarswebsite.
 
 ## Kerngegevens
 
@@ -9,7 +9,11 @@ Bron: App Store-vermelding, opgehaald op 12 juli 2026 via de iTunes Lookup API e
 | Naam | Uurwerk - Uren Registratie |
 | App Store ID | 6781654951 |
 | Bundle ID | com.parivee.Uurwerk |
-| Ontwikkelaar | Patrick van der Ploeg (Parivee) |
+| Ontwikkelaar / verkoper in App Store | Patrick van der Ploeg |
+| Uitgeversnaam op deze website | Parivee (bestaande sitegegevens) |
+| Ontwikkelaarswebsite vanuit App Store | https://www.vejoapps.com |
+| Openbaar supportadres ontwikkelaar | info@vejoapps.com |
+| Privacybeleid vanuit App Store | https://www.vejoapps.com/privacy |
 | Categorie | Zakelijk, Ontwikkelaarstools |
 | Prijs | Gratis (met Uurwerk Pro als upgrade) |
 | Versie | 1.0.0 |
@@ -42,7 +46,8 @@ Uurwerk helpt je precies bij te houden wat je hebt gedaan, voor wie, tegen welk 
 
 - Gratis te gebruiken voor urenregistratie, klanten, projecten en conceptfacturen.
 - Uurwerk Pro is nodig om facturen te versturen.
-- Er is geen publieke prijs voor Pro bekend; niet noemen op de site.
+- De exacte Pro-prijs en betaalperioden zijn niet geverifieerd. De openbare lookup bevat ze niet en de lokale asc CLI heeft geen actieve authenticatie. Vermeld geen bedrag tot het is gecontroleerd in de app of App Store Connect.
+- De zakelijke verhouding tussen Parivee en VeJo Apps is niet vastgesteld. Claim geen juridische verhouding op basis van de ontwikkelaarslink alleen.
 
 ## Doelgroep
 
@@ -78,6 +83,8 @@ Freelancers, zzp'ers, consultants, makers en dienstverleners die geen zware boek
 - Geen Android-versie bekend; alleen iOS (iPhone; minimaal iOS 18.6).
 - Geen teamfuncties, agenda-koppeling of export naar boekhoudpakketten geclaimd.
 - Geen reviews of gebruikersaantallen beschikbaar (0 beoordelingen bij ophalen); nergens sociale bewijzen verzinnen.
+- Offline werking, accountvereisten, back-ups en een gegarandeerde bewaartermijn zijn niet vastgesteld. Claim deze niet op basis van alleen de screenshots.
+- PDF-export is zichtbaar, maar de precieze toegang zonder Pro is niet geverifieerd. Beloof geen gratis alternatief om de betaalde verstuurfunctie te omzeilen.
 
 ## Assets
 

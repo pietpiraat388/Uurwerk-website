@@ -1,6 +1,7 @@
 ---
 import Guide from '../layouts/Guide.astro';
 import type { FaqEntry } from '../lib/schema';
+import HoursCalculator from '../components/HoursCalculator.astro';
 
 const faq: FaqEntry[] = [
   {
@@ -36,18 +37,19 @@ const faq: FaqEntry[] = [
   metaTitle="Urencriterium 1.225 uur: welke uren tellen mee? | Uurwerk"
   description="Het urencriterium is 1.225 uur per jaar en bepaalt of je recht hebt op onder meer zelfstandigenaftrek. Lees welke uren meetellen en hoe je ze aannemelijk maakt."
   h1="Urenregistratie en het urencriterium (1.225 uur)"
+  dateModified="2026-09-09"
   answer="Het urencriterium houdt in dat je minimaal 1.225 uur per kalenderjaar aan je onderneming besteedt. Voldoe je eraan, dan kun je in aanmerking komen voor ondernemersaftrek zoals de zelfstandigenaftrek. Naast declarabele uren tellen ook indirecte uren mee, zoals administratie, acquisitie en reistijd. Je moet je uren aannemelijk kunnen maken, bijvoorbeeld met een doorlopend bijgehouden urenregistratie."
   faq={faq}
   ctaTitle="Houd je uren voor het urencriterium bij met Uurwerk"
   ctaText="Registreer declarabele en indirecte uren per dag, met omschrijving. Zo bouw je zonder extra moeite een onderbouwing op voor je aangifte."
 >
+  <HoursCalculator />
   <h2>Wat is het urencriterium?</h2>
   <p>
     Het urencriterium is een voorwaarde van de Belastingdienst voor een aantal
     ondernemersregelingen in de inkomstenbelasting, waaronder de zelfstandigenaftrek en de
     startersaftrek. De kern: je besteedt in een kalenderjaar minimaal
-    <strong>1.225 uur</strong> aan je onderneming. Ben je geen starter, dan moet je daarnaast
-    meer dan de helft van je totale arbeidstijd aan je onderneming besteden.
+    <strong>1.225 uur</strong> aan je onderneming. Daarnaast besteed je meer tijd aan je onderneming dan aan andere werkzaamheden. Was je in één van de vijf voorafgaande jaren geen ondernemer, dan geldt die tweede voorwaarde niet. Begin je in de loop van het jaar, dan wordt de grens van 1.225 uur niet naar rato verlaagd.
   </p>
   <blockquote>
     De exacte voorwaarden en uitzonderingen (bijvoorbeeld bij zwangerschap of
@@ -87,9 +89,10 @@ const faq: FaqEntry[] = [
     <li><strong>Consistent:</strong> het hele jaar door, ook in rustige weken.</li>
   </ol>
   <p>
-    1.225 uur per jaar is gemiddeld ongeveer 24 uur per week (uitgaande van enkele weken
-    vakantie). Door wekelijks je totaal te bekijken, zie je op tijd of je op koers ligt.
+    Over 52 weken is 1.225 uur gemiddeld ongeveer 23,6 uur per week. Reken je met 48 werkweken, dan is dat ongeveer 25,5 uur. Met de <a href="#rekenhulp">rekenhulp bovenaan</a> verdeel je je resterende uren over de werkweken die je nog hebt.
   </p>
+  <h2>Beschikbaar zijn is niet altijd werktijd</h2>
+  <p>De Belastingdienst maakt onderscheid tussen werken en alleen bereikbaar zijn. Ben je bereikbaar voor een klant maar verricht je geen werkzaamheden, dan tellen die uren niet zomaar mee. Leg vast wat je daadwerkelijk hebt gedaan en bewaar passende onderbouwing, zoals afspraken, offertes en facturen. Controleer bij bijzondere situaties de <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/winst/inkomstenbelasting/inkomstenbelasting_voor_ondernemers/voorwaarden_urencriterium">volledige voorwaarden van het urencriterium</a>.</p>
 
   <h2>Praktisch: zo houd je het vol</h2>
   <p>

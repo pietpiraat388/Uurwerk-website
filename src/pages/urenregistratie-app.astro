@@ -1,8 +1,10 @@
 ---
 import Guide from '../layouts/Guide.astro';
 import type { FaqEntry } from '../lib/schema';
+import InvoiceSteps from '../components/InvoiceSteps.astro';
 
 const faq: FaqEntry[] = [
+  { question: 'Hoe kies je een tool die uren direct omzet in facturen?', answer: 'Controleer of uren aan een klant en tarief gekoppeld zijn, je openstaande uren kunt selecteren en de factuur vóór verzending kunt controleren. Kijk ook naar btw, PDF-uitvoer en de kosten van versturen. Uurwerk maakt gratis conceptfacturen; voor versturen vanuit de app is Pro nodig.' },
   {
     question: 'Wat kost een urenregistratie app?',
     answer:
@@ -31,9 +33,25 @@ const faq: FaqEntry[] = [
   metaTitle="Urenregistratie app: zo kies je de juiste | Uurwerk"
   description="Wat is een urenregistratie app en welke functies heb je echt nodig als zzp'er of kleine ondernemer? Praktische kiesgids, met Uurwerk voor iPhone als eenvoudig voorbeeld."
   h1="Urenregistratie app: zo kies je de juiste"
+  dateModified="2026-09-09"
   answer="Een urenregistratie app is een app waarmee je gewerkte uren vastlegt per klant of project, met een timer of handmatige invoer. Voor zzp&rsquo;ers en kleine ondernemers zijn de belangrijkste functies: snel uren invoeren, uren koppelen aan klanten en projecten, duidelijke overzichten en de mogelijkheid om uren om te zetten in een factuur."
   faq={faq}
 >
+  <h2>Hoe kies je een tool die uren direct omzet in facturen?</h2>
+  <p>Volg één opdracht van ureninvoer tot factuur. Zo zie je of de app je werkproces ondersteunt. Controleer deze punten voordat je je klanten en uren overzet:</p>
+  <p class="comparison-hint">Schuif de tabel opzij om alle kolommen te bekijken.</p>
+  <div class="table-scroll comparison-table" tabindex="0" role="region" aria-label="Selectiecriteria voor urenregistratie met facturen"><table><thead><tr><th scope="col">Controle</th><th scope="col">Waar je op let</th><th scope="col">In Uurwerk</th></tr></thead><tbody>
+    <tr><th scope="row">Klant en tarief</th><td>Kan elke registratie bij de juiste klant en opdracht worden opgeslagen?</td><td>Klanten en projecten met tarieven.</td></tr>
+    <tr><th scope="row">Openstaande uren</th><td>Zie je welke uren nog op de factuur moeten?</td><td>Openstaande uren kiezen voor een conceptfactuur.</td></tr>
+    <tr><th scope="row">Controle en btw</th><td>Kun je regels, bedragen en btw controleren voordat je verstuurt?</td><td>Factuurvoorbeeld met regels, btw en totaal.</td></tr>
+    <tr><th scope="row">Versturen en kosten</th><td>Welke handeling is gratis en wanneer betaal je?</td><td>Concepten gratis; voor versturen is Pro nodig.</td></tr>
+    <tr><th scope="row">Apparaat en administratie</th><td>Werkt het op jouw apparaat en kun je je administratie bewaren?</td><td>iPhone-app met PDF-facturen. Controleer je eigen bewaar- en exportbehoefte.</td></tr>
+  </tbody></table></div>
+  <h3>Zo ziet uren factureren eruit in Uurwerk</h3>
+  <InvoiceSteps />
+  <p>Volg de <a href="/uren-factureren/">handleiding voor uren factureren</a> of bekijk <a href="/urenregistratie-app-gratis/">wat gratis is en waarvoor je Pro nodig hebt</a>.</p>
+  <h2>Welke werkwijze past bij je?</h2>
+  <p><strong>Een spreadsheet</strong> past bij wie zelf wil rekenen en een flexibel document nodig heeft. Begin met het <a href="/urenstaat-maken/#downloads">gratis urenstaatsjabloon</a>. <strong>Een lichte iPhone-app</strong> past bij zelfstandig werken met timer, klanten en facturen. Heb je teams, bankkoppelingen of een volledige boekhouding nodig, vergelijk dan een uitgebreider pakket op die functies.</p>
   <h2>Wat is een urenregistratie app?</h2>
   <p>
     Een urenregistratie app vervangt de papieren urenstaat of het Excel-bestand waarin je
@@ -109,3 +127,9 @@ const faq: FaqEntry[] = [
     en conceptfacturen zijn gratis; alleen voor het versturen van facturen is Uurwerk Pro nodig.
   </p>
 </Guide>
+
+<style>
+  .comparison-table table { min-width: 620px; }
+  .comparison-hint { display: none; }
+  @media (max-width: 700px) { .comparison-hint { display: block; font-size: 0.85rem; } }
+</style>

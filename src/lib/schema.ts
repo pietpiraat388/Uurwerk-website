@@ -10,12 +10,51 @@ export interface BreadcrumbItem {
   url: string;
 }
 
+export const ENTITY_IDS = {
+  organization: `${SITE.url}/#organization`,
+  person: `${SITE.url}/over-uurwerk/#patrick`,
+  website: `${SITE.url}/#website`,
+  app: `${SITE.url}/#app`,
+};
+
+export function organizationSchema() {
+  return {
+    '@context': 'https://schema.org', '@type': 'Organization',
+    '@id': ENTITY_IDS.organization, name: SITE.publisher, url: SITE.url,
+    logo: `${SITE.url}/icon-512.png`, email: SITE.supportEmail,
+    contactPoint: { '@type': 'ContactPoint', email: SITE.supportEmail, contactType: 'customer support', availableLanguage: ['nl', 'en'] },
+  };
+}
+
+export function personSchema() {
+  return {
+    '@context': 'https://schema.org', '@type': 'Person', '@id': ENTITY_IDS.person,
+    name: SITE.developer, url: `${SITE.url}/over-uurwerk/`,
+  };
+}
+
+// All strings originate in our content, not visitor input.
+export function plainText(value: string) {
+  const entities: Record<string, string> = { '&rsquo;': '’', '&lsquo;': '‘', '&rdquo;': '”', '&ldquo;': '“', '&amp;': '&', '&nbsp;': ' ', '&euro;': '€', '&euml;': 'ë', '&eacute;': 'é', '&quot;': '"', '&#39;': "'" };
+  return value.replace(/<[^>]*>/g, '').replace(/&(?:#\d+|#x[\da-f]+|[a-z]+);/gi, (entity) => {
+    if (entities[entity]) return entities[entity];
+    if (entity.startsWith('&#x')) return String.fromCodePoint(parseInt(entity.slice(3), 16));
+    if (entity.startsWith('&#')) return String.fromCodePoint(parseInt(entity.slice(2), 10));
+    return entity;
+  });
+}
+
+export function serializeSchema(schema: object) {
+  return JSON.stringify(schema).replace(/</g, '\\u003c');
+}
+
 export function softwareApplicationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
+    '@id': ENTITY_IDS.app,
     name: SITE.fullName,
-    operatingSystem: 'iOS',
+    operatingSystem: `iOS ${SITE.minimumIOS} of nieuwer`,
     applicationCategory: 'BusinessApplication',
     description: SITE.description,
     url: SITE.url,
@@ -30,10 +69,12 @@ export function softwareApplicationSchema() {
     },
     author: {
       '@type': 'Person',
+      '@id': ENTITY_IDS.person,
       name: SITE.developer,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': ENTITY_IDS.organization,
       name: SITE.publisher,
     },
     inLanguage: 'nl',
@@ -44,11 +85,13 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': ENTITY_IDS.website,
     name: SITE.name,
     url: SITE.url,
     inLanguage: 'nl',
     publisher: {
       '@type': 'Organization',
+      '@id': ENTITY_IDS.organization,
       name: SITE.publisher,
     },
   };
@@ -60,10 +103,10 @@ export function faqSchema(entries: FaqEntry[]) {
     '@type': 'FAQPage',
     mainEntity: entries.map((entry) => ({
       '@type': 'Question',
-      name: entry.question,
+      name: plainText(entry.question),
       acceptedAnswer: {
         '@type': 'Answer',
-        text: entry.answer,
+        text: plainText(entry.answer),
       },
     })),
   };
@@ -76,7 +119,7 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
+      name: plainText(item.name),
       item: new URL(item.url, SITE.url).href,
     })),
   };
@@ -92,7 +135,8 @@ export function articleSchema(options: {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: options.title,
+    '@id': `${new URL(options.path, SITE.url).href}#article`,
+    headline: plainText(options.title),
     description: options.description,
     inLanguage: 'nl',
     mainEntityOfPage: new URL(options.path, SITE.url).href,
@@ -100,18 +144,22 @@ export function articleSchema(options: {
     dateModified: options.dateModified,
     author: {
       '@type': 'Person',
+      '@id': ENTITY_IDS.person,
+      url: `${SITE.url}/over-uurwerk/`,
       name: SITE.developer,
     },
     publisher: {
       '@type': 'Organization',
+      '@id': ENTITY_IDS.organization,
       name: SITE.publisher,
     },
     about: {
       '@type': 'SoftwareApplication',
+      '@id': ENTITY_IDS.app,
       name: SITE.fullName,
       operatingSystem: 'iOS',
       applicationCategory: 'BusinessApplication',
-      url: SITE.appStoreUrl,
+      url: SITE.url,
     },
   };
 }

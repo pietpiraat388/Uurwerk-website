@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import hours from '../assets/screenshots/screenshot-04.png';
+import invoice from '../assets/screenshots/screenshot-01.png';
+import send from '../assets/screenshots/screenshot-06.png';
+const steps = [
+  { image: hours, title: 'Kies klant en openstaande uren', text: 'Controleer de periode, de omschrijvingen en het afgesproken uurtarief.', alt: 'Uurwerk urenoverzicht met urenregels per klant en project' },
+  { image: invoice, title: 'Controleer de conceptfactuur', text: 'Bekijk de factuurregels, bedragen en btw voordat je de factuur afrondt.', alt: 'Uurwerk factuurvoorbeeld in de stap Controleren, met regels, btw en totaal' },
+  { image: send, title: 'Verstuur met Uurwerk Pro', text: 'Controleer de ontvanger en het bericht bij de PDF-factuur. Voor versturen is Pro nodig.', alt: 'Uurwerk verstuurstap met ontvanger, e-mailbericht en PDF-bijlage' },
+];
+---
+<ol class="invoice-steps">
+  {steps.map((step, index) => <li><figure><Image src={step.image} alt={step.alt} width={248} widths={[248, 496]} sizes="(max-width: 580px) 248px, 200px" format="webp" loading="lazy" /><figcaption><strong>{index + 1}. {step.title}</strong><p>{step.text}</p></figcaption></figure></li>)}
+</ol>
+<style>
+  .invoice-steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  li { min-width: 0; } figure { margin: 0; } img { border-radius: 16px; width: 100%; height: auto; } figcaption { margin-top: 1rem; font-size: 0.9rem; } figcaption p { margin-top: 0.5rem; }
+  @media (max-width: 580px) { .invoice-steps { grid-template-columns: minmax(0, 1fr); gap: 2rem; } figure { max-width: 280px; margin-inline: auto; } }
+</style>

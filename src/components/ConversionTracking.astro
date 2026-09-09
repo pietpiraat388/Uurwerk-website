@@ -1,0 +1,16 @@
+<script>
+  // The site emits only event names and public page/placement information.
+  // A connected analytics integration can subscribe to uurwerk:conversion.
+  document.addEventListener('click', (event) => {
+    const element = event.target instanceof Element ? event.target.closest('a') : null;
+    if (!(element instanceof HTMLAnchorElement)) return;
+    const url = new URL(element.href);
+    let name: string | undefined;
+    if (url.hostname === 'apps.apple.com') name = 'app_store_click';
+    if (url.origin === location.origin && url.pathname.startsWith('/downloads/')) name = 'template_download';
+    if (!name) return;
+    document.dispatchEvent(new CustomEvent('uurwerk:conversion', {
+      detail: { name, page: location.pathname, placement: element.closest('[data-placement]')?.getAttribute('data-placement') ?? 'content', ...(name === 'template_download' ? { file: url.pathname.split('/').pop() } : {}) },
+    }));
+  });
+</script>

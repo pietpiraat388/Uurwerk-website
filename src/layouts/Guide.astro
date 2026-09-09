@@ -5,11 +5,12 @@ import CtaBanner from '../components/CtaBanner.astro';
 import AppStoreButton from '../components/AppStoreButton.astro';
 import {
   articleSchema,
+  plainText,
   breadcrumbSchema,
   faqSchema,
   type FaqEntry,
 } from '../lib/schema';
-import { GUIDES, guideUrl } from '../lib/site';
+import { GUIDES, RELATED_GUIDES, SITE, guideUrl } from '../lib/site';
 
 interface Props {
   /** Slug van deze gids, zonder slashes */
@@ -51,7 +52,11 @@ const schemas = [
   ...(faq.length > 0 ? [faqSchema(faq)] : []),
 ];
 
-const related = GUIDES.filter((guide) => guide.slug !== slug).slice(0, 4);
+const related = (RELATED_GUIDES[slug] ?? []).flatMap((relatedSlug) => {
+  const guide = GUIDES.find((item) => item.slug === relatedSlug);
+  return guide ? [guide] : [];
+});
+const formattedDate = new Intl.DateTimeFormat('nl-NL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(dateModified));
 ---
 
 <Base title={metaTitle} description={description} schemas={schemas}>
@@ -60,13 +65,14 @@ const related = GUIDES.filter((guide) => guide.slug !== slug).slice(0, 4);
       <nav class="breadcrumb" aria-label="Kruimelpad">
         <ol>
           <li><a href="/">Home</a></li>
-          <li aria-current="page">{h1}</li>
+          <li aria-current="page">{plainText(h1)}</li>
         </ol>
       </nav>
 
       <div class="guide-grid">
         <div class="prose">
-          <h1>{h1}</h1>
+          <h1>{plainText(h1)}</h1>
+          <p class="article-meta">Door <a href="/over-uurwerk/">{SITE.developer}</a> · Bijgewerkt op <time datetime={dateModified}>{formattedDate}</time></p>
 
           <div class="answer-box">
             <span class="answer-label">Kort antwoord</span>
@@ -84,7 +90,7 @@ const related = GUIDES.filter((guide) => guide.slug !== slug).slice(0, 4);
         </div>
 
         <aside class="guide-aside">
-          <div class="card aside-card">
+          <div class="card aside-card" data-placement="guide-sidebar">
             <h3>Uurwerk voor iPhone</h3>
             <p class="text-secondary">
               Eenvoudige urenregistratie met timer, klanten, projecten en facturen.

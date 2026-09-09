@@ -1,8 +1,12 @@
 ---
 import Guide from '../layouts/Guide.astro';
 import type { FaqEntry } from '../lib/schema';
+import { Image } from 'astro:assets';
+import hoursImage from '../assets/screenshots/screenshot-04.png';
 
 const faq: FaqEntry[] = [
+  { question: 'Kan ik een gratis urenstaat downloaden?', answer: 'Ja. Download op deze pagina een leeg Excel-sjabloon, een ingevuld Excel-voorbeeld of een printbaar PDF-sjabloon. Je hebt geen account nodig. In Excel berekenen de formules je urenbedragen en totalen.' },
+  { question: 'Hoe schrijf ik anderhalf uur op een urenstaat?', answer: 'Anderhalf uur is 1,50 uur. Deel minuten door 60: 15 minuten is 0,25 uur en 45 minuten is 0,75 uur. Trek een niet-gewerkte pauze eerst van de werktijd af.' },
   {
     question: 'Wat is een urenstaat?',
     answer:
@@ -28,31 +32,25 @@ const faq: FaqEntry[] = [
 
 <Guide
   slug="urenstaat-maken"
-  metaTitle="Urenstaat maken: voorbeeld en uitleg | Uurwerk"
-  description="Wat staat er op een goede urenstaat voor je klant? Duidelijk voorbeeld met alle onderdelen, en de snelste manier om een urenstaat te maken vanuit je urenregistratie."
-  h1="Urenstaat maken: voorbeeld en uitleg"
-  answer="Een urenstaat is een gespecificeerd overzicht van je gewerkte uren voor een klant over een bepaalde periode. Er staat minimaal op: je naam of bedrijfsnaam, de klant, de periode, per regel de datum, omschrijving en duur, en het totaal aantal uren (vaak met tarief en bedrag). De snelste manier om er een te maken: houd je uren doorlopend bij per klant en project, dan is het periodeoverzicht meteen je urenstaat."
+  metaTitle="Urenstaat maken: voorbeeld + gratis sjabloon | Uurwerk"
+  description="Maak een urenstaat met een ingevuld voorbeeld en gratis Excel- en PDF-sjablonen. Zonder account. Inclusief uitleg over uren, pauzes, tarieven en totalen."
+  h1="Urenstaat maken: voorbeeld en gratis sjabloon"
+  dateModified="2026-09-09"
+  answer="Een urenstaat is een overzicht van je gewerkte uren voor een klant over een bepaalde periode. Je vermeldt je bedrijfsnaam, de opdrachtgever en per regel de datum, werkzaamheden en duur. Onderaan staat het totaal. Hieronder vind je een ingevuld voorbeeld en gratis sjablonen."
   faq={faq}
   ctaTitle="Je urenstaat staat al klaar in Uurwerk"
   ctaText="Registreer je uren per klant en project en filter op periode: elke urenregel met datum, omschrijving, duur en bedrag staat direct bij elkaar."
 >
-  <h2>Wanneer heb je een urenstaat nodig?</h2>
-  <p>Een urenstaat (ook wel urenlijst, urenbriefje of timesheet) gebruik je in drie situaties:</p>
-  <ul>
-    <li>
-      <strong>Bij je factuur.</strong> Klanten die op uurbasis betalen willen zien waar de uren
-      in zijn gaan zitten. Een specificatie voorkomt discussie en versnelt betaling.
-    </li>
-    <li>
-      <strong>Op verzoek van de opdrachtgever.</strong> Bij detachering of inhuur via een bureau
-      is een goedgekeurde urenstaat vaak de basis voor uitbetaling.
-    </li>
-    <li>
-      <strong>Voor je eigen administratie.</strong> Dezelfde gegevens onderbouwen
-      het <a href="/urencriterium/">urencriterium</a> richting de Belastingdienst.
-    </li>
-  </ul>
-
+  <section class="download-card" id="downloads" aria-labelledby="download-title" data-placement="timesheet-downloads">
+    <h2 id="download-title">Download je gratis urenstaat</h2>
+    <p>Kies Excel om uren en bedragen te berekenen, of PDF om je urenstaat met de hand in te vullen. Het ingevulde voorbeeld laat zien hoe je begint.</p>
+    <div class="download-actions">
+      <a class="btn btn-primary" href="/downloads/urenstaat-sjabloon.xlsx" download="urenstaat-sjabloon.xlsx">Leeg Excel-sjabloon</a>
+      <a class="btn btn-ghost" href="/downloads/urenstaat-voorbeeld.xlsx" download="urenstaat-voorbeeld.xlsx">Ingevuld Excel-voorbeeld</a>
+      <a class="btn btn-ghost" href="/downloads/urenstaat-sjabloon.pdf" download="urenstaat-sjabloon.pdf">Printbaar PDF-sjabloon</a>
+    </div>
+    <p class="download-note">Gratis, zonder account of e-mailadres. De bestanden bewerk en bewaar je op je eigen apparaat.</p>
+  </section>
   <h2>Voorbeeld van een urenstaat</h2>
   <p>Zo kan een eenvoudige urenstaat voor een klant eruitzien:</p>
   <div class="table-scroll">
@@ -60,8 +58,9 @@ const faq: FaqEntry[] = [
       <thead>
         <tr>
           <th colspan="4">
-            Urenstaat &middot; Acme Bouw &middot; Project: Website onderhoud &middot; Periode:
-            11 t/m 18 juni
+            Urenstaat &middot; Studio Noord voor Acme Bouw<br />
+            Project: websiteonderhoud &middot; 17 t/m 18 juni 2026<br />
+            Uurtarief: &euro; 85,00 exclusief btw
           </th>
         </tr>
         <tr>
@@ -104,6 +103,23 @@ const faq: FaqEntry[] = [
     meerdere projecten voor dezelfde klant, groepeer de regels dan per project.
   </p>
 
+  <h2>Wanneer heb je een urenstaat nodig?</h2>
+  <p>Een urenstaat (ook wel urenlijst, urenbriefje of timesheet) gebruik je in drie situaties:</p>
+  <ul>
+    <li>
+      <strong>Bij je factuur.</strong> Klanten die op uurbasis betalen willen zien waar de uren
+      in zijn gaan zitten. Een specificatie voorkomt discussie en versnelt betaling.
+    </li>
+    <li>
+      <strong>Op verzoek van de opdrachtgever.</strong> Bij detachering of inhuur via een bureau
+      is een goedgekeurde urenstaat vaak de basis voor uitbetaling.
+    </li>
+    <li>
+      <strong>Voor je eigen administratie.</strong> Dezelfde gegevens onderbouwen
+      het <a href="/urencriterium/">urencriterium</a> richting de Belastingdienst.
+    </li>
+  </ul>
+
   <h2>Checklist: dit hoort erop</h2>
   <ol>
     <li>Je naam of bedrijfsnaam</li>
@@ -114,7 +130,19 @@ const faq: FaqEntry[] = [
     <li>Optioneel: uurtarief en bedrag per regel plus totaalbedrag</li>
   </ol>
 
-  <h2>De snelste manier: niet maken, maar bijhouden</h2>
+  <h2>Zo vul je de urenstaat in</h2>
+  <ol>
+    <li>Vul jouw bedrijfsnaam, de opdrachtgever, het project en de periode in.</li>
+    <li>Noteer per regel de datum en een concrete omschrijving van het werk.</li>
+    <li>Vul de gewerkte duur in als decimale uren. Trek pauzes waarin je niet werkt eerst af.</li>
+    <li>Vul het afgesproken uurtarief exclusief btw in. Excel rekent uren maal tarief uit en telt de regels op.</li>
+    <li>Controleer het totaal met je agenda of timer en bewaar een kopie voordat je de urenstaat deelt.</li>
+  </ol>
+  <h3>Minuten omrekenen naar uren</h3>
+  <div class="table-scroll"><table><caption>Veelgebruikte tijdsduren</caption><thead><tr><th scope="col">Duur</th><th scope="col">Decimale uren</th></tr></thead><tbody><tr><td>15 minuten</td><td>0,25</td></tr><tr><td>30 minuten</td><td>0,50</td></tr><tr><td>45 minuten</td><td>0,75</td></tr><tr><td>1 uur en 30 minuten</td><td>1,50</td></tr><tr><td>8 uur aanwezig, 30 minuten pauze</td><td>7,50</td></tr></tbody></table></div>
+  <p>Een urenstaat beschrijft je werk. Voor de betaling maak je een factuur met de bijbehorende gegevens. Bekijk <a href="/uren-factureren/">hoe je uren omzet in een factuur</a>.</p>
+  <h2>Je urenstaat bijhouden in Uurwerk</h2>
+  <figure class="guide-figure"><Image src={hoursImage} alt="Uurwerk urenoverzicht met urenregels, klant, project, totaal uren en bedrag" width={280} widths={[280, 560]} sizes="280px" format="webp" /><figcaption>In Uurwerk bekijk je de geregistreerde uren en bedragen per periode. De Excel- en PDF-sjablonen hierboven zijn losse downloads voor je eigen administratie.</figcaption></figure>
   <p>
     Een urenstaat die je aan het einde van de maand &ldquo;maakt&rdquo;, is eigenlijk een
     reconstructie, en dat kost tijd en precisie. Draai het om: registreer elke werksessie

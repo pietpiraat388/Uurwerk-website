@@ -6,6 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "check:downloads": "node scripts/check-downloads.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { personSchema, breadcrumbSchema } from '../lib/schema';
+import { SITE } from '../lib/site';
+import AppStoreButton from '../components/AppStoreButton.astro';
+---
+<Base title="Over Uurwerk en de maker | Uurwerk" description="Uurwerk is een Nederlandstalige urenregistratie-app voor iPhone, ontwikkeld door Patrick van der Ploeg. Lees over de app, de maker en onze gidsen." schemas={[personSchema(), breadcrumbSchema([{name:'Home',url:'/'},{name:'Over Uurwerk',url:'/over-uurwerk/'}])]}>
+  <article class="section"><div class="container"><div class="prose">
+    <h1>Over Uurwerk</h1>
+    <p class="lead">Uurwerk is een Nederlandstalige iPhone-app voor zelfstandigen die hun gewerkte uren, klanten, projecten en facturen op één plek willen bijhouden.</p>
+    <h2 id="patrick">Gemaakt door Patrick van der Ploeg</h2>
+    <p>Patrick van der Ploeg is de ontwikkelaar van Uurwerk en de auteur van de gidsen op deze website. Uurwerk wordt hier gepubliceerd onder de naam {SITE.publisher}. Je vindt de app in de App Store als <strong>{SITE.fullName}</strong>.</p>
+    <p>De App Store verwijst naar <a href={SITE.developerUrl}>VeJo Apps</a> als ontwikkelaarswebsite. Voor vragen over Uurwerk kun je terecht op onze <a href="/contact/">contactpagina</a>.</p>
+    <h2>Waar Uurwerk bij helpt</h2>
+    <p>Start een timer of voer uren handmatig in, koppel het werk aan een klant en project en bekijk je overzichten. Openstaande uren gebruik je voor een conceptfactuur. De <a href="/uren-factureren/">factuurhandleiding</a> laat de stappen zien.</p>
+    <dl class="product-facts"><div><dt>Platform</dt><dd>iPhone, iOS {SITE.minimumIOS} of nieuwer</dd></div><div><dt>Taal</dt><dd>Nederlandstalige app</dd></div><div><dt>Gratis</dt><dd>Uren, klanten, projecten en conceptfacturen</dd></div><div><dt>Uurwerk Pro</dt><dd>Betaalde upgrade voor facturen versturen</dd></div></dl>
+    <h2>Hoe we onze gidsen maken</h2>
+    <p>Onze appuitleg gebruikt de functies en screenshots van Uurwerk. Voor fiscale onderwerpen verwijzen we naar de Belastingdienst. De voorbeelden in de gidsen en downloads zijn fictief en bedoeld om je eigen registratie op weg te helpen.</p>
+    <p>Bij elke gids staan de auteur en de datum van de laatste inhoudelijke wijziging. Een gids vervangt geen advies over jouw fiscale situatie. Zie je een onjuistheid of ontbreekt een uitleg, <a href="/contact/">laat het ons weten</a>.</p>
+    <p><a href="/urenregistratie-app-gratis/">Bekijk de gratis functies en Pro</a> of begin met een <a href="/urenstaat-maken/">gratis urenstaatsjabloon</a>.</p>
+    <AppStoreButton />
+  </div></div></article>
+</Base>

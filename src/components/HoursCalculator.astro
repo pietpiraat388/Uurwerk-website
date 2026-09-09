@@ -1,0 +1,50 @@
+<section class="download-card hours-calculator" aria-labelledby="calculator-title" id="rekenhulp">
+  <h2 id="calculator-title">Bereken je resterende uren</h2>
+  <p>Hoeveel uren heb je nog nodig om op 1.225 uur uit te komen? Vul je geregistreerde uren en de werkweken die je dit kalenderjaar nog wilt werken in.</p>
+  <form id="hours-form">
+    <div class="inputs">
+      <label for="recorded-hours">Al geregistreerde uren<input id="recorded-hours" name="hours" type="number" min="0" step="0.01" inputmode="decimal" required placeholder="Bijvoorbeeld 800" /></label>
+      <label for="remaining-weeks">Resterende werkweken<input id="remaining-weeks" name="weeks" type="number" min="0" max="53" step="0.1" inputmode="decimal" required placeholder="Bijvoorbeeld 17" /></label>
+    </div>
+    <button class="btn btn-primary" type="submit">Bereken uren per week</button>
+  </form>
+  <output id="hours-result" for="recorded-hours remaining-weeks" aria-live="polite" hidden></output>
+  <p class="download-note">Rekenvoorbeeld: 800 uur geregistreerd en 17 werkweken over betekent nog 425 uur, gemiddeld 25 uur per week. Je invoer wordt niet opgeslagen of verstuurd.</p>
+  <p class="download-note">Deze rekenhulp rekent met 1.225 uur. Of je aan alle fiscale voorwaarden voldoet, hangt af van je situatie. Bijzondere regelingen, zoals het verlaagde urencriterium, zijn niet meegerekend.</p>
+  <noscript><p>Bereken het zelf: (1.225 − geregistreerde uren) ÷ resterende werkweken. Zet JavaScript aan om de rekenhulp te gebruiken.</p></noscript>
+</section>
+<script>
+  import { remainingHoursPlan } from '../lib/hours.mjs';
+  const form = document.querySelector<HTMLFormElement>('#hours-form');
+  const output = document.querySelector<HTMLOutputElement>('#hours-result');
+  const format = new Intl.NumberFormat('nl-NL', { maximumFractionDigits: 1 });
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!output || !form.reportValidity()) return;
+    const hours = form.querySelector<HTMLInputElement>('[name="hours"]')!.valueAsNumber;
+    const weeks = form.querySelector<HTMLInputElement>('[name="weeks"]')!.valueAsNumber;
+    try {
+      const result = remainingHoursPlan(hours, weeks);
+      output.textContent = result.reached
+        ? 'Je geregistreerde totaal is minimaal 1.225 uur. Controleer ook de overige voorwaarden en de onderbouwing van je uren.'
+        : result.weekly === null
+          ? `Je komt nog ${format.format(result.remaining)} uur tekort. Er zijn geen werkweken over om die uren over te verdelen.`
+          : `Nog ${format.format(result.remaining)} uur: gemiddeld ${format.format(result.weekly)} uur per werkweek.`;
+      output.hidden = false;
+      document.dispatchEvent(new CustomEvent('uurwerk:conversion', { detail: { name: 'hours_calculator_complete', page: location.pathname, placement: 'hours-calculator' } }));
+    } catch {
+      output.textContent = 'Vul geldige uren en 0 tot en met 53 resterende werkweken in.';
+      output.hidden = false;
+    }
+  });
+  form?.addEventListener('input', () => { if (output) output.hidden = true; });
+</script>
+<style>
+  .inputs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.4rem 0; }
+  label { font-weight: 600; font-size: 0.95rem; }
+  input { display: block; width: 100%; margin-top: 0.5rem; padding: 0.85rem; border: 1px solid var(--accent); border-radius: 10px; font: inherit; background: var(--surface); color: var(--text-primary); }
+  button { cursor: pointer; }
+  output:not([hidden]) { display: block; padding: 1rem; background: var(--accent-soft); border-radius: 12px; margin-top: 1rem; font-weight: 700; }
+  .download-note { margin: 1rem 0 0; }
+  @media (max-width: 540px) { .inputs { grid-template-columns: minmax(0, 1fr); } }
+</style>

@@ -1,0 +1,26 @@
+---
+import Guide from '../layouts/Guide.astro';
+import InvoiceSteps from '../components/InvoiceSteps.astro';
+const faq = [
+  { question: 'Hoe bereken ik het bedrag van mijn gewerkte uren?', answer: 'Vermenigvuldig de uren met het afgesproken uurtarief. Bij 4,25 uur en 85 euro per uur is het bedrag 361,25 euro exclusief btw. Gebruik decimale uren: een kwartier is 0,25 uur.' },
+  { question: 'Moet ik een urenstaat meesturen met mijn factuur?', answer: 'Stem de gewenste specificatie af met je opdrachtgever. Een urenstaat maakt duidelijk op welke datums je aan welke werkzaamheden hebt gewerkt. Je kunt hem gebruiken als onderbouwing naast de factuur.' },
+  { question: 'Kan ik gratis facturen maken in Uurwerk?', answer: 'Conceptfacturen maken is gratis. Voor het versturen van facturen vanuit Uurwerk is de betaalde Pro-upgrade nodig.' },
+];
+---
+<Guide slug="uren-factureren" metaTitle="Uren factureren: voorbeeld en stappenplan | Uurwerk" description="Zet gewerkte uren om in een factuur. Met een rekenvoorbeeld, controlelijst en echte schermen van de factuurstappen in Uurwerk voor iPhone." h1="Uren factureren: van urenstaat naar factuur" answer="Uren factureren begint met een gecontroleerd urenoverzicht per klant en periode. Vermenigvuldig de gewerkte uren met het afgesproken tarief, maak de factuur en controleer de gegevens en btw. In Uurwerk kies je de openstaande uren voor een conceptfactuur; voor versturen vanuit de app is Pro nodig." faq={faq} datePublished="2026-09-09" dateModified="2026-09-09">
+  <h2>1. Controleer je uren per klant</h2>
+  <p>Selecteer de periode die je met je opdrachtgever hebt afgesproken. Controleer de datum, het project en de omschrijving van iedere regel. Houd al gefactureerde uren apart, zodat hetzelfde werk niet opnieuw op een factuur terechtkomt.</p>
+  <p>Heb je nog geen overzicht? Gebruik het <a href="/urenstaat-maken/">urenstaatvoorbeeld met gratis Excel- en PDF-sjablonen</a>. Neem alleen de uren op die je volgens de afspraak in rekening brengt. Uren voor je eigen administratie horen niet automatisch op een klantfactuur.</p>
+  <h2>2. Bereken het factuurbedrag</h2>
+  <p>Studio Noord heeft voor Acme Bouw gewerkt aan websiteonderhoud. Het afgesproken tarief is € 85 per uur, exclusief btw. Dit is een fictief rekenvoorbeeld:</p>
+  <div class="table-scroll"><table><thead><tr><th scope="col">Werkzaamheden</th><th scope="col">Uren</th><th scope="col">Tarief</th><th scope="col">Excl. btw</th></tr></thead><tbody><tr><td>Controle urenstaat en factuurregels</td><td>1,50</td><td>€ 85,00</td><td>€ 127,50</td></tr><tr><td>Homepage bijgewerkt, nieuw menu</td><td>2,50</td><td>€ 85,00</td><td>€ 212,50</td></tr><tr><td>Timerregistratie, kleine fixes</td><td>0,25</td><td>€ 85,00</td><td>€ 21,25</td></tr><tr><th scope="row">Totaal</th><td>4,25</td><td></td><td>€ 361,25</td></tr></tbody></table></div>
+  <p>Bij een toepasselijk btw-tarief van 21% komt daar in dit voorbeeld € 75,86 btw bij: totaal € 437,11. Het juiste tarief of een eventuele vrijstelling hangt af van je dienst en situatie. Pas dit voorbeeld daarop aan.</p>
+  <h2>3. Maak en controleer je factuur in Uurwerk</h2>
+  <InvoiceSteps />
+  <p>De appbeelden laten het urenoverzicht, de controle van de conceptfactuur en het versturen van de PDF zien. Vergelijk de <a href="/urenregistratie-app-gratis/">gratis functies en Uurwerk Pro</a> voordat je kiest.</p>
+  <h2>4. Controleer de factuurgegevens</h2>
+  <p>Controleer onder meer de namen en adressen van beide partijen, je btw-identificatienummer, je KVK-nummer als je bent ingeschreven, een uniek opeenvolgend factuurnummer, de factuurdatum, de geleverde dienst en leverdatum, bedragen en btw. Bij sommige situaties gelden aangepaste regels. De volledige uitleg staat bij de <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/facturen_maken/factuureisen/factuureisen">Belastingdienst: factuureisen</a>.</p>
+  <p>Controleer ook praktische afspraken: het referentie- of inkoopnummer van je klant, de betaaltermijn en het e-mailadres van de ontvanger. Een correct bedrag alleen maakt de factuur nog niet compleet.</p>
+  <h2>5. Bewaar je factuur en de onderbouwing</h2>
+  <p>Bewaar de verzonden factuur samen met de urenstaat en de relevante afspraken. Zo kun je terugvinden waarop het bedrag is gebaseerd. Lees meer over <a href="/urenregistratie-belastingdienst/">je urenregistratie en administratie bewaren</a>.</p>
+</Guide>

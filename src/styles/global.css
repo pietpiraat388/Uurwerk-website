@@ -318,7 +318,23 @@ li {
 /* Prose (guide pages) */
 .prose {
   max-width: 720px;
+  min-width: 0;
 }
+
+.article-meta { font-size: 0.85rem; margin: 0 0 1.4rem; color: var(--text-secondary); }
+.download-card { background: var(--accent-faint); border: 1px solid var(--accent-soft); padding: clamp(1.2rem, 4vw, 2rem); border-radius: var(--radius-lg); margin: 1.5rem 0; }
+.download-card h2, .prose .download-card h2 { margin-top: 0; }
+.download-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; }
+.download-note { font-size: 0.9rem; }
+.guide-figure { margin: 2rem 0; }
+.guide-figure img { max-height: 520px; width: auto; margin: 0 auto; border-radius: 20px; }
+.guide-figure figcaption { font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+.product-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.product-facts > div { background: var(--accent-faint); padding: 1.2rem; border-radius: var(--radius-md); }
+.product-facts dt { font-weight: 700; }
+.product-facts dd { margin: 0.4rem 0 0; }
+@media (max-width: 540px) { .product-facts { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 
 .prose h2 {
   margin-top: 2.2em;

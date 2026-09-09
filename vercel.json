@@ -1,0 +1,26 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/downloads/urenstaat-sjabloon.xlsx",
+      "headers": [
+        { "key": "Content-Type", "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"urenstaat-sjabloon.xlsx\"" }
+      ]
+    },
+    {
+      "source": "/downloads/urenstaat-voorbeeld.xlsx",
+      "headers": [
+        { "key": "Content-Type", "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"urenstaat-voorbeeld.xlsx\"" }
+      ]
+    },
+    {
+      "source": "/downloads/urenstaat-sjabloon.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"urenstaat-sjabloon.pdf\"" }
+      ]
+    }
+  ]
+}

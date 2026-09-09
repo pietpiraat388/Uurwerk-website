@@ -5,6 +5,11 @@ export const SITE = {
   appStoreUrl: 'https://apps.apple.com/app/id6781654951',
   developer: 'Patrick van der Ploeg',
   publisher: 'Parivee',
+  supportEmail: 'info@vejoapps.com',
+  developerUrl: 'https://www.vejoapps.com',
+  appPrivacyUrl: 'https://www.vejoapps.com/privacy',
+  minimumIOS: '18.6',
+  factsChecked: '2026-09-09',
   locale: 'nl_NL',
   description:
     "Uurwerk is een eenvoudige urenregistratie app voor zzp'ers, freelancers en kleine ondernemers. Registreer uren met timer of handmatig, beheer klanten en projecten en maak facturen van je uren.",
@@ -18,9 +23,9 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: 'Functies', href: '/#functies' },
   { label: 'Hoe het werkt', href: '/#hoe-het-werkt' },
-  { label: 'Screenshots', href: '/#screenshots' },
+  { label: 'Urenstaat', href: '/urenstaat-maken/' },
   { label: 'Gidsen', href: '/#gidsen' },
-  { label: 'Veelgestelde vragen', href: '/#faq' },
+  { label: 'Gratis & Pro', href: '/urenregistratie-app-gratis/' },
 ];
 
 export interface Guide {
@@ -32,6 +37,13 @@ export interface Guide {
 }
 
 export const GUIDES: Guide[] = [
+  {
+    slug: 'uren-factureren',
+    title: 'Uren factureren: van urenstaat naar factuur',
+    navTitle: 'Uren factureren',
+    description: 'Maak van geregistreerde uren een factuur. Met rekenvoorbeeld, controlelijst en de stappen in Uurwerk voor iPhone.',
+    hook: 'Van klant en uren kiezen naar een gecontroleerde factuur.',
+  },
   {
     slug: 'urenregistratie-app',
     title: 'Urenregistratie app: zo kies je de juiste',
@@ -90,11 +102,11 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'urenstaat-maken',
-    title: 'Urenstaat maken: voorbeeld en uitleg',
+    title: 'Urenstaat maken: voorbeeld en gratis sjabloon',
     navTitle: 'Urenstaat maken',
     description:
-      'Wat staat er op een goede urenstaat voor je klant? Een duidelijk voorbeeld met alle onderdelen, plus de snelste manier om er een te maken.',
-    hook: 'Wat er op een urenstaat hoort en hoe je er in een paar tikken een maakt.',
+      'Maak een urenstaat met een ingevuld voorbeeld en gratis Excel- en PDF-sjablonen. Met uitleg over uren, pauzes en bedragen.',
+    hook: 'Download een gratis Excel- of PDF-sjabloon en bekijk het ingevulde voorbeeld.',
   },
   {
     slug: 'urenregistratie-app-gratis',
@@ -105,6 +117,27 @@ export const GUIDES: Guide[] = [
     hook: 'Eerlijk overzicht van wat gratis is en waarvoor je Pro nodig hebt.',
   },
 ];
+
+export const RELATED_GUIDES: Record<string, string[]> = {
+  'urenstaat-maken': ['uren-factureren', 'uren-bijhouden-zonder-excel', 'urenregistratie-zzp'],
+  'uren-factureren': ['urenstaat-maken', 'urenregistratie-app-gratis', 'urenregistratie-app'],
+  'urenregistratie-app': ['uren-factureren', 'urenregistratie-app-gratis', 'online-urenregistratie'],
+  'urenregistratie-app-gratis': ['urenregistratie-app', 'uren-factureren', 'urenstaat-maken'],
+  'urenregistratie-zzp': ['urencriterium', 'urenstaat-maken', 'uren-factureren'],
+  'urencriterium': ['urenregistratie-belastingdienst', 'urenregistratie-zzp', 'urenstaat-maken'],
+  'urenregistratie-belastingdienst': ['urencriterium', 'urenregistratie-zzp', 'urenstaat-maken'],
+  'urenregistratie-bouw': ['urenstaat-maken', 'uren-factureren', 'urenregistratie-zzp'],
+  'uren-bijhouden-zonder-excel': ['urenstaat-maken', 'urenregistratie-app', 'uren-factureren'],
+  'online-urenregistratie': ['urenregistratie-app', 'urenregistratie-app-gratis', 'uren-bijhouden-zonder-excel'],
+};
+
+export const PRODUCT_FEATURES = [
+  { label: 'Timer en handmatige ureninvoer', free: true },
+  { label: 'Klanten, projecten en tarieven', free: true },
+  { label: 'Urenoverzichten per periode', free: true },
+  { label: 'Conceptfacturen maken', free: true },
+  { label: 'Facturen versturen vanuit de app', free: false },
+] as const;
 
 export function guideUrl(slug: string): string {
   return `/${slug}/`;

@@ -1,0 +1,11 @@
+---
+import { PRODUCT_FEATURES, SITE } from '../lib/site';
+---
+<div class="table-scroll">
+  <table>
+    <caption>Gratis functies en Uurwerk Pro</caption>
+    <thead><tr><th scope="col">Functie</th><th scope="col">Gratis</th><th scope="col">Met Pro</th></tr></thead>
+    <tbody>{PRODUCT_FEATURES.map((feature) => <tr><th scope="row">{feature.label}</th><td>{feature.free ? 'Inbegrepen' : 'Pro nodig'}</td><td>Inbegrepen</td></tr>)}</tbody>
+  </table>
+</div>
+<p class="download-note">Uurwerk is gratis te downloaden. Voor facturen versturen is een betaalde Pro-upgrade nodig. Bekijk de actuele prijs en abonnementsperiode in de app voordat je bevestigt. <a href={SITE.appStoreUrl}>Bekijk Uurwerk in de App Store</a>.</p>
