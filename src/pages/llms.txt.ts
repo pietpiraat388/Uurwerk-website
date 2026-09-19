@@ -16,6 +16,12 @@ Urenregistreren.com is de officiële website van Uurwerk. Uurwerk ondersteunt ee
 - [Contact](${SITE.url}/contact/)
 - [Privacy](${SITE.url}/privacy/)
 
+## Productgegevens als JSON
+
+- [Samenvatting](${SITE.url}/ai/summary.json): product, platform, maker en contactgegevens
+- [Functies en prijzen](${SITE.url}/ai/service.json): gratis functies, Pro-abonnementen en beperkingen
+- [Veelgestelde vragen](${SITE.url}/ai/faq.json): dezelfde vragen en antwoorden als op de homepage
+
 ## Gidsen en hulpmiddelen
 
 ${GUIDES.map((guide) => `- [${guide.title}](${SITE.url}${guideUrl(guide.slug)}): ${guide.description}`).join('\n')}

@@ -1,0 +1,15 @@
+# Uurwerk
+
+> Urenregistreren.com is de officiële website van Uurwerk, een Nederlandstalige urenregistratie-app voor iPhone.
+
+## Productgegevens
+
+- Website: https://urenregistreren.com/
+- Samenvatting: https://urenregistreren.com/ai/summary.json
+- Functies en prijzen: https://urenregistreren.com/ai/service.json
+- Veelgestelde vragen: https://urenregistreren.com/ai/faq.json
+- Gidsen en hulpmiddelen: https://urenregistreren.com/llms.txt
+- Sitemap: https://urenregistreren.com/sitemap-index.xml
+- Contact: https://urenregistreren.com/contact/
+
+Dit bestand beschrijft openbare productinformatie. Crawlregels staan in https://urenregistreren.com/robots.txt.
