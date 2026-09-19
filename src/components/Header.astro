@@ -1,32 +1,57 @@
 ---
 import { Image } from 'astro:assets';
 import appIcon from '../assets/app-icon.png';
-import { NAV_LINKS, SITE } from '../lib/site';
+import { GUIDES, NAV_LINKS, SITE, guideUrl } from '../lib/site';
+
+interface Props {
+  /** Op gidsen en tools neemt de sticky download-balk de downloadknop over op mobiel. */
+  stickyBar?: boolean;
+}
+
+const { stickyBar = false } = Astro.props;
+const path = Astro.url.pathname;
+const guidePaths = GUIDES.map((guide) => guideUrl(guide.slug));
+
+// Welk menu-item hoort bij deze pagina? Exacte pagina's eerst, anders valt een gids onder "Gidsen".
+const activeHref =
+  NAV_LINKS.find((link) => link.href === path)?.href ??
+  (guidePaths.includes(path) ? '/#gidsen' : undefined);
 ---
 
-<header class="site-header" data-placement="header">
+<header class:list={['site-header', { 'has-sticky-bar': stickyBar }]} data-placement="header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Uurwerk homepage">
-      <Image src={appIcon} alt="" width={40} height={40} class="brand-icon" loading="eager" />
+      <Image src={appIcon} alt="" width={32} height={32} class="brand-icon" loading="eager" />
       <span class="brand-name">{SITE.name}</span>
     </a>
-
-    <button type="button" class="nav-toggle-label" aria-label="Menu openen" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span><span></span></button>
 
     <nav class="site-nav" id="site-navigation" aria-label="Hoofdnavigatie">
       <ul>
         {NAV_LINKS.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
+          <li>
+            <a
+              href={link.href}
+              class:list={{ 'is-active': link.href === activeHref }}
+              aria-current={link.href === path ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
         ))}
       </ul>
-      <a class="btn btn-primary nav-cta" href={SITE.appStoreUrl} rel="noopener">Download</a>
     </nav>
 
+    <div class="header-actions">
+      <a class="btn btn-primary btn-pill nav-cta" href={SITE.appStoreUrl} rel="noopener">Download</a>
+      <button type="button" class="nav-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="site-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle-label');
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const navigation = document.querySelector<HTMLElement>('#site-navigation');
   const setOpen = (open: boolean) => {
     toggle?.setAttribute('aria-expanded', String(open));
@@ -37,54 +62,57 @@ import { NAV_LINKS, SITE } from '../lib/site';
   navigation?.addEventListener('click', (event) => { if (event.target instanceof Element && event.target.closest('a')) setOpen(false); });
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); } });
 </script>
-<noscript><style>.nav-toggle-label{display:none!important}@media(max-width:860px){.header-inner{height:auto!important;flex-wrap:wrap;padding-block:1rem}.site-nav{display:flex!important;position:static!important;width:100%;box-shadow:none!important}}</style></noscript>
+<noscript><style>.nav-toggle{display:none!important}@media(max-width:899px){.header-inner{height:auto!important;flex-wrap:wrap;padding-block:12px}.site-nav{display:block!important;position:static!important;width:100%;box-shadow:none!important;border:0!important;padding:0!important}}</style></noscript>
 
 <style>
   .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(246, 247, 244, 0.86);
+    background: rgba(250, 248, 243, 0.88);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
   }
 
   .header-inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    height: 68px;
+    gap: 16px;
+    height: 72px;
   }
 
   .brand {
+    justify-self: start;
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    color: var(--text-primary);
-    font-weight: 700;
-    font-size: 1.2rem;
-    letter-spacing: -0.02em;
+    gap: 10px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1875rem;
+    letter-spacing: -0.016em;
+    line-height: 1.1;
+    text-decoration: none;
+    border-radius: 8px;
   }
 
   .brand:hover {
-    text-decoration: none;
+    color: var(--ink);
   }
 
   :global(.brand-icon) {
-    border-radius: 10px;
-  }
-
-  .site-nav {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    box-shadow: 0 2px 6px rgba(67, 96, 79, 0.15);
   }
 
   .site-nav ul {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 6px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -94,122 +122,148 @@ import { NAV_LINKS, SITE } from '../lib/site';
     margin: 0;
   }
 
-  .site-nav a:not(.nav-cta) {
-    color: var(--text-secondary);
-    font-weight: 700;
-    font-size: 0.97rem;
-  }
-
-  .site-nav a:not(.nav-cta):hover {
-    color: var(--text-primary);
+  .site-nav a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--ink-2);
+    font-size: 0.90625rem;
+    font-weight: 500;
+    line-height: 1.4;
     text-decoration: none;
+    transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out);
   }
 
-  .nav-cta {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.95rem;
+  .site-nav a:hover {
+    color: var(--ink);
+    background: var(--sand);
   }
 
-  .nav-toggle,
-  .nav-toggle-label {
+  .site-nav a.is-active {
+    background: var(--sage-faint);
+    color: var(--sage-deep);
+  }
+
+  .header-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-toggle {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     border: 0;
+    border-radius: 22px;
     background: transparent;
+    cursor: pointer;
   }
 
-  /* Desktop: logo links, navigatie exact gecentreerd, download rechts */
-  @media (min-width: 861px) {
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--ink);
+    transition: transform 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+  }
+
+  .nav-toggle:hover {
+    background: var(--sand);
+  }
+
+  @media (max-width: 899px) {
     .header-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      display: flex;
+      justify-content: space-between;
+      height: 64px;
+      padding-left: 20px;
+      padding-right: 14px;
     }
 
     .brand {
-      justify-self: start;
+      font-size: 1.125rem;
     }
 
-    .site-nav {
-      display: contents;
-    }
-
-    .site-nav ul {
-      justify-self: center;
+    :global(.brand-icon) {
+      width: 30px;
+      height: 30px;
     }
 
     .nav-cta {
-      justify-self: end;
+      min-height: 38px;
+      padding: 0 16px;
+      font-size: 0.875rem;
     }
-  }
 
-  @media (max-width: 860px) {
-    .nav-toggle-label {
-      order: 2;
+    .nav-toggle {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      cursor: pointer;
-      border-radius: var(--radius-sm);
-    }
-
-    .nav-toggle-label span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--text-primary);
-      border-radius: 2px;
-      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .site-nav {
+      display: none;
       position: absolute;
-      top: 68px;
+      top: 64px;
       left: 0;
       right: 0;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
+      padding: 8px 20px 20px;
       background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0.6rem 1.25rem 1.25rem;
-      display: none;
-      box-shadow: 0 24px 48px -24px rgba(24, 36, 28, 0.25);
-    }
-
-    .site-nav ul {
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .site-nav ul a {
-      display: block;
-      padding: 0.85rem 0.25rem;
-      font-size: 1.05rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-cta {
-      margin-top: 1rem;
-      justify-content: center;
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 24px 48px -24px rgba(30, 41, 33, 0.25);
     }
 
     .site-nav[data-open='true'] {
-      display: flex;
+      display: block;
     }
 
-    .nav-toggle-label[aria-expanded='true'] span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+    .site-nav ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
     }
 
-    .nav-toggle-label[aria-expanded='true'] span:nth-child(2) {
+    .site-nav a {
+      padding: 14px 4px;
+      border-radius: 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.0625rem;
+      color: var(--ink);
+    }
+
+    .site-nav li:last-child a {
+      border-bottom: 0;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.is-active {
+      background: transparent;
+      color: var(--sage-deep);
+    }
+
+    .nav-toggle[aria-expanded='true'] span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded='true'] span:nth-child(2) {
       opacity: 0;
     }
 
-    .nav-toggle-label[aria-expanded='true'] span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+    .nav-toggle[aria-expanded='true'] span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+  }
+
+  /* Gidsen en tools: sticky download-balk vervangt de downloadknop in de header */
+  @media (max-width: 767px) {
+    .has-sticky-bar .nav-cta {
+      display: none;
     }
   }
 </style>

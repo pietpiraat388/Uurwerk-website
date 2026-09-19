@@ -3,6 +3,7 @@ import Guide from '../layouts/Guide.astro';
 import { PRO_PRICE_ANSWER } from '../lib/site';
 import ProductIdentity from '../components/ProductIdentity.astro';
 import PricingTable from '../components/PricingTable.astro';
+import Icon from '../components/Icon.astro';
 import type { FaqEntry } from '../lib/schema';
 const faq: FaqEntry[] = [
   { question: 'Wat is urenregistratie software?', answer: 'Urenregistratie software legt gewerkte tijd vast en bundelt die per periode, klant, project of medewerker. Afhankelijk van het pakket kun je timers gebruiken, facturen maken, uren goedkeuren of gegevens naar andere systemen overzetten.' },
@@ -37,10 +38,10 @@ const faq: FaqEntry[] = [
     <li>Maak een klantoverzicht of conceptfactuur. Controleer de geselecteerde uren en bedragen.</li>
     <li>Controleer welke gegevens je kunt bewaren of meenemen wanneer je stopt met het product.</li>
   </ol>
-  <p>Neem bijvoorbeeld 2 uur en 30 minuten werk tegen € 60 per uur. De uitkomst moet € 150 exclusief eventuele btw zijn. Dit kleine voorbeeld laat zien hoe het pakket minuten, tarieven en afrondingen verwerkt. Voor de factuurcontrole vind je een uitgebreider voorbeeld bij <a href="/uren-factureren/">uren factureren</a>.</p>
+  <p class="callout"><Icon name="calculator" size={20} /><span>Neem bijvoorbeeld 2 uur en 30 minuten werk tegen € 60 per uur. De uitkomst moet € 150 exclusief eventuele btw zijn. Dit kleine voorbeeld laat zien hoe het pakket minuten, tarieven en afrondingen verwerkt. Voor de factuurcontrole vind je een uitgebreider voorbeeld bij <a href="/uren-factureren/">uren factureren</a>.</span></p>
   <h2>Wat kost urenregistratiesoftware in jouw situatie?</h2>
   <p>Een maandbedrag vertelt pas genoeg als je weet wat het omvat. Noteer het aantal betaalde gebruikers, verplichte modules, eventuele inrichtingskosten en het verschil tussen maand- en jaarbetaling. Controleer of een genoemd bedrag inclusief of exclusief btw is.</p>
-  <p>Een fictieve rekensom: een pakket van € 8 per gebruiker per maand kost bij vijf gebruikers € 40 per maand, of € 480 over twaalf maanden. Dat is geen actuele prijs van een aanbieder; het laat zien waarom je met je volledige team moet rekenen.</p>
+  <p class="callout"><Icon name="users" size={20} /><span>Een fictieve rekensom: een pakket van € 8 per gebruiker per maand kost bij vijf gebruikers € 40 per maand, of € 480 over twaalf maanden. Dat is geen actuele prijs van een aanbieder; het laat zien waarom je met je volledige team moet rekenen.</span></p>
   <PricingTable />
   <h2>Apparaat, export en samenwerking</h2>
   <p>Controleer de apparaten waarop je echt gaat werken. Een iPhone-app is iets anders dan een dienst die in iedere browser draait. Vraag bij samenwerking of medewerkers alleen hun eigen registraties zien en wie correcties kan uitvoeren. Bij een koppeling wil je weten welke gegevens worden overgezet en in welke richting.</p>

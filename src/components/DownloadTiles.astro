@@ -1,0 +1,148 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+
+interface Tile {
+  href: string;
+  label: string;
+  icon: IconName;
+  /** Waarde voor het download-attribuut; true = zonder bestandsnaam */
+  download: string | true;
+  primary?: boolean;
+}
+
+interface Props {
+  items: Tile[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="download-tiles">
+  {items.map((item) => (
+    <a class:list={['download-tile', { 'is-primary': item.primary }]} href={item.href} download={item.download === true ? '' : item.download}>
+      <span class="tile-icon"><Icon name={item.icon} size={20} /></span>
+      <span class="tile-row">
+        <span class="tile-label">{item.label}</span>
+        <Icon name="download" size={17} class="tile-download" />
+      </span>
+    </a>
+  ))}
+</div>
+
+<style>
+  .download-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0 18px;
+  }
+
+  .download-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 18px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background-color 0.15s var(--ease-out), border-color 0.15s var(--ease-out), transform 0.15s var(--ease-out);
+  }
+
+  .download-tile:hover {
+    color: var(--ink);
+    border-color: var(--sage-soft);
+    transform: translateY(-1px);
+  }
+
+  .tile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: var(--sage-faint);
+    color: var(--sage-deep);
+  }
+
+  .tile-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .tile-label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  .download-tile :global(.tile-download) {
+    flex-shrink: 0;
+    margin-bottom: 2px;
+    color: var(--sage-deep);
+  }
+
+  .download-tile.is-primary {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: #fff;
+  }
+
+  .download-tile.is-primary:hover {
+    background: var(--sage-deep);
+    border-color: var(--sage-deep);
+    color: #fff;
+  }
+
+  .is-primary .tile-icon {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+
+  .is-primary :global(.tile-download) {
+    color: #fff;
+  }
+
+  @media (max-width: 767px) {
+    .download-tiles {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+      margin: 18px 0 14px;
+    }
+
+    .download-tile {
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px 12px 12px;
+      border-radius: 14px;
+    }
+
+    .tile-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+    }
+
+    .tile-icon :global(svg) {
+      width: 16px;
+      height: 16px;
+    }
+
+    .tile-row {
+      flex: 1;
+      align-items: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .download-tile:hover {
+      transform: none;
+    }
+  }
+</style>

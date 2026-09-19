@@ -2,7 +2,9 @@
 import Guide from '../layouts/Guide.astro';
 import type { FaqEntry } from '../lib/schema';
 import { Image } from 'astro:assets';
-import hoursImage from '../assets/screenshots/screenshot-04.png';
+import DownloadTiles from '../components/DownloadTiles.astro';
+import Icon from '../components/Icon.astro';
+import hoursImage from '../assets/uurwerk-urenoverzicht-maand-iphone.png';
 
 const faq: FaqEntry[] = [
   { question: 'Kan ik een gratis urenstaat downloaden?', answer: 'Ja. Download op deze pagina een leeg Excel-sjabloon, een ingevuld Excel-voorbeeld of een printbaar PDF-sjabloon. Je hebt geen account nodig. In Excel berekenen de formules je urenbedragen en totalen.' },
@@ -44,56 +46,56 @@ const faq: FaqEntry[] = [
   <section class="download-card" id="downloads" aria-labelledby="download-title" data-placement="timesheet-downloads">
     <h2 id="download-title">Download je gratis urenstaat</h2>
     <p>Kies Excel om uren en bedragen te berekenen, of PDF om je urenstaat met de hand in te vullen. Het ingevulde voorbeeld laat zien hoe je begint.</p>
-    <div class="download-actions">
-      <a class="btn btn-primary" href="/downloads/urenstaat-sjabloon.xlsx" download="urenstaat-sjabloon.xlsx">Leeg Excel-sjabloon</a>
-      <a class="btn btn-ghost" href="/downloads/urenstaat-voorbeeld.xlsx" download="urenstaat-voorbeeld.xlsx">Ingevuld Excel-voorbeeld</a>
-      <a class="btn btn-ghost" href="/downloads/urenstaat-sjabloon.pdf" download="urenstaat-sjabloon.pdf">Printbaar PDF-sjabloon</a>
-    </div>
-    <p class="download-note">Gratis, zonder account of e-mailadres. De bestanden bewerk en bewaar je op je eigen apparaat.</p>
+    <DownloadTiles items={[
+      { href: '/downloads/urenstaat-sjabloon.xlsx', download: 'urenstaat-sjabloon.xlsx', label: 'Leeg Excel-sjabloon', icon: 'file-spreadsheet', primary: true },
+      { href: '/downloads/urenstaat-voorbeeld.xlsx', download: 'urenstaat-voorbeeld.xlsx', label: 'Ingevuld Excel-voorbeeld', icon: 'sheet' },
+      { href: '/downloads/urenstaat-sjabloon.pdf', download: 'urenstaat-sjabloon.pdf', label: 'Printbaar PDF-sjabloon', icon: 'printer' },
+    ]} />
+    <p class="download-note"><Icon name="shield-check" size={15} />Gratis, zonder account of e-mailadres. De bestanden bewerk en bewaar je op je eigen apparaat.</p>
   </section>
   <h2>Voorbeeld van een urenstaat</h2>
   <p>Zo kan een eenvoudige urenstaat voor een klant eruitzien:</p>
-  <div class="table-scroll">
+  <div class="table-scroll sheet-table">
     <table>
       <thead>
         <tr>
-          <th colspan="4">
-            Urenstaat &middot; Studio Noord voor Acme Bouw<br />
-            Project: websiteonderhoud &middot; 17 t/m 18 juni 2026<br />
-            Uurtarief: &euro; 85,00 exclusief btw
+          <th colspan="4" class="sheet-head">
+            <span class="sheet-title">Urenstaat &middot; Studio Noord voor Acme Bouw</span><br />
+            <span class="sheet-meta">Project: websiteonderhoud &middot; 17 t/m 18 juni 2026</span><br />
+            <span class="sheet-meta">Uurtarief: &euro; 85,00 exclusief btw</span>
           </th>
         </tr>
         <tr>
           <th>Datum</th>
           <th>Omschrijving</th>
-          <th>Uren</th>
-          <th>Bedrag</th>
+          <th class="num">Uren</th>
+          <th class="num">Bedrag</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>17 juni</td>
           <td>Controle urenstaat en factuurregels</td>
-          <td>1,50</td>
-          <td>&euro; 127,50</td>
+          <td class="num">1,50</td>
+          <td class="num">&euro; 127,50</td>
         </tr>
         <tr>
           <td>18 juni</td>
           <td>Homepage bijgewerkt, nieuw menu</td>
-          <td>2,50</td>
-          <td>&euro; 212,50</td>
+          <td class="num">2,50</td>
+          <td class="num">&euro; 212,50</td>
         </tr>
         <tr>
           <td>18 juni</td>
           <td>Timerregistratie, kleine fixes</td>
-          <td>0,25</td>
-          <td>&euro; 21,25</td>
+          <td class="num">0,25</td>
+          <td class="num">&euro; 21,25</td>
         </tr>
-        <tr>
+        <tr class="total-row">
           <th>Totaal</th>
           <th></th>
-          <th>4,25</th>
-          <th>&euro; 361,25</th>
+          <th class="num">4,25</th>
+          <th class="num">&euro; 361,25</th>
         </tr>
       </tbody>
     </table>
@@ -105,23 +107,26 @@ const faq: FaqEntry[] = [
 
   <h2>Wanneer heb je een urenstaat nodig?</h2>
   <p>Een urenstaat (ook wel urenlijst, urenbriefje of timesheet) gebruik je in drie situaties:</p>
-  <ul>
+  <ul class="situations">
     <li>
-      <strong>Bij je factuur.</strong> Klanten die op uurbasis betalen willen zien waar de uren
-      in zijn gaan zitten. Een specificatie voorkomt discussie en versnelt betaling.
+      <span class="icon-chip"><Icon name="receipt-text" size={19} /></span>
+      <span><strong>Bij je factuur.</strong> Klanten die op uurbasis betalen willen zien waar de uren
+      in zijn gaan zitten. Een specificatie voorkomt discussie en versnelt betaling.</span>
     </li>
     <li>
-      <strong>Op verzoek van de opdrachtgever.</strong> Bij detachering of inhuur via een bureau
-      is een goedgekeurde urenstaat vaak de basis voor uitbetaling.
+      <span class="icon-chip"><Icon name="briefcase" size={19} /></span>
+      <span><strong>Op verzoek van de opdrachtgever.</strong> Bij detachering of inhuur via een bureau
+      is een goedgekeurde urenstaat vaak de basis voor uitbetaling.</span>
     </li>
     <li>
-      <strong>Voor je eigen administratie.</strong> Dezelfde gegevens onderbouwen
-      het <a href="/urencriterium/">urencriterium</a> richting de Belastingdienst.
+      <span class="icon-chip"><Icon name="folder-check" size={19} /></span>
+      <span><strong>Voor je eigen administratie.</strong> Dezelfde gegevens onderbouwen
+      het <a href="/urencriterium/">urencriterium</a> richting de Belastingdienst.</span>
     </li>
   </ul>
 
   <h2>Checklist: dit hoort erop</h2>
-  <ol>
+  <ol class="check-grid">
     <li>Je naam of bedrijfsnaam</li>
     <li>Naam van de klant of opdrachtgever</li>
     <li>Periode waarover de urenstaat gaat</li>
@@ -139,10 +144,10 @@ const faq: FaqEntry[] = [
     <li>Controleer het totaal met je agenda of timer en bewaar een kopie voordat je de urenstaat deelt.</li>
   </ol>
   <h3>Minuten omrekenen naar uren</h3>
-  <div class="table-scroll"><table><caption>Veelgebruikte tijdsduren</caption><thead><tr><th scope="col">Duur</th><th scope="col">Decimale uren</th></tr></thead><tbody><tr><td>15 minuten</td><td>0,25</td></tr><tr><td>30 minuten</td><td>0,50</td></tr><tr><td>45 minuten</td><td>0,75</td></tr><tr><td>1 uur en 30 minuten</td><td>1,50</td></tr><tr><td>8 uur aanwezig, 30 minuten pauze</td><td>7,50</td></tr></tbody></table></div>
+  <div class="table-scroll"><table><caption>Veelgebruikte tijdsduren</caption><thead><tr><th scope="col">Duur</th><th scope="col" class="num">Decimale uren</th></tr></thead><tbody><tr><td>15 minuten</td><td class="num strong">0,25</td></tr><tr><td>30 minuten</td><td class="num strong">0,50</td></tr><tr><td>45 minuten</td><td class="num strong">0,75</td></tr><tr><td>1 uur en 30 minuten</td><td class="num strong">1,50</td></tr><tr><td>8 uur aanwezig, 30 minuten pauze</td><td class="num strong">7,50</td></tr></tbody></table></div>
   <p>Een urenstaat beschrijft je werk. Voor de betaling maak je een factuur met de bijbehorende gegevens. Bekijk <a href="/uren-factureren/">hoe je uren omzet in een factuur</a>.</p>
   <h2>Je urenstaat bijhouden in Uurwerk</h2>
-  <figure class="guide-figure"><Image src={hoursImage} alt="Uurwerk urenoverzicht met urenregels, klant, project, totaal uren en bedrag" width={280} widths={[280, 560]} sizes="280px" format="webp" /><figcaption>In Uurwerk bekijk je de geregistreerde uren en bedragen per periode. De Excel- en PDF-sjablonen hierboven zijn losse downloads voor je eigen administratie.</figcaption></figure>
+  <figure class="guide-figure"><div class="iphone"><Image src={hoursImage} alt="Uurwerk urenoverzicht met urenregels, klant, project, totaal uren en bedrag" width={230} widths={[230, 460]} sizes="230px" format="webp" loading="lazy" /></div><figcaption>In Uurwerk bekijk je de geregistreerde uren en bedragen per periode. De Excel- en PDF-sjablonen hierboven zijn losse downloads voor je eigen administratie.</figcaption></figure>
   <p>
     Een urenstaat die je aan het einde van de maand &ldquo;maakt&rdquo;, is eigenlijk een
     reconstructie, en dat kost tijd en precisie. Draai het om: registreer elke werksessie

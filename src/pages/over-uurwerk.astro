@@ -1,12 +1,10 @@
 ---
-import Base from '../layouts/Base.astro';
+import Page from '../layouts/Page.astro';
 import { personSchema, breadcrumbSchema } from '../lib/schema';
 import { SITE } from '../lib/site';
 import AppStoreButton from '../components/AppStoreButton.astro';
 ---
-<Base title="Over Uurwerk en de maker | Uurwerk" description="Uurwerk is een Nederlandstalige urenregistratie-app voor iPhone, ontwikkeld door Patrick van der Ploeg. Lees over de app, de maker en onze gidsen." schemas={[personSchema(), breadcrumbSchema([{name:'Home',url:'/'},{name:'Over Uurwerk',url:'/over-uurwerk/'}])]}>
-  <article class="section"><div class="container"><div class="prose">
-    <h1>Over Uurwerk</h1>
+<Page title="Over Uurwerk en de maker | Uurwerk" h1="Over Uurwerk" description="Uurwerk is een Nederlandstalige urenregistratie-app voor iPhone, ontwikkeld door Patrick van der Ploeg. Lees over de app, de maker en onze gidsen." schemas={[personSchema(), breadcrumbSchema([{name:'Home',url:'/'},{name:'Over Uurwerk',url:'/over-uurwerk/'}])]}>
     <p class="lead">Uurwerk is een Nederlandstalige iPhone-app voor zelfstandigen die hun gewerkte uren, klanten, projecten en facturen op één plek willen bijhouden.</p>
     <h2 id="patrick">Gemaakt door Patrick van der Ploeg</h2>
     <p>Patrick van der Ploeg is de ontwikkelaar van Uurwerk en de auteur van de gidsen op deze website. Uurwerk wordt hier gepubliceerd onder de naam {SITE.publisher}. Je vindt de app in de App Store als <strong>{SITE.fullName}</strong>.</p>
@@ -19,5 +17,4 @@ import AppStoreButton from '../components/AppStoreButton.astro';
     <p>Bij elke gids staan de auteur en de datum van de laatste inhoudelijke wijziging. Een gids vervangt geen advies over jouw fiscale situatie. Zie je een onjuistheid of ontbreekt een uitleg, <a href="/contact/">laat het ons weten</a>.</p>
     <p><a href="/urenregistratie-app-gratis/">Bekijk de gratis functies en Pro</a> of begin met een <a href="/urenstaat-maken/">gratis urenstaatsjabloon</a>.</p>
     <AppStoreButton />
-  </div></div></article>
-</Base>
+</Page>

@@ -1,15 +1,244 @@
 ---
 import { PRODUCT_FEATURES, PRO_PRICING, SITE } from '../lib/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  /** Op de homepage staan de prijskaarten boven de vergelijking. */
+  variant?: 'guide' | 'home';
+}
+
+const { variant = 'guide' } = Astro.props;
 ---
-<div class="table-scroll">
-  <table>
-    <caption>Gratis functies en Uurwerk Pro</caption>
-    <thead><tr><th scope="col">Functie</th><th scope="col">Gratis</th><th scope="col">Met Pro</th></tr></thead>
-    <tbody>{PRODUCT_FEATURES.map((feature) => <tr><th scope="row">{feature.label}</th><td>{feature.free ? 'Inbegrepen' : 'Pro nodig'}</td><td>Inbegrepen</td></tr>)}</tbody>
-  </table>
+<div class:list={['pricing', `pricing-${variant}`]}>
+  <div class="table-scroll pricing-table">
+    <table>
+      <caption>Gratis functies en Uurwerk Pro</caption>
+      <thead><tr><th scope="col">Functie</th><th scope="col" class="col-plan">Gratis</th><th scope="col" class="col-plan">Met Pro</th></tr></thead>
+      <tbody>{PRODUCT_FEATURES.map((feature) => <tr><th scope="row">{feature.label}</th><td class:list={['plan-cell', { 'is-locked': !feature.free }]}><Icon name={feature.free ? 'check' : 'lock'} size={16} />{feature.free ? 'Inbegrepen' : 'Pro nodig'}</td><td class="plan-cell"><Icon name="check" size={16} />Inbegrepen</td></tr>)}</tbody>
+    </table>
+  </div>
+  <dl class="plans">
+    <div class="plan"><dt>Pro per maand</dt><dd><strong>{PRO_PRICING.monthlyLabel}</strong> per maand.</dd></div>
+    <div class="plan plan-featured"><dt>Pro per jaar</dt><dd><strong>{PRO_PRICING.yearlyLabel}</strong> per jaar, in één keer betaald. Ongeveer {PRO_PRICING.yearlyMonthlyLabel} per maand; {PRO_PRICING.yearlySavingPercent}% goedkoper dan twaalf maandbetalingen.</dd></div>
+  </dl>
+  <p class="pricing-note">Uren registreren en conceptfacturen maken zijn gratis. Pro is nodig voor facturen versturen. Prijzen bevestigd op 19 september 2026. Controleer vóór aankoop de voorwaarden in de app. <a href={SITE.appStoreUrl}>Bekijk Uurwerk in de App Store</a>.</p>
 </div>
-<dl class="product-facts">
-  <div><dt>Pro per maand</dt><dd><strong>{PRO_PRICING.monthlyLabel}</strong> per maand.</dd></div>
-  <div><dt>Pro per jaar</dt><dd><strong>{PRO_PRICING.yearlyLabel}</strong> per jaar, in één keer betaald. Ongeveer {PRO_PRICING.yearlyMonthlyLabel} per maand; {PRO_PRICING.yearlySavingPercent}% goedkoper dan twaalf maandbetalingen.</dd></div>
-</dl>
-<p class="download-note">Uren registreren en conceptfacturen maken zijn gratis. Pro is nodig voor facturen versturen. Prijzen bevestigd op 19 september 2026. Controleer vóór aankoop de voorwaarden in de app. <a href={SITE.appStoreUrl}>Bekijk Uurwerk in de App Store</a>.</p>
+
+<style>
+  .pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pricing-home {
+    gap: 20px;
+  }
+
+  .pricing-home .plans {
+    order: -1;
+  }
+
+  .pricing-table {
+    margin: 0;
+    border-radius: 22px;
+  }
+
+  .pricing-home .pricing-table {
+    border-radius: 24px;
+  }
+
+  .pricing-home .pricing-table caption {
+    padding: 20px 28px;
+    font-size: 1rem;
+  }
+
+  .pricing-home .pricing-table th,
+  .pricing-home .pricing-table td {
+    padding-inline: 28px;
+  }
+
+  .pricing-home .pricing-table tbody th,
+  .pricing-home .pricing-table tbody td {
+    padding-block: 17px;
+    font-size: 0.96875rem;
+  }
+
+  .pricing-table table {
+    table-layout: fixed;
+  }
+
+  .pricing-table .col-plan {
+    width: 142px;
+  }
+
+  .pricing-home .pricing-table .col-plan {
+    width: 180px;
+  }
+
+  .pricing-table tbody th {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .plan-cell {
+    white-space: nowrap;
+    color: var(--sage-deep) !important;
+    font-weight: 600 !important;
+  }
+
+  .plan-cell :global(svg) {
+    display: inline-block;
+    vertical-align: -3px;
+    margin-right: 8px;
+    color: var(--sage);
+  }
+
+  .plan-cell.is-locked {
+    color: var(--ink-3) !important;
+  }
+
+  .plan-cell.is-locked :global(svg) {
+    color: var(--ink-3);
+  }
+
+  .plans {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin: 0;
+  }
+
+  .pricing-home .plans {
+    gap: 20px;
+  }
+
+  .plan {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+  }
+
+  .pricing-home .plan {
+    gap: 10px;
+    padding: 32px;
+    border-radius: 24px;
+  }
+
+  .plan-featured {
+    background: var(--sage-faint);
+    border: 1.5px solid var(--sage);
+  }
+
+  .plan dt {
+    color: var(--ink-2);
+    font-size: 0.90625rem;
+    font-weight: 600;
+  }
+
+  .plan-featured dt {
+    color: var(--sage-deep);
+  }
+
+  .plan dd {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .plan dd strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.036em;
+    color: var(--ink);
+  }
+
+  .pricing-home .plan dd strong {
+    margin-bottom: 10px;
+    font-size: 3.25rem;
+    letter-spacing: -0.038em;
+  }
+
+  .pricing-home .plan dd {
+    font-size: 0.96875rem;
+  }
+
+  .pricing-note {
+    margin: 8px 0 0;
+    color: var(--ink-3) !important;
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .pricing-note a {
+    color: inherit;
+  }
+
+  @media (max-width: 767px) {
+    .plans,
+    .pricing-home .plans {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .plan,
+    .pricing-home .plan {
+      padding: 22px;
+      gap: 6px;
+    }
+
+    .plan dd strong,
+    .pricing-home .plan dd strong {
+      font-size: 2.5rem;
+      letter-spacing: -0.035em;
+    }
+
+    .pricing-table .col-plan,
+    .pricing-home .pricing-table .col-plan {
+      width: 92px;
+    }
+
+    .pricing-table caption,
+    .pricing-home .pricing-table caption {
+      padding: 16px;
+      font-size: 0.875rem;
+    }
+
+    .pricing-table th,
+    .pricing-table td,
+    .pricing-home .pricing-table th,
+    .pricing-home .pricing-table td {
+      padding-inline: 16px 8px;
+    }
+
+    .pricing-table tbody th,
+    .pricing-home .pricing-table tbody th {
+      font-size: 0.84375rem;
+      padding-block: 13px;
+    }
+
+    .plan-cell,
+    .pricing-home .plan-cell {
+      font-size: 0.8125rem !important;
+      padding-block: 13px !important;
+    }
+
+    .plan-cell :global(svg) {
+      display: none;
+    }
+
+    .pricing-note {
+      font-size: 0.8125rem !important;
+    }
+  }
+</style>

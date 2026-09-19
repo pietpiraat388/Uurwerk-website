@@ -3,6 +3,10 @@ import Base from './Base.astro';
 import Faq from '../components/Faq.astro';
 import CtaBanner from '../components/CtaBanner.astro';
 import AppStoreButton from '../components/AppStoreButton.astro';
+import Icon from '../components/Icon.astro';
+import { Image } from 'astro:assets';
+import appIcon from '../assets/app-icon.png';
+import appScreen from '../assets/uurwerk-urenregistratie-app-vandaag-iphone.png';
 import {
   articleSchema,
   plainText,
@@ -60,57 +64,73 @@ const related = (RELATED_GUIDES[slug] ?? []).flatMap((relatedSlug) => {
 const formattedDate = new Intl.DateTimeFormat('nl-NL', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(dateModified));
 ---
 
-<Base title={metaTitle} description={description} schemas={schemas}>
-  <article class="section guide">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Kruimelpad">
-        <ol>
-          <li><a href="/">Home</a></li>
-          {slug !== 'urenregistratie' && <li><a href="/urenregistratie/">Urenregistratie</a></li>}
-          <li aria-current="page">{plainText(h1)}</li>
-        </ol>
-      </nav>
+<Base title={metaTitle} description={description} schemas={schemas} stickyBar>
+  <article class="guide">
+    <header class="article-head">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Kruimelpad">
+          <ol>
+            <li><a href="/">Home</a></li>
+            {slug !== 'urenregistratie' && <li><a href="/urenregistratie/">Urenregistratie</a></li>}
+            <li aria-current="page">{plainText(h1)}</li>
+          </ol>
+        </nav>
+        <h1>{plainText(h1)}</h1>
+        <p class="article-meta">
+          <Image src={appIcon} alt="" width={28} height={28} class="byline-icon" />
+          <span class="byline-text">
+            <span class="byline-author">Door <a href="/over-uurwerk/">{SITE.developer}</a></span><span class="byline-sep"> · </span><span class="byline-date">Bijgewerkt op <time datetime={dateModified}>{formattedDate}</time></span>
+          </span>
+        </p>
+      </div>
+    </header>
 
-      <div class="guide-grid">
-        <div class="prose">
-          <h1>{plainText(h1)}</h1>
-          <p class="article-meta">Door <a href="/over-uurwerk/">{SITE.developer}</a> · Bijgewerkt op <time datetime={dateModified}>{formattedDate}</time></p>
-
-          <div class="answer-box">
-            <span class="answer-label">Kort antwoord</span>
-            <p set:html={answer} />
-          </div>
-
-          <slot />
-
-          {faq.length > 0 && (
-            <section class="guide-faq">
-              <h2>Veelgestelde vragen</h2>
-              <Faq entries={faq} />
-            </section>
-          )}
+    <div class="container guide-grid">
+      <div class="prose">
+        <div class="answer-box">
+          <span class="answer-label">Kort antwoord</span>
+          <p set:html={answer} />
         </div>
 
-        <aside class="guide-aside">
-          <div class="card aside-card" data-placement="guide-sidebar">
-            <h3>Uurwerk voor iPhone</h3>
-            <p class="text-secondary">
+        <slot />
+
+        {faq.length > 0 && (
+          <section class="guide-faq">
+            <h2>Veelgestelde vragen</h2>
+            <Faq entries={faq} />
+          </section>
+        )}
+      </div>
+
+      <aside class="guide-aside">
+        <div class="aside-card" data-placement="guide-sidebar">
+          <div class="aside-visual" aria-hidden="true">
+            <div class="iphone">
+              <Image src={appScreen} alt="" width={210} widths={[210, 420]} sizes="210px" loading="lazy" />
+            </div>
+          </div>
+          <div class="aside-body">
+            <div class="aside-title">
+              <Image src={appIcon} alt="" width={40} height={40} class="aside-icon" loading="lazy" />
+              <h3>Uurwerk voor iPhone</h3>
+            </div>
+            <p>
               Eenvoudige urenregistratie met timer, klanten, projecten en facturen.
               Gratis te downloaden.
             </p>
             <AppStoreButton />
           </div>
+        </div>
 
-          <div class="card aside-card">
-            <h3>Meer gidsen</h3>
-            <ul class="aside-links">
-              {related.map((guide) => (
-                <li><a href={guideUrl(guide.slug)}>{guide.navTitle}</a></li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-      </div>
+        <nav class="aside-guides" aria-labelledby="meer-gidsen">
+          <h3 id="meer-gidsen">Meer gidsen</h3>
+          <ul>
+            {related.map((guide) => (
+              <li><a href={guideUrl(guide.slug)}>{guide.navTitle}<Icon name="arrow-right" size={16} /></a></li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
     </div>
   </article>
 
@@ -118,65 +138,258 @@ const formattedDate = new Intl.DateTimeFormat('nl-NL', { dateStyle: 'long', time
 </Base>
 
 <style>
-  .guide-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: start;
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: var(--ink-3);
+    font-size: 0.90625rem;
   }
 
-  @media (max-width: 960px) {
-    .guide-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
+  .article-meta a {
+    color: inherit;
+    text-decoration-color: transparent;
+  }
+
+  .article-meta a:hover {
+    color: var(--ink);
+    text-decoration-color: currentColor;
+  }
+
+  :global(.byline-icon) {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 680px) 340px;
+    justify-content: space-between;
+    gap: 64px;
+    align-items: start;
+    padding-top: 64px;
+    padding-bottom: 120px;
+  }
+
+  .guide-faq {
+    margin-top: 48px;
+  }
+
+  .guide-faq h2 {
+    margin: 0 0 24px;
   }
 
   .guide-aside {
     position: sticky;
     top: 96px;
-    display: grid;
-    gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
   }
 
-  @media (max-width: 960px) {
-    .guide-aside {
-      position: static;
+  .aside-card {
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: 0 16px 40px -20px rgba(30, 41, 33, 0.12);
+  }
+
+  .aside-visual {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: radial-gradient(150px 150px at 50% 62%, #dce7e0, rgba(238, 243, 239, 0)), var(--sage-faint);
+  }
+
+  .aside-visual .iphone {
+    position: absolute;
+    top: 36px;
+    left: 50%;
+    width: 210px;
+    transform: translateX(-50%);
+  }
+
+  .aside-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 26px 26px;
+  }
+
+  .aside-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  :global(.aside-icon) {
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+  }
+
+  .aside-title h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .aside-body p {
+    margin: 0 0 6px;
+    color: var(--ink-2);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .aside-guides {
+    padding: 0 4px;
+  }
+
+  .aside-guides h3 {
+    margin: 0 0 14px;
+    font-family: var(--font-stack);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  .aside-guides ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .aside-guides li {
+    margin: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .aside-guides a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    color: var(--ink);
+    font-size: 0.96875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .aside-guides a :global(svg) {
+    flex-shrink: 0;
+    color: var(--sage-deep);
+    transition: transform 0.15s var(--ease-out);
+  }
+
+  .aside-guides a:hover {
+    color: var(--sage-deep);
+  }
+
+  .aside-guides a:hover :global(svg) {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 1099px) {
+    .guide-grid {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 48px;
     }
   }
 
-  .aside-card h3 {
-    margin-bottom: 0.6rem;
+  @media (max-width: 959px) {
+    .guide-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 48px;
+    }
+
+    .guide-aside {
+      position: static;
+      max-width: 680px;
+      gap: 32px;
+    }
   }
 
-  .aside-card p {
-    font-size: 0.95rem;
-    margin-bottom: 1.2rem;
-  }
+  @media (max-width: 767px) {
+    .byline-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
 
-  .aside-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    :global(.byline-icon) {
+      width: 30px;
+      height: 30px;
+    }
 
-  .aside-links li {
-    margin: 0;
-    border-bottom: 1px solid var(--border);
-  }
+    .byline-sep {
+      display: none;
+    }
 
-  .aside-links li:last-child {
-    border-bottom: 0;
-  }
+    .byline-author {
+      color: var(--ink-2);
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
 
-  .aside-links a {
-    display: block;
-    padding: 0.6rem 0;
-    color: var(--text-primary);
-    font-weight: 500;
-    font-size: 0.97rem;
-  }
+    .byline-date {
+      font-size: 0.78125rem;
+    }
 
-  .guide-faq {
-    margin-top: 3rem;
+    .guide-grid {
+      padding-top: 28px;
+      padding-bottom: 64px;
+      gap: 56px;
+    }
+
+    .guide-faq {
+      margin-top: 40px;
+    }
+
+    .guide-faq h2 {
+      margin-bottom: 16px;
+    }
+
+    .aside-card {
+      border-radius: 26px;
+      box-shadow: none;
+    }
+
+    .aside-visual {
+      height: 210px;
+    }
+
+    .aside-body {
+      padding: 20px 22px 22px;
+    }
+
+    .aside-title h3 {
+      font-size: 1.1875rem;
+    }
+
+    .aside-guides {
+      padding: 0;
+    }
+
+    .aside-guides h3 {
+      font-size: 0.71875rem;
+      margin-bottom: 12px;
+    }
+
+    .aside-guides ul {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .aside-guides a {
+      font-size: 0.96875rem;
+    }
   }
 </style>

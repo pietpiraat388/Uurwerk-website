@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import appIcon from '../assets/app-icon.png';
 import AppStoreButton from './AppStoreButton.astro';
 
 interface Props {
@@ -12,40 +14,71 @@ const {
 } = Astro.props;
 ---
 
-<section class="section cta-section" data-placement="bottom-cta">
-  <div class="container">
-    <div class="card card-ink cta-card">
-      <div>
-        <h2>{title}</h2>
-        <p>{text}</p>
-      </div>
-      <div class="cta-actions">
-        <AppStoreButton />
-      </div>
-    </div>
+<section class="cta-section" data-placement="bottom-cta">
+  <div class="container cta-inner" data-reveal>
+    <Image src={appIcon} alt="" width={88} height={88} class="cta-icon" loading="lazy" />
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <AppStoreButton size="xl" />
   </div>
 </section>
 
 <style>
-  .cta-card {
+  .cta-section {
+    background: var(--sage-faint);
+    padding: 128px 0;
+  }
+
+  .cta-inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding: clamp(2rem, 5vw, 3.25rem);
+    text-align: center;
   }
 
-  .cta-card h2 {
-    margin-bottom: 0.5rem;
+  :global(.cta-icon) {
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    border: 1px solid rgba(30, 41, 33, 0.08);
+    box-shadow: 0 10px 24px -8px rgba(67, 96, 79, 0.25);
   }
 
-  .cta-card p {
-    max-width: 52ch;
-    margin: 0;
+  h2 {
+    max-width: 640px;
+    margin: 28px 0 16px;
+    font-size: clamp(1.875rem, 4.6vw, 3rem);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
   }
 
-  .cta-actions {
-    flex-shrink: 0;
+  p {
+    max-width: 640px;
+    margin: 0 0 36px;
+    color: var(--ink-2);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 767px) {
+    .cta-section {
+      padding: 88px 0;
+    }
+
+    :global(.cta-icon) {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+    }
+
+    h2 {
+      margin: 24px 0 14px;
+      line-height: 1.12;
+    }
+
+    p {
+      margin-bottom: 28px;
+      font-size: 1.03125rem;
+    }
   }
 </style>

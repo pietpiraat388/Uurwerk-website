@@ -1,10 +1,8 @@
 ---
-import Base from '../layouts/Base.astro';
+import Page from '../layouts/Page.astro';
 import { SITE } from '../lib/site';
 ---
-<Base title="Privacy: website, downloads en Uurwerk-app" description="Lees hoe de hulpmiddelen op urenregistreren.com werken en waar je het privacybeleid voor de Uurwerk-app vindt.">
-  <article class="section"><div class="container"><div class="prose">
-    <h1>Privacy</h1>
+<Page title="Privacy: website, downloads en Uurwerk-app" description="Lees hoe de hulpmiddelen op urenregistreren.com werken en waar je het privacybeleid voor de Uurwerk-app vindt." h1="Privacy">
     <p>Op deze pagina vind je informatie over de hulpmiddelen op urenregistreren.com en de verwijzing naar het privacybeleid van de app.</p>
     <h2>Urenstaatdownloads en rekenhulp</h2>
     <p>De Excel- en PDF-sjablonen download je zonder een account of e-mailadres. Wat je daarna in die bestanden invult, blijft in je eigen bestand. De rekenhulp op deze website rekent in je browser. Je ingevoerde uren worden niet opgeslagen of naar ons verzonden.</p>
@@ -14,5 +12,4 @@ import { SITE } from '../lib/site';
     <p>Voor de app verwijst de App Store naar het <a href={SITE.appPrivacyUrl}>privacybeleid van VeJo Apps</a>. Bekijk daarnaast de privacyinformatie op de <a href={SITE.appStoreUrl}>App Store-pagina van Uurwerk</a>. Deze informatie gaat over de app en kan verschillen van de hulpmiddelen op deze website.</p>
     <h2>Contact</h2>
     <p>Heb je een privacyvraag? Mail naar <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a> en vermeld of je vraag over de website of de app gaat.</p>
-  </div></div></article>
-</Base>
+</Page>

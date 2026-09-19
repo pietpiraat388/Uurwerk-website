@@ -1,14 +1,11 @@
 ---
-import Base from '../layouts/Base.astro';
+import Page from '../layouts/Page.astro';
 import { SITE } from '../lib/site';
 ---
-<Base title="Contact en ondersteuning | Uurwerk" description="Een vraag over urenregistratie, facturen of Uurwerk Pro? Neem contact op met de maker van Uurwerk via e-mail.">
-  <article class="section"><div class="container"><div class="prose">
-    <h1>Contact en ondersteuning</h1>
+<Page title="Contact en ondersteuning | Uurwerk" description="Een vraag over urenregistratie, facturen of Uurwerk Pro? Neem contact op met de maker van Uurwerk via e-mail." h1="Contact en ondersteuning">
     <p>Heb je een vraag over Uurwerk, een probleem met de app of een suggestie voor een gids? Mail naar <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>.</p>
     <div class="download-card"><h2>Zo kunnen we je helpen</h2><p>Vermeld Uurwerk in het onderwerp en beschrijf wat je wilt doen en wat er gebeurt. Bij een technisch probleem helpen je iPhone-model, iOS-versie en appversie om het probleem te onderzoeken.</p><p>Stuur geen klantgegevens, volledige facturen of andere vertrouwelijke informatie mee. Maak zulke gegevens onleesbaar in een eventuele schermafbeelding.</p><a class="btn btn-primary" href={`mailto:${SITE.supportEmail}?subject=Vraag%20over%20Uurwerk`}>Mail over Uurwerk</a></div>
     <h2>Veelgevraagde uitleg</h2>
     <ul><li><a href="/urenregistratie-app-gratis/">Wat is gratis en waarvoor heb ik Pro nodig?</a></li><li><a href="/uren-factureren/">Hoe maak ik een factuur van mijn uren?</a></li><li><a href="/urenstaat-maken/">Waar download ik een urenstaatsjabloon?</a></li><li><a href="/privacy/">Waar vind ik informatie over privacy?</a></li></ul>
     <p>Uurwerk is ontwikkeld door <a href="/over-uurwerk/">{SITE.developer}</a>. Voor informatie over een App Store-betaling of een terugbetaling kun je ook de <a href="https://support.apple.com/nl-nl/billing">ondersteuning van Apple</a> raadplegen.</p>
-  </div></div></article>
-</Base>
+</Page>

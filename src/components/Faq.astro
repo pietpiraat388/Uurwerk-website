@@ -4,15 +4,17 @@ import { plainText } from '../lib/schema';
 
 interface Props {
   entries: FaqEntry[];
+  /** De eerste vraag staat open, zoals in het design. */
+  openFirst?: boolean;
 }
 
-const { entries } = Astro.props;
+const { entries, openFirst = true } = Astro.props;
 ---
 
 <div class="faq-list">
-  {entries.map((entry) => (
-    <details class="faq-item">
-      <summary>{plainText(entry.question)}</summary>
+  {entries.map((entry, index) => (
+    <details class="faq-item" open={openFirst && index === 0}>
+      <summary>{plainText(entry.question)}<span class="faq-toggle" aria-hidden="true"></span></summary>
       <div class="faq-answer">
         <p set:html={entry.answer} />
       </div>

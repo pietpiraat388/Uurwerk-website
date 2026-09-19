@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import appIcon from '../assets/app-icon.png';
 import { GUIDES, SITE, guideUrl } from '../lib/site';
+import Icon from './Icon.astro';
 
 const year = new Date().getFullYear();
 ---
@@ -11,19 +12,20 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="/">
-          <Image src={appIcon} alt="" width={44} height={44} class="footer-icon" />
+          <Image src={appIcon} alt="" width={36} height={36} class="footer-icon" />
           <span>{SITE.name}</span>
         </a>
         <p>
           Eenvoudige urenregistratie voor zzp&rsquo;ers, freelancers en kleine ondernemers.
           Gemaakt in Nederland door {SITE.publisher}.
         </p>
-        <a class="btn btn-inverse" href={SITE.appStoreUrl} rel="noopener">
+        <a class="footer-download" href={SITE.appStoreUrl} rel="noopener">
+          <Icon name="apple" size={15} />
           Download in de App Store
         </a>
       </div>
 
-      <nav aria-label="Website">
+      <nav aria-label="Website" class="footer-site">
         <h3>Website</h3>
         <ul>
           <li><a href="/#functies">Functies</a></li>
@@ -47,7 +49,7 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <nav aria-label="Officiele bronnen">
+      <nav aria-label="Officiele bronnen" class="footer-sources">
         <h3>Offici&euml;le bronnen</h3>
         <ul>
           <li>
@@ -79,59 +81,97 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: linear-gradient(180deg, var(--ink-900), var(--ink-950));
-    color: var(--text-inverse-muted);
-    padding: clamp(3rem, 7vw, 4.5rem) 0 2rem;
-    margin-top: clamp(3rem, 8vw, 5rem);
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 80px 0 48px;
   }
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
-    gap: clamp(1.8rem, 4vw, 3rem);
+    grid-template-columns: 300px 260px minmax(0, 1fr);
+    grid-template-areas:
+      'brand site guides'
+      'brand sources guides';
+    grid-template-rows: auto 1fr;
+    column-gap: 40px;
+    row-gap: 40px;
   }
 
-  @media (max-width: 900px) {
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+  .footer-brand {
+    grid-area: brand;
   }
 
-  @media (max-width: 560px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
+  .footer-site {
+    grid-area: site;
+  }
+
+  .footer-guides {
+    grid-area: guides;
+  }
+
+  .footer-sources {
+    grid-area: sources;
   }
 
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-    color: #fff;
-    font-weight: 700;
-    font-size: 1.3rem;
+    gap: 10px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
     letter-spacing: -0.02em;
-    margin-bottom: 0.9rem;
-  }
-
-  .brand:hover {
+    line-height: 1.1;
     text-decoration: none;
   }
 
+  .brand:hover {
+    color: var(--ink);
+  }
+
   :global(.footer-icon) {
-    border-radius: 11px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(67, 96, 79, 0.15);
   }
 
   .footer-brand p {
-    max-width: 34ch;
-    margin-bottom: 1.4rem;
+    margin: 16px 0;
+    color: var(--ink-2);
+    font-size: 0.90625rem;
+    line-height: 1.6;
+  }
+
+  .footer-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.15s var(--ease-out);
+  }
+
+  .footer-download:hover {
+    background: var(--sand);
+    color: var(--ink);
   }
 
   h3 {
-    color: #fff;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    margin-bottom: 1rem;
+    margin: 0 0 12px;
+    font-family: var(--font-stack);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--ink);
   }
 
   ul {
@@ -141,30 +181,78 @@ const year = new Date().getFullYear();
   }
 
   li {
-    margin-bottom: 0.55rem;
+    margin: 0 0 12px;
+    font-size: 0.90625rem;
+    line-height: 1.4;
   }
 
-  footer a:not(.brand):not(.btn) {
-    color: var(--text-inverse-muted);
-    font-size: 0.95rem;
+  .footer-guides ul {
+    columns: 2;
+    column-gap: 24px;
   }
 
-  footer a:not(.brand):not(.btn):hover {
-    color: #fff;
+  .footer-guides li {
+    break-inside: avoid;
+  }
+
+  nav a {
+    color: var(--ink-2);
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: var(--ink);
+    text-decoration: underline;
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: clamp(2rem, 5vw, 3rem);
-    padding-top: 1.5rem;
-    font-size: 0.85rem;
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-size: 0.8125rem;
   }
 
   .footer-bottom p {
     margin: 0;
+  }
+
+  @media (max-width: 959px) {
+    .footer-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        'brand brand'
+        'site sources'
+        'guides guides';
+      grid-template-rows: auto;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .site-footer {
+      padding: 64px 0 40px;
+    }
+
+    .footer-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'brand'
+        'site'
+        'guides'
+        'sources';
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 40px;
+    }
+
+    .footer-bottom p:last-child {
+      line-height: 1.55;
+    }
   }
 </style>

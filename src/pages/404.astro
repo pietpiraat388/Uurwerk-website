@@ -1,39 +1,21 @@
 ---
-import Base from '../layouts/Base.astro';
+import Page from '../layouts/Page.astro';
 import { GUIDES, guideUrl } from '../lib/site';
 ---
 
-<Base
+<Page
   title="Pagina niet gevonden (404) | Uurwerk"
   description="Deze pagina bestaat niet (meer). Ga terug naar de homepage van Uurwerk of bekijk een van de gidsen over urenregistratie."
+  h1="Pagina niet gevonden"
 >
-  <section class="section">
-    <div class="container notfound">
-      <h1>Pagina niet gevonden</h1>
-      <p class="text-secondary">
-        Deze pagina bestaat niet (meer). Misschien zocht je een van deze pagina&rsquo;s:
-      </p>
-      <ul>
-        <li><a href="/">Homepage</a></li>
-        {GUIDES.map((guide) => (
-          <li><a href={guideUrl(guide.slug)}>{guide.navTitle}</a></li>
-        ))}
-      </ul>
-      <a class="btn btn-primary" href="/">Naar de homepage</a>
-    </div>
-  </section>
-</Base>
-
-<style>
-  .notfound {
-    max-width: 640px;
-  }
-
-  .notfound ul {
-    margin-bottom: 2rem;
-  }
-
-  .notfound .btn {
-    margin-top: 0.5rem;
-  }
-</style>
+  <p>
+    Deze pagina bestaat niet (meer). Misschien zocht je een van deze pagina&rsquo;s:
+  </p>
+  <ul>
+    <li><a href="/">Homepage</a></li>
+    {GUIDES.map((guide) => (
+      <li><a href={guideUrl(guide.slug)}>{guide.navTitle}</a></li>
+    ))}
+  </ul>
+  <a class="btn btn-primary" href="/">Naar de homepage</a>
+</Page>
