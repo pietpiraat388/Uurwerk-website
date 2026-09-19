@@ -7,7 +7,8 @@ import { downloadFiles } from './scripts/download-files.mjs';
 export default defineConfig({
   site: 'https://urenregistreren.com',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.endsWith('/urencriterium-zzp/') })],
+  redirects: { '/urencriterium-zzp/': '/urencriterium/' },
   vite: { plugins: [downloadFiles()] },
   build: {
     inlineStylesheets: 'always',

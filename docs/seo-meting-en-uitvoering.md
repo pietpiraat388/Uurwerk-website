@@ -1,5 +1,7 @@
 # SEO, AEO en GEO: uitvoering en meting
 
+Update 19 september 2026: zie [OpenSEO-onderzoek en uitvoering](seo-geo-2026-09-19.md). Pro-prijzen en het ontbreken van teamfuncties zijn inmiddels door de maker bevestigd; Search Console is aangesloten via OpenSEO. Het onderstaande beschrijft de eerdere status van 9 september.
+
 Status op 9 september 2026: wijzigingen lokaal uitgevoerd en gecontroleerd. Nog niet gepubliceerd. Het oorspronkelijke [plan](seo-aeo-geo-plan-2026-09-09.md) en de [broncontrole](seo-aeo-geo-bronnen-2026-09-09.md) beschrijven de onderbouwing.
 
 ## Uitgevoerd

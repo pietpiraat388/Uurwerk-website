@@ -1,0 +1,58 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+const faq: FaqEntry[] = [
+  { question: 'Is er een gratis Excel-template voor urenregistratie?', answer: 'Ja. Download op deze pagina een leeg Excel-sjabloon en een ingevuld voorbeeld, zonder account of e-mailadres. De bestanden zijn bedoeld voor het registreren van uren per opdrachtgever. Je kunt ook het printbare PDF-sjabloon gebruiken.' },
+  { question: 'Welke formule gebruik ik voor urenregistratie in Excel?', answer: 'Bij een begintijd in B2, eindtijd in C2 en pauze in minuten in D2 gebruik je voor een werkblok op dezelfde dag: =(C2-B2)*24-D2/60. Geef de resultaatcel een getalnotatie, bijvoorbeeld 0,00. Controleer dat de eindtijd na de begintijd ligt.' },
+  { question: 'Hoe tel ik meer dan 24 uur op in Excel?', answer: 'Werk je met tijdwaarden, geef de totaalcel de aangepaste notatie [u]:mm in Nederlandstalige Excel, of [h]:mm in Engelstalige Excel. Werk je met decimale uren zoals 7,5, gebruik dan gewoon een som en getalnotatie. Meng die twee manieren niet door elkaar.' },
+  { question: 'Is Excel voldoende voor mijn urencriterium?', answer: 'De Belastingdienst schrijft geen specifieke urenapp voor. Je moet de bestede tijd aannemelijk maken. Een zorgvuldig bijgehouden Excel-overzicht kan daarbij helpen, samen met bijvoorbeeld je agenda, offertes en facturen. Een template op zichzelf bewijst niet dat je aan alle voorwaarden voldoet.' },
+  { question: 'Kan ik het Excel-bestand importeren in Uurwerk?', answer: 'Deze templates zijn losse website-downloads. Er wordt geen Excel-import in Uurwerk aangeboden op deze website. Bij een overstap bewaar je je oude bestand en begin je op een afgesproken datum met registreren in de app.' },
+];
+---
+<Guide slug="urenregistratie-excel" metaTitle="Urenregistratie Excel: gratis template + uitleg | Uurwerk"
+  description="Download een gratis Excel-template voor urenregistratie. Met ingevuld voorbeeld, formules voor werkuren en pauzes en een vergelijking met een app."
+  h1="Urenregistratie in Excel: gratis template en formules"
+  answer="In Excel houd je uren bij met kolommen voor datum, klant, project, werkzaamheden en gewerkte tijd. Gebruik een vaste indeling en controleer de formules voor pauzes en totalen. Hieronder download je een leeg sjabloon en een ingevuld voorbeeld, zonder account."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}>
+  <section class="download-card" id="downloads" aria-labelledby="download-title" data-placement="excel-guide">
+    <h2 id="download-title">Download je gratis urenregistratie-template</h2>
+    <p>Begin met het lege bestand of bekijk eerst hoe een ingevulde urenstaat eruitziet. De voorbeelden bevatten fictieve gegevens.</p>
+    <div class="download-actions">
+      <a class="btn btn-primary" href="/downloads/urenstaat-sjabloon.xlsx" download>Excel-template downloaden</a>
+      <a class="btn btn-ghost" href="/downloads/urenstaat-voorbeeld.xlsx" download>Ingevuld Excel-voorbeeld</a>
+      <a class="btn btn-ghost" href="/downloads/urenstaat-sjabloon.pdf" download>Printbaar PDF-sjabloon</a>
+    </div>
+    <p class="download-note">Dit zijn bestanden voor je eigen administratie, geen export uit de Uurwerk-app. Lees bij <a href="/urenstaat-maken/">urenstaat maken</a> de invulinstructies en bekijk het volledige voorbeeld.</p>
+  </section>
+  <h2>Zo richt je een urenlijst in</h2>
+  <p>Gebruik één regel per werkblok. Houd klantwerk en eigen bedrijfsactiviteiten herkenbaar uit elkaar. Voor een zelfstandige kan dezelfde lijst zowel de facturatie als het inzicht in ondernemingsuren ondersteunen, zolang je aangeeft welke uren bij welk doel horen.</p>
+  <ol>
+    <li>Vul je naam, opdrachtgever en periode in bij het sjabloon.</li>
+    <li>Noteer per werkblok datum, werkzaamheden en de gewerkte tijd.</li>
+    <li>Verwerk pauzes voordat je het aantal werkuren invult. Controleer hoe het gekozen bestand met tijden rekent.</li>
+    <li>Controleer het uurtarief en het totaal voordat je de lijst deelt.</li>
+    <li>Bewaar een herkenbare versie, bijvoorbeeld per klant en maand, en maak een back-up.</li>
+  </ol>
+  <h2>Excel-formule voor begin, einde en pauze</h2>
+  <p>Maak je zelf een bestand met start- en eindtijden, dan kun je onderstaande indeling gebruiken. Dit is een apart formulevoorbeeld; de download heeft een eigen indeling.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">A: datum</th><th scope="col">B: begin</th><th scope="col">C: einde</th><th scope="col">D: pauze in minuten</th><th scope="col">E: werkuren</th></tr></thead>
+    <tbody><tr><td>14-09-2026</td><td>09:00</td><td>17:00</td><td>30</td><td>7,50</td></tr></tbody>
+  </table></div>
+  <p>De formule in E2 is <code>=(C2-B2)*24-D2/60</code>. Excel bewaart een tijd als deel van een dag; vermenigvuldigen met 24 geeft uren. Deel de pauzeminuten door 60 en trek die uren af. Geef E2 een getalnotatie met twee decimalen.</p>
+  <p>Dit werkt voor een begin- en eindtijd op dezelfde dag. Bij werk over middernacht leg je bij beide tijden ook de volledige datum vast. Dan kun je dezelfde berekening gebruiken zonder een verkeerd tijdstip stilzwijgend als nachtdienst te behandelen. Controleer lege cellen, negatieve uitkomsten en te lange pauzes voordat je totalen gebruikt.</p>
+  <h2>De fout tussen 7:30 en 7,30 voorkomen</h2>
+  <p>De tijdsduur 7:30 is zeven uur en dertig minuten. In decimale uren is dat 7,50. Het getal 7,30 is zeven uur en achttien minuten. Bij € 60 per uur is het verschil € 12. Kies daarom één invoerwijze en zet die in de kolomkop.</p>
+  <p>Controleer ook de totaalcellen met een bekende uitkomst. Vijf dagen van 7,5 uur moeten samen 37,5 uur zijn. Voor meer dagelijkse voorbeelden lees je <a href="/uren-bijhouden/">uren bijhouden</a>.</p>
+  <h2>Urenregistratie-app versus Excel</h2>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">Onderdeel</th><th scope="col">Excel</th><th scope="col">Uurwerk voor iPhone</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Invoer</th><td>Zelf regels invullen</td><td>Timer of handmatige invoer</td></tr>
+      <tr><th scope="row">Indeling</th><td>Zelf kolommen en formules aanpassen</td><td>Vaste invoer met klanten en projecten</td></tr>
+      <tr><th scope="row">Factureren</th><td>Gegevens zelf overnemen of een eigen koppeling inrichten</td><td>Conceptfactuur uit openstaande uren; Pro voor versturen</td></tr>
+      <tr><th scope="row">Bewaren</th><td>Bestanden en back-ups zelf beheren</td><td>Controleer de beschikbare uitvoer voor je administratie; PDF-facturen zijn beschreven</td></tr>
+    </tbody>
+  </table></div>
+  <p>Excel past bij wie een eigen documentindeling wil. Wil je tijdens je werkdag timen en klanturen koppelen, bekijk dan de <a href="/urenregistratie-app/">appkeuzegids</a>. Gebruik bij een overstap een vaste startdatum en bewaar je oude spreadsheet. De gids <a href="/uren-bijhouden-zonder-excel/">uren bijhouden zonder Excel</a> werkt die overstap verder uit.</p>
+</Guide>

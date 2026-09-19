@@ -9,7 +9,7 @@ export const SITE = {
   developerUrl: 'https://www.vejoapps.com',
   appPrivacyUrl: 'https://www.vejoapps.com/privacy',
   minimumIOS: '18.6',
-  factsChecked: '2026-09-09',
+  factsChecked: '2026-09-19',
   locale: 'nl_NL',
   description:
     "Uurwerk is een eenvoudige urenregistratie app voor zzp'ers, freelancers en kleine ondernemers. Registreer uren met timer of handmatig, beheer klanten en projecten en maak facturen van je uren.",
@@ -21,8 +21,8 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
+  { label: 'Urenregistratie', href: '/urenregistratie/' },
   { label: 'Functies', href: '/#functies' },
-  { label: 'Hoe het werkt', href: '/#hoe-het-werkt' },
   { label: 'Urenstaat', href: '/urenstaat-maken/' },
   { label: 'Gidsen', href: '/#gidsen' },
   { label: 'Gratis & Pro', href: '/urenregistratie-app-gratis/' },
@@ -37,6 +37,48 @@ export interface Guide {
 }
 
 export const GUIDES: Guide[] = [
+  {
+    slug: 'urenregistratie',
+    title: 'Urenregistratie: uitleg, voorbeelden en hulpmiddelen',
+    navTitle: 'Urenregistratie',
+    description: 'Wat is urenregistratie en hoe begin je? Kies een werkwijze, bekijk voorbeelden en vind de juiste gids voor jouw situatie.',
+    hook: 'Begin hier: kies je werkwijze en vind de juiste gids.',
+  },
+  {
+    slug: 'urenregistratie-software',
+    title: 'Urenregistratie software kiezen: functies en kosten',
+    navTitle: 'Urenregistratie software',
+    description: 'Vergelijk een spreadsheet, urenapp en uitgebreider softwarepakket op invoer, facturen, teamgebruik en kosten.',
+    hook: 'Vergelijk functies en kosten voor zelfstandig werk of een team.',
+  },
+  {
+    slug: 'uren-bijhouden',
+    title: 'Uren bijhouden: stappenplan met dagvoorbeeld',
+    navTitle: 'Uren bijhouden',
+    description: 'Houd je werkuren dagelijks bij met een timer of handmatig. Met een voorbeeld voor pauzes, klantwerk en administratie.',
+    hook: 'Een vaste routine voor je werkuren, pauzes en weekcontrole.',
+  },
+  {
+    slug: 'urenregistratie-excel',
+    title: 'Urenregistratie Excel: gratis template en formules',
+    navTitle: 'Urenregistratie Excel',
+    description: 'Download een gratis Excel-template voor urenregistratie. Met ingevuld voorbeeld, formules, pauzes en uitleg over decimale uren.',
+    hook: 'Download een template en controleer je uren met rekenvoorbeelden.',
+  },
+  {
+    slug: 'urenregistratie-personeel',
+    title: 'Urenregistratie personeel: werkwijze en eisen',
+    navTitle: 'Urenregistratie personeel',
+    description: 'Richt urenregistratie voor medewerkers in: werk- en rusttijden, controle en softwarekeuze. Met voorbeeld en officiële bronnen.',
+    hook: 'Wat je voor medewerkers vastlegt en welke teamfuncties je nodig hebt.',
+  },
+  {
+    slug: 'tijdregistratie',
+    title: 'Tijdregistratie: tijdschrijven per taak en project',
+    navTitle: 'Tijdregistratie',
+    description: 'Ontdek waar je werktijd naartoe gaat. Met een voorbeeld van tijdschrijven, projectnacalculatie en declarabele uren.',
+    hook: 'Gebruik je geregistreerde tijd om projecten beter te begroten.',
+  },
   {
     slug: 'uren-factureren',
     title: 'Uren factureren: van urenstaat naar factuur',
@@ -62,8 +104,8 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'urencriterium',
-    title: 'Urenregistratie en het urencriterium (1.225 uur)',
-    navTitle: 'Urencriterium',
+    title: 'Urencriterium zzp: 1.225 uur en je onderbouwing',
+    navTitle: 'Urencriterium zzp',
     description:
       'Welke uren tellen mee voor het urencriterium van 1.225 uur en hoe toon je ze aan? Uitleg met verwijzing naar de Belastingdienst.',
     hook: 'Welke uren tellen mee voor de 1.225 uur en hoe toon je dat aan?',
@@ -119,9 +161,15 @@ export const GUIDES: Guide[] = [
 ];
 
 export const RELATED_GUIDES: Record<string, string[]> = {
+  'urenregistratie': ['urenregistratie-zzp', 'urenregistratie-app', 'urenregistratie-excel', 'urencriterium'],
+  'urenregistratie-software': ['urenregistratie-app', 'urenregistratie-app-gratis', 'urenregistratie-personeel'],
+  'uren-bijhouden': ['urenregistratie-zzp', 'urenregistratie-excel', 'tijdregistratie'],
+  'urenregistratie-excel': ['urenstaat-maken', 'uren-bijhouden-zonder-excel', 'urenregistratie-app'],
+  'urenregistratie-personeel': ['urenregistratie-software', 'tijdregistratie', 'urenregistratie-bouw'],
+  'tijdregistratie': ['uren-bijhouden', 'uren-factureren', 'urenregistratie-software'],
   'urenstaat-maken': ['uren-factureren', 'uren-bijhouden-zonder-excel', 'urenregistratie-zzp'],
   'uren-factureren': ['urenstaat-maken', 'urenregistratie-app-gratis', 'urenregistratie-app'],
-  'urenregistratie-app': ['uren-factureren', 'urenregistratie-app-gratis', 'online-urenregistratie'],
+  'urenregistratie-app': ['uren-factureren', 'urenregistratie-app-gratis', 'urenregistratie-software'],
   'urenregistratie-app-gratis': ['urenregistratie-app', 'uren-factureren', 'urenstaat-maken'],
   'urenregistratie-zzp': ['urencriterium', 'urenstaat-maken', 'uren-factureren'],
   'urencriterium': ['urenregistratie-belastingdienst', 'urenregistratie-zzp', 'urenstaat-maken'],
@@ -138,6 +186,19 @@ export const PRODUCT_FEATURES = [
   { label: 'Conceptfacturen maken', free: true },
   { label: 'Facturen versturen vanuit de app', free: false },
 ] as const;
+
+// Prijzen en betaalperioden bevestigd door de maker op 19 september 2026.
+export const PRO_PRICING = {
+  monthly: 6.99,
+  yearly: 59.99,
+  monthlyLabel: '€ 6,99',
+  yearlyLabel: '€ 59,99',
+  yearlyMonthlyLabel: '€ 5',
+  yearlySavingPercent: 28,
+  checked: '2026-09-19',
+} as const;
+
+export const PRO_PRICE_ANSWER = `Uurwerk Pro kost ${PRO_PRICING.monthlyLabel} per maand of ${PRO_PRICING.yearlyLabel} per jaar. Het jaarabonnement komt neer op ongeveer ${PRO_PRICING.yearlyMonthlyLabel} per maand en is ${PRO_PRICING.yearlySavingPercent}% goedkoper dan twaalf maandbetalingen. Je betaalt het jaarbedrag in één keer. Urenregistratie, klanten, projecten en conceptfacturen zijn gratis; Pro is nodig om facturen te versturen.`;
 
 export function guideUrl(slug: string): string {
   return `/${slug}/`;

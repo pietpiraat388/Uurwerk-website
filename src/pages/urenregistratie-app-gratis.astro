@@ -1,5 +1,6 @@
 ---
 import Guide from '../layouts/Guide.astro';
+import { PRO_PRICE_ANSWER } from '../lib/site';
 import type { FaqEntry } from '../lib/schema';
 import PricingTable from '../components/PricingTable.astro';
 
@@ -12,7 +13,7 @@ const faq: FaqEntry[] = [
   {
     question: 'Wat kost Uurwerk Pro?',
     answer:
-      'Bekijk de actuele prijs en betaalperiode in de app voordat je Uurwerk Pro aanschaft. Urenregistratie, klanten, projecten en conceptfacturen zijn gratis; voor facturen versturen vanuit de app is Pro nodig.',
+      PRO_PRICE_ANSWER,
   },
   {
     question: 'Waar moet ik op letten bij gratis urenregistratie apps?',
@@ -30,9 +31,9 @@ const faq: FaqEntry[] = [
 <Guide
   slug="urenregistratie-app-gratis"
   metaTitle="Gratis urenregistratie app: dit krijg je bij Uurwerk"
-  description="Eerlijk overzicht van wat gratis is in Uurwerk: urenregistratie, klanten, projecten, overzichten en conceptfacturen. Alleen facturen versturen vereist Uurwerk Pro."
+  description="Bekijk de gratis functies van Uurwerk: urenregistratie, klanten, projecten en conceptfacturen. Voor facturen versturen heb je Uurwerk Pro nodig."
   h1="Gratis urenregistratie app: wat krijg je bij Uurwerk?"
-  dateModified="2026-09-09"
+  dateModified="2026-09-19"
   answer="Uurwerk is gratis te downloaden en gratis te gebruiken voor de kern van urenregistratie: uren invoeren met timer of handmatig, klanten en projecten beheren, overzichten bekijken en conceptfacturen maken. Alleen voor het versturen van facturen vanuit de app is de betaalde versie Uurwerk Pro nodig."
   faq={faq}
 >
@@ -53,9 +54,7 @@ const faq: FaqEntry[] = [
 
   <h2>Waarvoor heb je Uurwerk Pro nodig?</h2>
   <p>
-    <strong>Uurwerk Pro is nodig om facturen te versturen</strong> vanuit de app. De actuele
-    prijs en voorwaarden bekijk je in de app. Controleer vóór je een aankoop bevestigt de
-    prijs, betaalperiode en eventuele verlenging.
+    {PRO_PRICE_ANSWER} Controleer vóór aankoop de voorwaarden en eventuele verlenging in de app.
   </p>
 
   <h2>Eerlijk vergelijken: waar je bij &ldquo;gratis&rdquo; op let</h2>

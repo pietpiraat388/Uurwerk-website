@@ -33,7 +33,7 @@ src/
   layouts/           Base.astro (SEO/head), Guide.astro (gidspagina's)
   lib/site.ts        Sitegegevens, navigatie en gidsenlijst
   lib/schema.ts      JSON-LD helpers (SoftwareApplication, Article, FAQPage, BreadcrumbList)
-  pages/             index + 10 gidsen + over/contact/privacy + 404 + llms.txt
+  pages/             index + 16 gidsen + urencriterium-alias + over/contact/privacy + 404 + llms.txt
   styles/global.css  Design tokens en basisstijlen
 public/              favicons, og-default.png, robots.txt en downloads
 scripts/             Downloads genereren en rekenregels testen
@@ -58,3 +58,9 @@ De site verstuurt lokale DOM-events voor App Store-klikken, downloadklikken en a
 
 Statische site: de map `dist/` kan naar elke host (Vercel, Netlify, Cloudflare Pages).
 Het domein `urenregistreren.com` staat geconfigureerd in `astro.config.mjs` (`site`) en `src/lib/site.ts` (`SITE.url`) en wordt gebruikt voor canonicals, Open Graph, JSON-LD, sitemap en robots.txt.
+
+## SEO-uitbreiding september 2026
+
+Zoekwoorddata, nulmeting en paginakeuzes staan in [het onderzoek van 19 september](docs/seo-geo-2026-09-19.md). `/urenregistratie/` is het centrale gidsenoverzicht. `/urencriterium/` blijft canoniek; `/urencriterium-zzp/` verwijst daarheen. Vercel handelt de permanente HTTP-redirect af via `vercel.json`; op andere statische hosts moet die redirect apart worden ingericht (Astro bouwt een noindex meta-refresh als fallback).
+
+Pro-prijzen staan centraal in `src/lib/site.ts`, bevestigd door de maker. Houd zichtbare antwoorden en JSON-LD gelijk bij prijswijzigingen.

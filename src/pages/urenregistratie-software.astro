@@ -1,0 +1,49 @@
+---
+import Guide from '../layouts/Guide.astro';
+import { PRO_PRICE_ANSWER } from '../lib/site';
+import ProductIdentity from '../components/ProductIdentity.astro';
+import PricingTable from '../components/PricingTable.astro';
+import type { FaqEntry } from '../lib/schema';
+const faq: FaqEntry[] = [
+  { question: 'Wat is urenregistratie software?', answer: 'Urenregistratie software legt gewerkte tijd vast en bundelt die per periode, klant, project of medewerker. Afhankelijk van het pakket kun je timers gebruiken, facturen maken, uren goedkeuren of gegevens naar andere systemen overzetten.' },
+  { question: 'Welke urenregistratie software past bij een zzp’er?', answer: 'Voor een zelfstandige zijn snelle invoer, klant- en projectoverzichten en duidelijke tarieven een bruikbaar begin. Wil je vanuit je uren factureren, controleer dan ook de factuurfuncties en kosten. Uurwerk biedt die werkwijze op iPhone; vergelijk andere oplossingen als je een browserdienst, Android of teamfuncties nodig hebt.' },
+  { question: 'Wat kost urenregistratiesoftware?', answer: PRO_PRICE_ANSWER },
+  { question: 'Is Uurwerk een boekhoudpakket?', answer: 'Uurwerk richt zich op werkuren, klanten, projecten en facturen. Het wordt hier niet aangeboden als volledig boekhoudpakket met bankverwerking, salarisadministratie of aangiften. Controleer welke aanvullende administratie je nodig hebt.' },
+];
+---
+<Guide slug="urenregistratie-software" metaTitle="Urenregistratie software: functies en kosten | Uurwerk"
+  description="Kies urenregistratie software die past bij je werk. Vergelijk Excel, een urenapp en teamsoftware op functies, facturatie en kosten."
+  h1="Urenregistratie software kiezen: functies en kosten"
+  answer="Kies urenregistratie software op basis van je werkproces: werk je alleen of met medewerkers, wil je uren factureren en op welke apparaten registreer je? Controleer daarna de invoer, overzichten, exportmogelijkheden en totale kosten. Uurwerk is een iPhone-app voor eigen uren, klanten, projecten en facturen."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}>
+  <h2>Welke soort oplossing heb je nodig?</h2>
+  <p>Begin met de taak waarvoor je de gegevens gebruikt. Een freelancer die maandelijks uren factureert heeft andere eisen dan een werkgever die werktijden, verlof en salarisverwerking op elkaar wil laten aansluiten.</p>
+  <div class="table-scroll"><table>
+    <caption>Vergelijking van werkwijzen, geen ranglijst van aanbieders</caption>
+    <thead><tr><th scope="col">Oplossing</th><th scope="col">Past bij</th><th scope="col">Controleer vooraf</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Spreadsheet</th><td>Zelf invoeren en een eigen indeling maken</td><td>Formules, versiebeheer, bewaren en handmatig factureren</td></tr>
+      <tr><th scope="row">Persoonlijke urenapp</th><td>Registreren tijdens de werkdag, per klant of project</td><td>Apparaat, timer, correcties, tarieven en factuurfuncties</td></tr>
+      <tr><th scope="row">Teamsoftware</th><td>Registraties van meerdere medewerkers verzamelen</td><td>Accounts, rechten, goedkeuring, werk- en rusttijden en kosten per gebruiker</td></tr>
+      <tr><th scope="row">Boekhoud- of projectpakket</th><td>Uren verbinden met een bredere administratie</td><td>Werkelijke koppelingen, inrichting en welke modules je betaalt</td></tr>
+    </tbody>
+  </table></div>
+  <p>Probeer bij een kleine administratie eerst een <a href="/urenregistratie-excel/">Excel-template</a> of <a href="/urenregistratie-app/">urenregistratie-app</a>. Heb je medewerkers, gebruik dan de aparte <a href="/urenregistratie-personeel/">controlelijst voor personeelsregistratie</a>.</p>
+  <h2>Test software met één volledige opdracht</h2>
+  <ol>
+    <li>Maak een klant en project aan met een afgesproken tarief.</li>
+    <li>Registreer een werkblok met pauze en een tweede blok met een andere omschrijving.</li>
+    <li>Corrigeer een foutieve invoer en controleer het projecttotaal.</li>
+    <li>Maak een klantoverzicht of conceptfactuur. Controleer de geselecteerde uren en bedragen.</li>
+    <li>Controleer welke gegevens je kunt bewaren of meenemen wanneer je stopt met het product.</li>
+  </ol>
+  <p>Neem bijvoorbeeld 2 uur en 30 minuten werk tegen € 60 per uur. De uitkomst moet € 150 exclusief eventuele btw zijn. Dit kleine voorbeeld laat zien hoe het pakket minuten, tarieven en afrondingen verwerkt. Voor de factuurcontrole vind je een uitgebreider voorbeeld bij <a href="/uren-factureren/">uren factureren</a>.</p>
+  <h2>Wat kost urenregistratiesoftware in jouw situatie?</h2>
+  <p>Een maandbedrag vertelt pas genoeg als je weet wat het omvat. Noteer het aantal betaalde gebruikers, verplichte modules, eventuele inrichtingskosten en het verschil tussen maand- en jaarbetaling. Controleer of een genoemd bedrag inclusief of exclusief btw is.</p>
+  <p>Een fictieve rekensom: een pakket van € 8 per gebruiker per maand kost bij vijf gebruikers € 40 per maand, of € 480 over twaalf maanden. Dat is geen actuele prijs van een aanbieder; het laat zien waarom je met je volledige team moet rekenen.</p>
+  <PricingTable />
+  <h2>Apparaat, export en samenwerking</h2>
+  <p>Controleer de apparaten waarop je echt gaat werken. Een iPhone-app is iets anders dan een dienst die in iedere browser draait. Vraag bij samenwerking of medewerkers alleen hun eigen registraties zien en wie correcties kan uitvoeren. Bij een koppeling wil je weten welke gegevens worden overgezet en in welke richting.</p>
+  <p>Maak ook onderscheid tussen een PDF-factuur en een export van alle ruwe urenregels. De ene vervangt de andere niet. In Uurwerk zijn PDF-facturen onderdeel van de beschreven functies; een algemene urenexport of boekhoudkoppeling wordt op deze website niet beloofd.</p>
+  <ProductIdentity />
+</Guide>

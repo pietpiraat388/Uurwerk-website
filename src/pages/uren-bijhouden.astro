@@ -1,0 +1,53 @@
+---
+import Guide from '../layouts/Guide.astro';
+import { Image } from 'astro:assets';
+import entry from '../assets/uurwerk-uren-registreren-handmatig-invoeren-iphone.png';
+import type { FaqEntry } from '../lib/schema';
+const faq: FaqEntry[] = [
+  { question: 'Hoe kan ik mijn gewerkte uren bijhouden?', answer: 'Noteer per werkblok de datum, begin- en eindtijd, pauze, activiteit en eventueel klant en project. Dat kan in een urenlijst of app. Tel alleen de gewerkte tijd op en controleer aan het einde van de dag of alle taken erin staan.' },
+  { question: 'Hoe bereken ik werkuren met een pauze?', answer: 'Trek de begintijd af van de eindtijd en haal de pauze daarvan af. Van 09:00 tot 17:00 is acht uur; met 30 minuten pauze blijft 7 uur en 30 minuten werktijd over. Als decimaal getal is dat 7,5 uur.' },
+  { question: 'Is 7 uur en 30 minuten hetzelfde als 7,30 uur?', answer: 'Nee. Bij decimale uren deel je de minuten door 60. Daarom is 7 uur en 30 minuten gelijk aan 7,5 uur. Het getal 7,30 betekent 7 uur en 18 minuten.' },
+  { question: 'Kan ik gratis uren bijhouden op mijn iPhone?', answer: 'Met Uurwerk kun je gratis uren invoeren met een timer of handmatig en klanten en projecten beheren. Je kunt ook gratis conceptfacturen maken. Voor facturen versturen vanuit de app is Uurwerk Pro nodig.' },
+];
+---
+<Guide slug="uren-bijhouden" metaTitle="Uren bijhouden: stappenplan en dagvoorbeeld | Uurwerk"
+  description="Houd je gewerkte uren dagelijks bij. Met een praktisch stappenplan, een dagvoorbeeld en uitleg over pauzes, timers en decimale uren."
+  h1="Uren bijhouden: een routine die bij je werkdag past"
+  answer="Houd je uren bij zodra je een taak begint of afrondt. Noteer datum, activiteit, klant of project en gewerkte duur. Trek pauzes af en controleer iedere week je totalen. Een timer helpt bij wisselende taken; handmatige invoer werkt goed als je vaste begin- en eindtijden hebt."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}>
+  <h2>Uren bijhouden in vijf stappen</h2>
+  <ol>
+    <li>Kies één plek voor je registratie: een <a href="/urenregistratie-excel/">Excel-bestand</a>, een papieren urenstaat of een <a href="/urenregistratie-app/">urenapp</a>.</li>
+    <li>Maak herkenbare klanten en projecten aan. Gebruik een apart label of project voor eigen administratie en acquisitie.</li>
+    <li>Start een timer bij het begin van een werkblok of noteer begin- en eindtijd zodra je klaar bent.</li>
+    <li>Verwerk pauzes, klantwissels en onderbrekingen. Geef iedere regel een omschrijving die je over een maand nog begrijpt.</li>
+    <li>Controleer op een vast moment je week: ontbrekende dagen, dubbele registraties en uren die nog op een factuur moeten.</li>
+  </ol>
+  <p>Je hoeft niet elk berichtje als losse taak te noteren. Kies een indeling waarmee je het werk kunt uitleggen, bijvoorbeeld “klantoverleg en verwerken feedback”. Splits wel wanneer je voor een andere klant gaat werken.</p>
+  <h2>Voorbeeld: een dag met klantwerk en administratie</h2>
+  <div class="table-scroll"><table>
+    <caption>Fictieve werkdag; de lunch telt niet als werktijd</caption>
+    <thead><tr><th scope="col">Werkblok</th><th scope="col">Activiteit</th><th scope="col">Duur</th></tr></thead>
+    <tbody>
+      <tr><td>09:00–11:30</td><td>Ontwerp voor klant A</td><td>2,50 uur</td></tr>
+      <tr><td>11:30–12:00</td><td>Eigen administratie</td><td>0,50 uur</td></tr>
+      <tr><td>12:00–12:30</td><td>Lunchpauze</td><td>0,00 werkuren</td></tr>
+      <tr><td>12:30–15:00</td><td>Uitwerking voor klant A</td><td>2,50 uur</td></tr>
+      <tr><td>15:00–16:00</td><td>Onderhoud voor klant B</td><td>1,00 uur</td></tr>
+      <tr><th scope="row" colspan="2">Totaal</th><td>6,50 uur</td></tr>
+    </tbody>
+  </table></div>
+  <p>Je was zeven uur aanwezig en werkte daarvan 6,5 uur. Klant A heeft vijf uur, klant B één uur. Het halve uur eigen administratie houd je apart. Of werk declarabel is, volgt uit de opdracht; een registratie op zichzelf is geen afspraak om te mogen factureren.</p>
+  <h2>Timer of handmatig invoeren?</h2>
+  <p>Gebruik een timer als de duur vooraf onzeker is. Stop of pauzeer hem zodra je iets anders gaat doen. Een vergeten timer kan net zo goed een fout totaal opleveren als een vergeten urenregel.</p>
+  <p>Handmatig invoeren past bij een vaste dienst of een werkblok op locatie. Noteer de tijden op dezelfde dag. Mis je een registratie, gebruik dan je agenda en werknotities om het blok te reconstrueren en controleer de uitkomst. Vermijd standaard iedere dag acht uur invullen als je feitelijke werkdag anders liep.</p>
+  <figure class="guide-figure">
+    <Image src={entry} alt="Handmatige ureninvoer in Uurwerk met starttijd, eindtijd, pauze en omschrijving" width={300} loading="lazy" />
+    <figcaption>In Uurwerk leg je een werkblok vast met klant, project, tijden en pauze.</figcaption>
+  </figure>
+  <h2>Minuten omzetten naar decimale uren</h2>
+  <p>Voor een berekening met een uurtarief gebruik je vaak decimale uren: 15 minuten is 0,25 uur, 30 minuten is 0,50 uur en 45 minuten is 0,75 uur. Rekenvoorbeeld: 2 uur en 45 minuten is 2,75 uur. Bij een afgesproken tarief van € 60 is dat € 165 exclusief eventuele btw.</p>
+  <p>Rond niet elk kort werkblok willekeurig omhoog af. Bewaar de werkelijk bestede tijd en pas een afgesproken afronding pas toe bij de facturatie. Zo blijft je eigen tijdsoverzicht bruikbaar.</p>
+  <h2>Wat doe je met je weektotaal?</h2>
+  <p>Groepeer je klanturen tot een <a href="/urenstaat-maken/">urenstaat</a> en vergelijk bij vaste prijsprojecten de bestede tijd met je begroting. De gids <a href="/tijdregistratie/">tijdregistratie</a> werkt die nacalculatie uit. Als zelfstandige lees je bij <a href="/urenregistratie-zzp/">urenregistratie zzp</a> hoe je daarnaast je eigen bedrijfsactiviteiten vastlegt.</p>
+</Guide>

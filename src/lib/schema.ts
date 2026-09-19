@@ -1,4 +1,4 @@
-import { SITE } from './site';
+import { PRO_PRICING, SITE } from './site';
 
 export interface FaqEntry {
   question: string;
@@ -60,13 +60,30 @@ export function softwareApplicationSchema() {
     url: SITE.url,
     downloadUrl: SITE.appStoreUrl,
     installUrl: SITE.appStoreUrl,
-    offers: {
+    offers: [{
       '@type': 'Offer',
+      name: 'Gratis urenregistratie',
       price: '0',
       priceCurrency: 'EUR',
       description:
         'Gratis te gebruiken voor urenregistratie, klanten, projecten en conceptfacturen. Uurwerk Pro is nodig om facturen te versturen.',
-    },
+    }, ...[
+      { name: 'Uurwerk Pro per maand', price: PRO_PRICING.monthly, duration: 'P1M' },
+      { name: 'Uurwerk Pro per jaar', price: PRO_PRICING.yearly, duration: 'P1Y' },
+    ].map((plan) => ({
+      '@type': 'Offer',
+      name: plan.name,
+      url: `${SITE.url}/urenregistratie-app-gratis/`,
+      price: plan.price.toFixed(2),
+      priceCurrency: 'EUR',
+      description: 'Betaald abonnement voor facturen versturen vanuit Uurwerk.',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: plan.price.toFixed(2),
+        priceCurrency: 'EUR',
+        billingDuration: plan.duration,
+      },
+    }))],
     author: {
       '@type': 'Person',
       '@id': ENTITY_IDS.person,
@@ -87,6 +104,7 @@ export function websiteSchema() {
     '@type': 'WebSite',
     '@id': ENTITY_IDS.website,
     name: SITE.name,
+    alternateName: 'Urenregistreren.com',
     url: SITE.url,
     inLanguage: 'nl',
     publisher: {

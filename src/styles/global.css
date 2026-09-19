@@ -451,3 +451,6 @@ li {
 ::selection {
   background: var(--accent-soft);
 }
+
+/* Lange formules blijven binnen de tekstkolom op kleine schermen. */
+.prose code { overflow-wrap: anywhere; }

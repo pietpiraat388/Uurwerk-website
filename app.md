@@ -1,6 +1,6 @@
 # Uurwerk - Uren Registratie (App Store-analyse)
 
-Bron: App Store-vermelding, opnieuw gecontroleerd op 9 september 2026 via de [iTunes Lookup API](https://itunes.apple.com/lookup?id=6781654951&country=nl), de [Nederlandse App Store-pagina](https://apps.apple.com/nl/app/uurwerk-uren-registratie/id6781654951) en de gelinkte ontwikkelaarswebsite.
+Bron: App Store-vermelding, opnieuw gecontroleerd op 19 september 2026 via de [iTunes Lookup API](https://itunes.apple.com/lookup?id=6781654951&country=nl), de [Nederlandse App Store-pagina](https://apps.apple.com/nl/app/uurwerk-uren-registratie/id6781654951) en de gelinkte ontwikkelaarswebsite.
 
 ## Kerngegevens
 
@@ -46,7 +46,7 @@ Uurwerk helpt je precies bij te houden wat je hebt gedaan, voor wie, tegen welk 
 
 - Gratis te gebruiken voor urenregistratie, klanten, projecten en conceptfacturen.
 - Uurwerk Pro is nodig om facturen te versturen.
-- De exacte Pro-prijs en betaalperioden zijn niet geverifieerd. De openbare lookup bevat ze niet en de lokale asc CLI heeft geen actieve authenticatie. Vermeld geen bedrag tot het is gecontroleerd in de app of App Store Connect.
+- Door de maker bevestigd op 19 september 2026: Pro kost € 6,99 per maand of € 59,99 per jaar, in één keer betaald. Het jaarbedrag komt neer op ongeveer € 5 per maand en 28% voordeel ten opzichte van twaalf maandbetalingen. De openbare lookup vermeldt deze in-app prijzen niet; de maker is hiervoor de bron.
 - De zakelijke verhouding tussen Parivee en VeJo Apps is niet vastgesteld. Claim geen juridische verhouding op basis van de ontwikkelaarslink alleen.
 
 ## Doelgroep
@@ -81,7 +81,7 @@ Freelancers, zzp'ers, consultants, makers en dienstverleners die geen zware boek
 
 - Geen kilometerregistratie (keyword "uren en km registratie app" dus niet gebruiken).
 - Geen Android-versie bekend; alleen iOS (iPhone; minimaal iOS 18.6).
-- Geen teamfuncties, agenda-koppeling of export naar boekhoudpakketten geclaimd.
+- Door de maker bevestigd op 19 september 2026: geen medewerkersaccounts en geen uren goedkeuren. Agenda-koppeling en export naar boekhoudpakketten zijn niet geclaimd.
 - Geen reviews of gebruikersaantallen beschikbaar (0 beoordelingen bij ophalen); nergens sociale bewijzen verzinnen.
 - Offline werking, accountvereisten, back-ups en een gegarandeerde bewaartermijn zijn niet vastgesteld. Claim deze niet op basis van alleen de screenshots.
 - PDF-export is zichtbaar, maar de precieze toegang zonder Pro is niet geverifieerd. Beloof geen gratis alternatief om de betaalde verstuurfunctie te omzeilen.

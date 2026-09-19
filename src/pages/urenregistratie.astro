@@ -1,0 +1,62 @@
+---
+import Guide from '../layouts/Guide.astro';
+import { PRO_PRICE_ANSWER } from '../lib/site';
+import ProductIdentity from '../components/ProductIdentity.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  { question: 'Wat is urenregistratie?', answer: 'Urenregistratie is het vastleggen van de tijd die je aan werkzaamheden besteedt. Per regel noteer je de datum, activiteit, duur en zo nodig de klant of het project. Je gebruikt de gegevens voor facturatie, projectinzicht of het onderbouwen van je ondernemingsuren.' },
+  { question: 'Wat is de beste manier om uren bij te houden?', answer: 'Kies een methode die je tijdens je werkdag kunt gebruiken. Een timer is handig bij wisselende taken; handmatige invoer past bij vaste werkblokken. Registreer dagelijks, trek pauzes af en controleer wekelijks je totalen. Een spreadsheet kan voldoende zijn; een app helpt bij timers en de koppeling met klanten.' },
+  { question: 'Moet een zzp’er zijn uren registreren?', answer: 'Wil je een aftrek gebruiken waarvoor het urencriterium geldt, dan moet je aannemelijk kunnen maken hoeveel tijd je aan je onderneming besteedt. Een doorlopende urenregistratie helpt daarbij, samen met agenda, offertes en facturen. De Belastingdienst schrijft hiervoor geen specifieke app voor. Lees de <a href="/urencriterium/">voorwaarden en uitzonderingen</a>.' },
+  { question: 'Wat kost urenregistratie met Uurwerk?', answer: PRO_PRICE_ANSWER },
+  { question: 'Wat is het verschil tussen urenregistratie en een urenstaat?', answer: 'Urenregistratie is het doorlopend vastleggen van je werkuren. Een urenstaat is een overzicht van die registraties, bijvoorbeeld voor één klant in één maand. Je kunt dus meerdere urenstaten maken op basis van dezelfde administratie.' },
+];
+---
+<Guide
+  slug="urenregistratie"
+  metaTitle="Urenregistratie: uitleg, voorbeeld en aanpak | Uurwerk"
+  description="Wat is urenregistratie en hoe begin je? Bekijk een voorbeeld, vergelijk app en Excel en vind uitleg voor zzp, personeel en het urencriterium."
+  h1="Urenregistratie: van je werkdag naar een helder overzicht"
+  answer="Urenregistratie is het per dag vastleggen van je gewerkte tijd, met een omschrijving en waar nodig een klant of project. Daarmee controleer je wat je kunt factureren, hoeveel tijd opdrachten kosten en welke uren je aan je onderneming besteedt. Begin met datum, activiteit, duur en een vaste dagelijkse routine."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}
+>
+  <h2>Welke urenregistratie past bij jouw situatie?</h2>
+  <p>Een zelfstandige die klanturen factureert heeft andere gegevens nodig dan een werkgever die diensten controleert. Kies eerst waarvoor je de registratie gebruikt.</p>
+  <div class="table-scroll"><table>
+    <caption>Kies je startpunt</caption>
+    <thead><tr><th scope="col">Je wilt…</th><th scope="col">Begin met</th></tr></thead>
+    <tbody>
+      <tr><td>Je eigen ondernemingsuren vastleggen</td><td><a href="/urenregistratie-zzp/">Urenregistratie voor zzp’ers</a></td></tr>
+      <tr><td>Een dagelijkse routine opbouwen</td><td><a href="/uren-bijhouden/">Uren bijhouden in vijf stappen</a></td></tr>
+      <tr><td>Op je telefoon registreren</td><td><a href="/urenregistratie-app/">Een urenregistratie-app kiezen</a></td></tr>
+      <tr><td>Functies en kosten afwegen</td><td><a href="/urenregistratie-software/">Urenregistratie software vergelijken</a></td></tr>
+      <tr><td>Een spreadsheet invullen</td><td><a href="/urenregistratie-excel/">Gratis Excel-template en formules</a></td></tr>
+      <tr><td>Je 1.225 ondernemingsuren onderbouwen</td><td><a href="/urencriterium/">Urencriterium voor zzp’ers</a></td></tr>
+      <tr><td>Werktijden van medewerkers vastleggen</td><td><a href="/urenregistratie-personeel/">Urenregistratie voor personeel</a></td></tr>
+      <tr><td>Je tijd per bouwklus verantwoorden</td><td><a href="/urenregistratie-bouw/">Urenregistratie in de bouw</a></td></tr>
+      <tr><td>Begrote en bestede tijd vergelijken</td><td><a href="/tijdregistratie/">Tijdregistratie per taak en project</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Zo ziet een bruikbare urenregistratie eruit</h2>
+  <p>Noteer wat je deed en voor wie. Alleen “maandag: acht uur” helpt je later niet bij het controleren van een factuur. Dit fictieve voorbeeld maakt het verschil zichtbaar:</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">Datum</th><th scope="col">Klant of activiteit</th><th scope="col">Omschrijving</th><th scope="col">Uren</th></tr></thead>
+    <tbody>
+      <tr><td>14 september</td><td>Klant A, website</td><td>Contactformulier bouwen en testen</td><td>3,50</td></tr>
+      <tr><td>14 september</td><td>Klant B, onderhoud</td><td>Productteksten verwerken</td><td>2,00</td></tr>
+      <tr><td>14 september</td><td>Eigen administratie</td><td>Inkoopfacturen verwerken</td><td>0,75</td></tr>
+      <tr><th scope="row" colspan="3">Totaal werktijd, zonder pauzes</th><td>6,25</td></tr>
+    </tbody>
+  </table></div>
+  <p>De 6,25 uur is je totale geregistreerde werktijd. Hoeveel daarvan op een klantfactuur komt, hangt af van je afspraken. Bewaar eigen bedrijfsactiviteiten apart. Bekijk het <a href="/urenstaat-maken/">volledige urenstaatvoorbeeld</a> om de registraties per opdrachtgever te bundelen.</p>
+
+  <h2>Van registratie naar factuur of onderbouwing</h2>
+  <p>Voor facturatie selecteer je de afgesproken klanturen en het juiste tarief. Controleer of je dezelfde uren niet eerder hebt gefactureerd. De gids <a href="/uren-factureren/">uren factureren</a> laat zien hoe je dit met een rekenvoorbeeld controleert.</p>
+  <p>Voor fiscale onderbouwing gaat het om tijd die je aan je onderneming besteedt. Een factuur alleen laat niet zien hoeveel tijd je aan offertes of administratie werkte. Leg die activiteiten daarom ook vast en bewaar passende bewijsstukken. De <a href="/urenregistratie-belastingdienst/">gids voor de Belastingdienst</a> helpt je die onderbouwing te organiseren.</p>
+
+  <h2>Excel, een app of een uitgebreider pakket?</h2>
+  <p>Excel geeft je vrijheid om kolommen en berekeningen aan te passen. Je controleert zelf de formules en houdt versies van het bestand bij. Een app maakt het eenvoudiger om tijdens een taak een timer te gebruiken en registraties aan klanten te koppelen. Voor meerdere medewerkers kunnen rechten, goedkeuring en koppelingen met andere systemen bepalend zijn.</p>
+  <p>Vergelijk een oplossing met een echte werkdag: voer een pauze, een tweede klant en een correctie in. Controleer daarna of je het juiste dagtotaal en een bruikbaar klantoverzicht krijgt. Kijk bij een <a href="/online-urenregistratie/">online dienst</a> ook of je in de browser wilt werken of een geïnstalleerde app zoekt.</p>
+  <ProductIdentity />
+</Guide>

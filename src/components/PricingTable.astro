@@ -1,5 +1,5 @@
 ---
-import { PRODUCT_FEATURES, SITE } from '../lib/site';
+import { PRODUCT_FEATURES, PRO_PRICING, SITE } from '../lib/site';
 ---
 <div class="table-scroll">
   <table>
@@ -8,4 +8,8 @@ import { PRODUCT_FEATURES, SITE } from '../lib/site';
     <tbody>{PRODUCT_FEATURES.map((feature) => <tr><th scope="row">{feature.label}</th><td>{feature.free ? 'Inbegrepen' : 'Pro nodig'}</td><td>Inbegrepen</td></tr>)}</tbody>
   </table>
 </div>
-<p class="download-note">Uurwerk is gratis te downloaden. Voor facturen versturen is een betaalde Pro-upgrade nodig. Bekijk de actuele prijs en abonnementsperiode in de app voordat je bevestigt. <a href={SITE.appStoreUrl}>Bekijk Uurwerk in de App Store</a>.</p>
+<dl class="product-facts">
+  <div><dt>Pro per maand</dt><dd><strong>{PRO_PRICING.monthlyLabel}</strong> per maand.</dd></div>
+  <div><dt>Pro per jaar</dt><dd><strong>{PRO_PRICING.yearlyLabel}</strong> per jaar, in één keer betaald. Ongeveer {PRO_PRICING.yearlyMonthlyLabel} per maand; {PRO_PRICING.yearlySavingPercent}% goedkoper dan twaalf maandbetalingen.</dd></div>
+</dl>
+<p class="download-note">Uren registreren en conceptfacturen maken zijn gratis. Pro is nodig voor facturen versturen. Prijzen bevestigd op 19 september 2026. Controleer vóór aankoop de voorwaarden in de app. <a href={SITE.appStoreUrl}>Bekijk Uurwerk in de App Store</a>.</p>

@@ -1,5 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/urencriterium-zzp", "destination": "/urencriterium/", "permanent": true },
+    { "source": "/urencriterium-zzp/", "destination": "/urencriterium/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/downloads/urenstaat-sjabloon.xlsx",

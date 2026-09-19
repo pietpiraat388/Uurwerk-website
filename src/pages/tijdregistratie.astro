@@ -1,0 +1,45 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+const faq: FaqEntry[] = [
+  { question: 'Wat is tijdregistratie?', answer: 'Tijdregistratie is het vastleggen hoeveel tijd je besteedt aan taken, klanten of projecten. Je gebruikt de gegevens om te factureren, een planning te controleren of te beoordelen hoeveel werk een opdracht werkelijk kostte. Tijdschrijven is een andere naam voor deze werkwijze.' },
+  { question: 'Wat is het verschil tussen tijdregistratie en urenregistratie?', answer: 'De begrippen worden vaak voor hetzelfde gebruikt. Bij tijdregistratie ligt de nadruk soms op tijd per taak of activiteit, bij urenregistratie op werkuren per dag of klant. De nuttige indeling hangt af van je doel, niet van de naam van de methode.' },
+  { question: 'Heeft tijdschrijven nut bij een vaste projectprijs?', answer: 'Ja. Door de werkelijk bestede uren te vergelijken met je begroting zie je of een volgende offerte meer tijd nodig heeft. De vaste prijs blijft de afspraak met je klant; je tijdregistratie is voor de nacalculatie.' },
+  { question: 'Hoe bereken ik het aandeel declarabele uren?', answer: 'Deel de declarabele uren door alle geregistreerde werkuren en vermenigvuldig met 100. Bij 24 declarabele uren op 32 werkuren is dat 75%. Gebruik voor beide aantallen dezelfde periode en tel iedere activiteit maar één keer.' },
+];
+---
+<Guide slug="tijdregistratie" metaTitle="Tijdregistratie: tijdschrijven per project | Uurwerk"
+  description="Registreer tijd per taak en project. Met voorbeelden voor tijdschrijven, declarabele uren en het vergelijken van begrote en bestede tijd."
+  h1="Tijdregistratie: weten hoeveel werk een project kost"
+  answer="Met tijdregistratie leg je vast hoeveel tijd je aan taken en projecten besteedt. Door die tijd te vergelijken met je planning of offerte zie je waar een opdracht meer werk vraagt dan verwacht. Registreer per werkblok één activiteit, noteer de duur en gebruik vaste projectnamen."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}>
+  <h2>Begin met de vraag die je wilt beantwoorden</h2>
+  <p>Wil je je volgende offerte beter begroten, dan heb je tijd per projectfase nodig. Wil je klanturen factureren, dan moeten klant, project en tarief kloppen. Voor je eigen weekplanning wil je juist kunnen zien hoeveel tijd opgaat aan overleg, uitvoering en administratie.</p>
+  <p>Gebruik een beperkt aantal categorieën die iets zeggen over je werk. Een ontwerper kan bijvoorbeeld onderscheid maken tussen intake, ontwerp en revisies. Tien bijna identieke labels maken de uitkomst lastig te vergelijken. Geef dezelfde soort activiteit bij volgende opdrachten dezelfde naam.</p>
+  <h2>Voorbeeld: nacalculatie van een vaste opdracht</h2>
+  <p>Een fictief websiteproject heeft een vaste prijs van € 1.500 exclusief btw. Je begroot twintig werkuren, maar registreert uiteindelijk vijfentwintig uur:</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">Projectfase</th><th scope="col">Begroot</th><th scope="col">Werkelijk</th><th scope="col">Verschil</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Intake en voorbereiding</th><td>3 uur</td><td>3 uur</td><td>0 uur</td></tr>
+      <tr><th scope="row">Ontwerp en bouw</th><td>14 uur</td><td>16 uur</td><td>+2 uur</td></tr>
+      <tr><th scope="row">Revisies en oplevering</th><td>3 uur</td><td>6 uur</td><td>+3 uur</td></tr>
+      <tr><th scope="row">Totaal</th><td>20 uur</td><td>25 uur</td><td>+5 uur</td></tr>
+    </tbody>
+  </table></div>
+  <p>De omzet per gewerkt uur daalt daardoor van € 75 naar € 60, vóór kosten en belasting. Dat is geen nettowinstberekening. De registratie laat wel zien waar je volgende offerte aandacht vraagt: revisies kostten twee keer zoveel tijd als begroot. Je kunt meer tijd reserveren of duidelijker afspreken hoeveel revisierondes inbegrepen zijn.</p>
+  <h2>Declarabele en niet-declarabele tijd</h2>
+  <p>Niet alle werktijd komt op een factuur. Acquisitie en eigen administratie kosten tijd, ook als geen opdrachtgever ervoor betaalt. Registreer die activiteiten apart, zodat je klanturen en totale bedrijfstijd kunt vergelijken.</p>
+  <p>Stel dat je in één week 32 uur werkt en daarvan 24 uur volgens afspraak kunt doorberekenen. Het aandeel declarabele tijd is dan 24 ÷ 32 × 100 = 75%. Trek daar geen oordeel uit op basis van één week: een week met veel offertes kan later betaald werk opleveren. Vergelijk meerdere perioden met dezelfde indeling.</p>
+  <h2>Zo voorkom je dubbele of onbruikbare registraties</h2>
+  <ul>
+    <li>Laat één timer tegelijk lopen en wissel van project wanneer je van opdracht wisselt.</li>
+    <li>Splits een werkblok als een onderbreking bij een andere klant hoort.</li>
+    <li>Gebruik omschrijvingen zoals “tweede correctieronde productpagina”, zodat je afwijkingen kunt terugvinden.</li>
+    <li>Controleer vergeten timers voordat je week- of projecttotalen gebruikt.</li>
+  </ul>
+  <p>De dagelijkse invoer staat uitgebreider in het <a href="/uren-bijhouden/">stappenplan uren bijhouden</a>. Voor tijd op verschillende bouwplaatsen vind je een eigen voorbeeld bij <a href="/urenregistratie-bouw/">urenregistratie bouw</a>.</p>
+  <h2>Tijdschrijven met Uurwerk</h2>
+  <p>In Uurwerk registreer je op iPhone met een timer of handmatige invoer. Je koppelt uren aan klanten en projecten en bekijkt totalen per periode. Voor een nacalculatie vergelijk je die totalen zelf met je offerte of begroting; deze pagina belooft geen automatische budgetbewaking in de app.</p>
+  <p>Urenregistratie, klanten, projecten en conceptfacturen zijn gratis. Voor facturen versturen gebruik je Pro. Bekijk hoe je <a href="/uren-factureren/">geregistreerde uren factureert</a> of vergelijk <a href="/urenregistratie-software/">software op je gewenste functies</a>.</p>
+</Guide>

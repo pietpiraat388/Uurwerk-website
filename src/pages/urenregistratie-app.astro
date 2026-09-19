@@ -1,14 +1,18 @@
 ---
 import Guide from '../layouts/Guide.astro';
+import { PRO_PRICE_ANSWER } from '../lib/site';
 import type { FaqEntry } from '../lib/schema';
 import InvoiceSteps from '../components/InvoiceSteps.astro';
+import ProductIdentity from '../components/ProductIdentity.astro';
 
 const faq: FaqEntry[] = [
+  { question: 'Wat is een goede urenregistratie-app?', answer: 'Een goede urenregistratie-app laat je snel tijd vastleggen, fouten corrigeren en je uren per klant of project terugvinden. Kies op je eigen apparaat, factuurbehoefte en budget. Uurwerk past bij zelfstandig registreren op iPhone; voor Android of gezamenlijke personeelsregistratie heb je een andere oplossing nodig.' },
+  { question: 'Werkt Uurwerk op Android of in de browser?', answer: 'Uurwerk wordt aangeboden als iPhone-app. Deze website biedt uitleg en hulpmiddelen, geen browseromgeving om je app-uren te beheren. Een Android-versie wordt hier niet aangeboden.' },
   { question: 'Hoe kies je een tool die uren direct omzet in facturen?', answer: 'Controleer of uren aan een klant en tarief gekoppeld zijn, je openstaande uren kunt selecteren en de factuur vóór verzending kunt controleren. Kijk ook naar btw, PDF-uitvoer en de kosten van versturen. Uurwerk maakt gratis conceptfacturen; voor versturen vanuit de app is Pro nodig.' },
   {
     question: 'Wat kost een urenregistratie app?',
     answer:
-      'Dat verschilt per app: er zijn gratis apps, apps met een eenmalige aankoop en apps met een abonnement. Uurwerk is gratis te gebruiken voor urenregistratie, klanten, projecten en conceptfacturen; alleen voor het versturen van facturen is Uurwerk Pro nodig.',
+      PRO_PRICE_ANSWER,
   },
   {
     question: 'Wat is de eenvoudigste urenregistratie app voor iPhone?',
@@ -23,7 +27,7 @@ const faq: FaqEntry[] = [
   {
     question: 'Is een app beter dan Excel voor urenregistratie?',
     answer:
-      'Een app voorkomt de meest voorkomende problemen van Excel: vergeten in te vullen, formules die breken en geen koppeling met klanten of facturen. Op de pagina <a href="/uren-bijhouden-zonder-excel/">uren bijhouden zonder Excel</a> zetten we de verschillen op een rij.',
+      'Een app is handig als je een timer en vaste klant- en projectvelden wilt. Excel geeft meer vrijheid in de indeling; je controleert zelf formules en bestanden. Bij beide moet je consequent registreren. Bekijk de vergelijking en gratis template bij <a href="/urenregistratie-excel/">urenregistratie in Excel</a>.',
   },
 ];
 ---
@@ -31,12 +35,14 @@ const faq: FaqEntry[] = [
 <Guide
   slug="urenregistratie-app"
   metaTitle="Urenregistratie app: zo kies je de juiste | Uurwerk"
-  description="Wat is een urenregistratie app en welke functies heb je echt nodig als zzp'er of kleine ondernemer? Praktische kiesgids, met Uurwerk voor iPhone als eenvoudig voorbeeld."
+  description="Kies een urenregistratie-app voor je werk. Vergelijk timer, klanturen, facturatie en kosten, met echte voorbeelden van Uurwerk voor iPhone."
   h1="Urenregistratie app: zo kies je de juiste"
-  dateModified="2026-09-09"
+  dateModified="2026-09-19"
   answer="Een urenregistratie app is een app waarmee je gewerkte uren vastlegt per klant of project, met een timer of handmatige invoer. Voor zzp&rsquo;ers en kleine ondernemers zijn de belangrijkste functies: snel uren invoeren, uren koppelen aan klanten en projecten, duidelijke overzichten en de mogelijkheid om uren om te zetten in een factuur."
   faq={faq}
 >
+  <h2>Wat is een goede urenregistratie-app voor jouw werk?</h2>
+  <p>Controleer eerst of de app werkt op je telefoon en past bij je dagelijkse taken. Voer een echte werkdag in met twee klanten en een pauze. Kun je de tijd makkelijk corrigeren en zie je per klant het juiste totaal? Bepaal daarna of je ook facturen wilt maken of alleen een urenoverzicht nodig hebt. De <a href="/urenregistratie-software/">softwarevergelijking</a> helpt als je ook teamfuncties of een breder pakket overweegt.</p>
   <h2>Hoe kies je een tool die uren direct omzet in facturen?</h2>
   <p>Volg één opdracht van ureninvoer tot factuur. Zo zie je of de app je werkproces ondersteunt. Controleer deze punten voordat je je klanten en uren overzet:</p>
   <p class="comparison-hint">Schuif de tabel opzij om alle kolommen te bekijken.</p>
@@ -72,8 +78,7 @@ const faq: FaqEntry[] = [
       invoer voor uren die je achteraf invult. Je wilt beide, want geen enkele werkdag is gelijk.
     </li>
     <li>
-      <strong>Klanten en projecten.</strong> Uren zonder klant of project zijn later niet te
-      factureren of te verantwoorden. Kies een app waarin je tarieven en btw per klant vastlegt.
+      <strong>Klanten en projecten.</strong> Een klant- of projectkoppeling maakt je uren later gemakkelijker terug te vinden en te factureren. Kies een app waarin je tarieven en btw per klant vastlegt.
     </li>
     <li>
       <strong>Overzichten per periode.</strong> Totaal uren en totaal bedrag per week of maand,
@@ -126,6 +131,7 @@ const faq: FaqEntry[] = [
     per week of maand en facturen maken van openstaande uren. Urenregistratie, klanten, projecten
     en conceptfacturen zijn gratis; alleen voor het versturen van facturen is Uurwerk Pro nodig.
   </p>
+  <ProductIdentity />
 </Guide>
 
 <style>

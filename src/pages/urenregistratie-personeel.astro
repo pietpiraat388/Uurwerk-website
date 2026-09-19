@@ -1,0 +1,50 @@
+---
+import Guide from '../layouts/Guide.astro';
+import type { FaqEntry } from '../lib/schema';
+const source = 'https://www.arboportaal.nl/onderwerpen/arbowet--en--regelgeving/werk--en-rusttijden-arbeidstijdenwet/algemene-verplichtingen-werk--en-rusttijen-voor-werkgevers-en-werknemers';
+const faq: FaqEntry[] = [
+  { question: 'Is urenregistratie voor personeel verplicht?', answer: `Volgens het Arboportaal moet een werkgever gewerkte uren registreren, zodat de Nederlandse Arbeidsinspectie kan controleren of de Arbeidstijdenwet wordt nageleefd. Er is geen verplicht vormgevingsformat. Controleer de toepasselijke regels voor je werknemers en sector bij het <a href="${source}">Arboportaal</a>.` },
+  { question: 'Is een werkrooster hetzelfde als een urenregistratie?', answer: 'Een rooster laat zien wanneer iemand volgens de planning werkt. Een urenregistratie legt de feitelijke werktijden vast. Als iemand eerder begint, langer doorwerkt of een andere pauze neemt, moet je die afwijking kunnen verwerken.' },
+  { question: 'Welke functies zijn belangrijk in een urenregistratie-app voor personeel?', answer: 'Controleer medewerkersaccounts, toegangsrechten, begin- en eindtijden, pauzes, correcties en goedkeuring. Kijk daarnaast welke gegevens je nodig hebt voor salarisverwerking en of een export of koppeling die werkelijk aanlevert.' },
+  { question: 'Is Uurwerk geschikt voor gezamenlijke personeelsregistratie?', answer: 'Uurwerk wordt op deze website aangeboden voor eigen uren, klanten, projecten en facturen op iPhone. Uurwerk heeft geen medewerkersaccounts en geen functie om uren goed te keuren. Zoek je gezamenlijke personeelsregistratie, kies dan software die deze teamfuncties ondersteunt.' },
+];
+---
+<Guide slug="urenregistratie-personeel" metaTitle="Urenregistratie personeel: aanpak en eisen | Uurwerk"
+  description="Wat leg je vast bij urenregistratie voor personeel? Met voorbeeld, werk- en rusttijden, controleproces en aandachtspunten bij teamsoftware."
+  h1="Urenregistratie voor personeel: wat leg je vast?"
+  answer="Bij urenregistratie voor personeel leg je de feitelijke werktijden per medewerker vast, met begin, einde en pauzes. Maak afspraken over invoer, correcties en controle. Een rooster alleen laat niet zien wat werkelijk is gewerkt. Voor gezamenlijke registratie zijn medewerkersaccounts en duidelijke rechten belangrijke selectiepunten."
+  datePublished="2026-09-19" dateModified="2026-09-19" faq={faq}
+  ctaTitle="Je eigen klanturen bijhouden op iPhone?"
+  ctaText="Uurwerk is gericht op je eigen uren, klanten, projecten en facturen. Bekijk de app als je een persoonlijke urenregistratie zoekt.">
+  <h2>De verplichting achter de registratie</h2>
+  <p>Een werkgever moet gewerkte uren registreren. De registratie moet controle van de Arbeidstijdenwet mogelijk maken; de vorm is vrij. Dat betekent dat alleen een weektotaal niet hetzelfde inzicht geeft als feitelijke werk- en rusttijden. Het <a href={source}>Arboportaal beschrijft de verplichtingen voor werkgevers</a>.</p>
+  <p>Welke regels voor werktijden, pauzes en nachtdiensten gelden, hangt onder meer af van de situatie en sector. Gebruik de <a href="https://www.rijksoverheid.nl/vraag-en-antwoord/werktijden/wat-staat-er-in-de-arbeidstijdenwet-over-mijn-werktijden">uitleg van Rijksoverheid over de Arbeidstijdenwet</a> als vertrekpunt en controleer de toepasselijke afspraken. Deze gids helpt bij het organiseren van gegevens en stelt niet vast of een individueel rooster aan alle regels voldoet.</p>
+  <h2>Een voorbeeld van geplande en werkelijke tijd</h2>
+  <p>In dit fictieve voorbeeld werkt een medewerker een half uur langer dan gepland. De afwijking moet zichtbaar blijven voordat je de uren verder verwerkt.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">Gegeven</th><th scope="col">Gepland</th><th scope="col">Werkelijk</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Medewerker en datum</th><td>Medewerker A, 14 september</td><td>Medewerker A, 14 september</td></tr>
+      <tr><th scope="row">Begin en einde</th><td>09:00–17:00</td><td>09:00–17:30</td></tr>
+      <tr><th scope="row">Pauze</th><td>30 minuten</td><td>30 minuten</td></tr>
+      <tr><th scope="row">Gewerkte tijd</th><td>7,50 uur</td><td>8,00 uur</td></tr>
+      <tr><th scope="row">Toelichting</th><td>Reguliere dienst</td><td>Opdracht afgemaakt tot 17:30</td></tr>
+    </tbody>
+  </table></div>
+  <p>Of de extra tijd tot overwerk, een toeslag of compensatie leidt, beoordeel je aan de hand van de geldende afspraken. Een urenregistratie legt de feiten vast; de loonberekening is een volgende stap. Noteer waar nodig ook wanneer pauzes zijn genomen, zodat rustperioden te beoordelen zijn.</p>
+  <h2>Spreek af wie invoert, controleert en corrigeert</h2>
+  <ol>
+    <li>Medewerkers registreren hun feitelijke werktijden op een afgesproken moment.</li>
+    <li>Een verantwoordelijke controleert ontbrekende dagen, afwijkingen en toelichtingen.</li>
+    <li>Een correctie krijgt een reden, zodat de medewerker en controleur begrijpen wat is aangepast.</li>
+    <li>Na controle gebruik je de juiste periode voor salarisverwerking of projectrapportage.</li>
+  </ol>
+  <p>Gebruik één herkenbare bron voor de definitieve uren. Losse bestanden per manager kunnen verschillende uitkomsten bevatten. Leg ook vast wie oude perioden mag aanpassen en hoe je zo’n wijziging terugvindt.</p>
+  <h2>Software voor personeel beoordelen</h2>
+  <p>Test een gewone dienst, een dienst over middernacht en een correctie achteraf. Controleer of medewerkers hun eigen gegevens kunnen bekijken, of managers alleen de juiste medewerkers zien en of pauzes apart beschikbaar blijven. Vraag bij een salariskoppeling om een voorbeeld van de werkelijk overgezette velden.</p>
+  <p>Voor projectinzicht wil je soms daarnaast de klant of klus registreren. De som van projecturen kan afwijken van betaalde of aanwezige tijd, bijvoorbeeld door intern overleg. Houd die doelen uit elkaar en gebruik de gids <a href="/tijdregistratie/">tijdregistratie per project</a> voor een voorbeeld van nacalculatie.</p>
+  <h2>Waar past Uurwerk in deze keuze?</h2>
+  <p>Uurwerk richt zich op eigen urenregistratie op iPhone: een timer, handmatige invoer, klanten, projecten en facturen. Uurwerk heeft geen medewerkersaccounts en geen goedkeuring van uren. Een salariskoppeling wordt evenmin aangeboden op deze website. Zoek je zulke teamfuncties, beoordeel dan een pakket dat die expliciet ondersteunt.</p>
+  <p>Ben je zelfstandig ondernemer en bedoel je met personeel eigenlijk je eigen gewerkte uren? Begin dan bij <a href="/urenregistratie-zzp/">urenregistratie voor zzp’ers</a>. Voor de algemene productkeuze vind je bij <a href="/urenregistratie-software/">urenregistratie software</a> een vergelijking van werkwijzen en kosten.</p>
+  <p class="download-note">Bronnen gecontroleerd op 19 september 2026: Arboportaal en Rijksoverheid, via de links bij de uitleg.</p>
+</Guide>

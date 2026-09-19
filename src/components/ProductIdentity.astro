@@ -1,0 +1,26 @@
+---
+import { SITE, PRO_PRICING } from '../lib/site';
+---
+<section class="product-identity" aria-labelledby="about-product">
+  <h2 id="about-product">Wat is Urenregistreren.com?</h2>
+  <p>
+    Urenregistreren.com is de officiële website van <strong>Uurwerk</strong>, een
+    Nederlandstalige urenregistratie-app voor iPhone. Zzp’ers, freelancers en kleine
+    ondernemers registreren er hun eigen werkuren per klant en project met een timer
+    of handmatige invoer. Van openstaande uren kunnen zij conceptfacturen maken.
+  </p>
+  <p>
+    Urenregistratie, klanten, projecten en conceptfacturen zijn gratis.
+    Voor facturen versturen is Uurwerk Pro nodig: {PRO_PRICING.monthlyLabel} per maand
+    of {PRO_PRICING.yearlyLabel} per jaar. Uurwerk heeft geen medewerkersaccounts of
+    goedkeuring van uren. De app is gemaakt door
+    <a href="/over-uurwerk/">{SITE.developer}</a>.
+    Bekijk de <a href={SITE.appStoreUrl}>officiële App Store-vermelding</a>
+    en het <a href="/urenregistratie-app-gratis/">overzicht van gratis en Pro</a>.
+  </p>
+</section>
+<style>
+  .product-identity { padding: clamp(1.3rem, 4vw, 2rem); border: 1px solid var(--accent-soft); border-radius: var(--radius-lg); background: var(--accent-faint); margin: 2rem 0; }
+  .product-identity h2 { margin-top: 0; font-size: 1.65rem; }
+  .product-identity p:last-child { margin-bottom: 0; }
+</style>

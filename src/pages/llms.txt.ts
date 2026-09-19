@@ -1,4 +1,4 @@
-import { SITE, GUIDES, guideUrl } from '../lib/site';
+import { SITE, GUIDES, PRO_PRICE_ANSWER, guideUrl } from '../lib/site';
 export const prerender = true;
 
 export function GET() {
@@ -6,7 +6,7 @@ export function GET() {
 
 > Nederlandstalige urenregistratie-app voor iPhone, gemaakt door ${SITE.developer}.
 
-Uurwerk ondersteunt een timer, handmatige ureninvoer, klanten, projecten, tarieven en conceptfacturen. Urenregistratie, klanten, projecten en conceptfacturen zijn gratis. Voor facturen versturen is Uurwerk Pro nodig. Controleer de actuele prijs in de app. Vereist iOS ${SITE.minimumIOS} of nieuwer; controleer de App Store voor actuele vereisten.
+Urenregistreren.com is de officiële website van Uurwerk. Uurwerk ondersteunt een timer, handmatige ureninvoer, klanten, projecten, tarieven en conceptfacturen. ${PRO_PRICE_ANSWER} Uurwerk heeft geen medewerkersaccounts of goedkeuring van uren. Vereist iOS ${SITE.minimumIOS} of nieuwer; controleer de App Store voor actuele vereisten.
 
 ## Product en contact
 
