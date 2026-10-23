@@ -67,10 +67,10 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'urenregistratie-personeel',
-    title: 'Urenregistratie personeel: werkwijze en eisen',
+    title: 'Urenregistratie werknemers: werkwijze en eisen',
     navTitle: 'Urenregistratie personeel',
-    description: 'Richt urenregistratie voor medewerkers in: werk- en rusttijden, controle en softwarekeuze. Met voorbeeld en officiële bronnen.',
-    hook: 'Wat je voor medewerkers vastlegt en welke teamfuncties je nodig hebt.',
+    description: 'Richt urenregistratie voor werknemers in: werk- en rusttijden, controle en tijdregistratie voor personeel. Met voorbeeld en officiële bronnen.',
+    hook: 'Wat je voor werknemers vastlegt en welke teamfuncties je nodig hebt.',
   },
   {
     slug: 'tijdregistratie',
@@ -136,11 +136,11 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'online-urenregistratie',
-    title: 'Online urenregistratie: digitaal uren bijhouden',
+    title: 'Online urenregistratie: zo werkt online tijdschrijven',
     navTitle: 'Online urenregistratie',
     description:
-      'Wat is online urenregistratie en wat zijn de voordelen ten opzichte van papier en spreadsheets? Zo kies je een digitale oplossing die bij je past.',
-    hook: 'De voordelen van digitaal uren bijhouden ten opzichte van papier en Excel.',
+      'Wat is online urenregistratie en hoe werkt online tijdschrijven? Zo kies je een digitale werkwijze die bij je past.',
+    hook: 'De voordelen van online tijdschrijven ten opzichte van papier en Excel.',
   },
   {
     slug: 'urenstaat-maken',
