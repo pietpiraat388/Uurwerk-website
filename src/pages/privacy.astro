@@ -2,14 +2,83 @@
 import Page from '../layouts/Page.astro';
 import { SITE } from '../lib/site';
 ---
-<Page title="Privacy: website, downloads en Uurwerk-app" description="Lees hoe de hulpmiddelen op urenregistreren.com werken en waar je het privacybeleid voor de Uurwerk-app vindt." h1="Privacy">
-    <p>Op deze pagina vind je informatie over de hulpmiddelen op urenregistreren.com en de verwijzing naar het privacybeleid van de app.</p>
-    <h2>Urenstaatdownloads en rekenhulp</h2>
-    <p>De Excel- en PDF-sjablonen download je zonder een account of e-mailadres. Wat je daarna in die bestanden invult, blijft in je eigen bestand. De rekenhulp op deze website rekent in je browser. Je ingevoerde uren worden niet opgeslagen of naar ons verzonden.</p>
-    <h2>Bezoeken aan deze website</h2>
-    <p>Je hoeft niet in te loggen om onze gidsen te lezen. De website draait bij Vercel. Bij het opvragen van een pagina of bestand ontvangt de hostingdienst technische verzoekgegevens, zoals je IP-adres. Meer informatie staat in het <a href="https://vercel.com/legal/privacy-policy">privacybeleid van Vercel</a>.</p>
-    <h2>De Uurwerk-app</h2>
-    <p>Voor de app verwijst de App Store naar het <a href={SITE.appPrivacyUrl}>privacybeleid van VeJo Apps</a>. Bekijk daarnaast de privacyinformatie op de <a href={SITE.appStoreUrl}>App Store-pagina van Uurwerk</a>. Deze informatie gaat over de app en kan verschillen van de hulpmiddelen op deze website.</p>
+<Page title="Privacybeleid Uurwerk-app en website" description="Hoe Uurwerk en urenregistreren.com met je gegevens omgaan: geen account, geen tracking, je uren in je eigen iCloud en abonnementen via Apple." h1="Privacybeleid">
+    <p><strong>Laatst bijgewerkt: {SITE.legalUpdated}</strong></p>
+    <p>Dit privacybeleid geldt voor de iPhone- en iPad-app {SITE.fullName} (hierna: Uurwerk of de app) en voor de website urenregistreren.com. Hieronder lees je welke gegevens we verwerken, waarom, en welke rechten je hebt.</p>
+
+    <h2>In het kort</h2>
+    <ul>
+      <li>Je hebt geen account nodig. We vragen niet om je naam of e-mailadres.</li>
+      <li>Je uren, klanten, projecten en facturen staan op je eigen apparaat en, als je dat aanzet, in je eigen iCloud. Wij kunnen daar niet bij.</li>
+      <li>De app bevat geen advertenties, geen analysetools en volgt je niet over andere apps of websites.</li>
+      <li>Betalen gaat via Apple. Wij ontvangen geen naam of betaalgegevens.</li>
+      <li>We verkopen je gegevens nooit.</li>
+    </ul>
+
+    <h2>Wie is verantwoordelijk?</h2>
+    <p>Uurwerk wordt gemaakt door {SITE.developer}, handelend onder de naam {SITE.publisher}, gevestigd in Nederland. {SITE.publisher} is verantwoordelijk voor de verwerking van persoonsgegevens zoals beschreven in dit beleid. Je bereikt ons via <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>.</p>
+
+    <h2>Gegevens in de app</h2>
+
+    <h3>Wat je zelf invoert</h3>
+    <p>In Uurwerk leg je zelf gegevens vast, zoals uren, klanten, contactpersonen, projecten, tarieven, facturen, je bedrijfsgegevens, een logo en handtekeningen op urenbriefjes. Deze gegevens worden opgeslagen op je apparaat.</p>
+    <p>Staat iCloud aan voor Uurwerk, dan worden ze ook gesynchroniseerd via de privé-database van je eigen Apple-account (Apple iCloud/CloudKit). Zo zie je dezelfde gegevens op je iPhone en iPad. Deze opslag beheer je zelf. Wij hebben geen toegang tot je iCloud-gegevens en kunnen ze niet inzien, wijzigen of herstellen. Voor iCloud geldt het <a href="https://www.apple.com/nl/legal/privacy/" rel="noopener">privacybeleid van Apple</a>.</p>
+    <p>Vul je gegevens van anderen in, zoals je klanten? Dan ben jij daarvoor verantwoordelijk en bepaal jij wat je opslaat en hoelang.</p>
+
+    <h3>Abonnementen en aankopen</h3>
+    <p>Uurwerk Pro koop je via je Apple-account. Apple verwerkt de betaling. Wij ontvangen geen naam, adres of betaalgegevens.</p>
+    <p>Om te controleren of je abonnement actief is, en om aankopen te kunnen herstellen, gebruiken we de dienst RevenueCat (RevenueCat, Inc., Verenigde Staten). Daarbij worden verwerkt: een willekeurig gegenereerde, anonieme gebruikers-ID, de aankoopgegevens van Apple (zoals product, aankoopdatum, verlengdatum, land en valuta), het apparaattype en de iOS-versie, en technische verbindingsgegevens zoals je IP-adres. Deze gegevens zijn niet gekoppeld aan je naam of e-mailadres.</p>
+    <p>De grondslag is de uitvoering van de overeenkomst: zonder deze controle kunnen we Pro niet leveren. RevenueCat verwerkt de gegevens in onze opdracht. Voor doorgifte naar de Verenigde Staten gelden passende waarborgen, zoals de standaardcontractbepalingen van de Europese Commissie. Meer informatie staat in het <a href="https://www.revenuecat.com/privacy/" rel="noopener">privacybeleid van RevenueCat</a>.</p>
+
+    <h3>Herinneringen en meldingen</h3>
+    <p>Herinneringen, bijvoorbeeld om je uren in te vullen, zijn lokale meldingen. Ze worden op je apparaat ingepland. Er gaat hiervoor geen informatie naar ons. Je zet meldingen aan of uit in de app of in de iOS-instellingen.</p>
+
+    <h3>Functies van iOS</h3>
+    <ul>
+      <li><strong>Face ID of Touch ID:</strong> de app vraagt iOS alleen of de ontgrendeling gelukt is. Biometrische gegevens verlaten je apparaat niet en wij ontvangen ze nooit.</li>
+      <li><strong>Foto&rsquo;s:</strong> kies je een logo, dan krijgt de app alleen toegang tot die ene foto via de fotokiezer van iOS.</li>
+      <li><strong>Facturen en urenbriefjes versturen:</strong> dit gaat via de Mail-app of het deelmenu van iOS, met je eigen e-mailaccount. Wij zien niet wat je verstuurt of naar wie.</li>
+      <li><strong>Siri, widgets en de timer op het toegangsscherm:</strong> deze werken op je apparaat via iOS. Er gaan geen gegevens naar ons.</li>
+    </ul>
+
+    <h3>Wat de app níet doet</h3>
+    <p>Uurwerk gebruikt geen advertenties, geen analyse- of trackingtools en geen advertentie-ID. De app vraagt niet om je locatie, contacten of agenda. Er is geen account en er is geen server van ons waarop je urengegevens staan.</p>
+
+    <h2>Gegevens op de website</h2>
+    <h3>Urenstaatdownloads en rekenhulp</h3>
+    <p>De Excel- en PDF-sjablonen download je zonder account of e-mailadres. Wat je daarna in die bestanden invult, blijft in je eigen bestand. De rekenhulp op deze website rekent in je browser. Je ingevoerde uren worden niet opgeslagen of naar ons verzonden.</p>
+    <h3>Bezoeken aan de website</h3>
+    <p>Je hoeft niet in te loggen om de gidsen te lezen. De website gebruikt geen trackingcookies en geen analysetools. De website draait bij Vercel. Bij het opvragen van een pagina ontvangt Vercel technische gegevens, zoals je IP-adres en browsertype, om de pagina te kunnen leveren en te beveiligen. Meer informatie staat in het <a href="https://vercel.com/legal/privacy-policy" rel="noopener">privacybeleid van Vercel</a>.</p>
+
+    <h2>Met wie delen we gegevens?</h2>
+    <p>We delen alleen gegevens met diensten die nodig zijn om de app en website te laten werken:</p>
+    <ul>
+      <li><strong>Apple:</strong> App Store, betalingen en iCloud-synchronisatie.</li>
+      <li><strong>RevenueCat:</strong> controle van abonnementen en herstel van aankopen.</li>
+      <li><strong>Vercel:</strong> hosting van de website.</li>
+    </ul>
+    <p>Daarnaast delen we gegevens alleen als de wet ons daartoe verplicht.</p>
+
+    <h2>Hoelang bewaren we gegevens?</h2>
+    <ul>
+      <li><strong>Gegevens in de app:</strong> zolang jij ze bewaart. Verwijder je de app, dan verdwijnen de gegevens van dat apparaat. Je iCloud-gegevens verwijder je via Instellingen &gt; [je naam] &gt; iCloud &gt; Opslag beheren &gt; Uurwerk.</li>
+      <li><strong>Abonnementsgegevens bij RevenueCat:</strong> zolang dat nodig is voor je abonnement en om te voldoen aan wettelijke bewaarplichten, zoals de fiscale bewaarplicht.</li>
+      <li><strong>E-mails aan ons:</strong> zolang dat nodig is om je vraag af te handelen.</li>
+    </ul>
+
+    <h2>Beveiliging</h2>
+    <p>Gegevens worden versleuteld verstuurd. iCloud-gegevens worden door Apple beveiligd met je Apple-account. Je kunt de app extra beveiligen met Face ID of Touch ID.</p>
+
+    <h2>Kinderen</h2>
+    <p>Uurwerk is bedoeld voor ondernemers en niet voor kinderen jonger dan 16 jaar. We verzamelen bewust geen gegevens van kinderen.</p>
+
+    <h2>Je rechten</h2>
+    <p>Op grond van de AVG heb je recht op inzage, correctie, verwijdering, beperking van de verwerking, overdraagbaarheid van je gegevens en bezwaar. De meeste gegevens beheer je zelf in de app en in iCloud. Voor de abonnementsgegevens bij RevenueCat of andere vragen kun je mailen naar <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>. We reageren binnen een maand.</p>
+    <p>Ben je het niet eens met hoe we met je gegevens omgaan? Dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl/" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+
+    <h2>Wijzigingen</h2>
+    <p>We kunnen dit privacybeleid aanpassen, bijvoorbeeld als de app nieuwe functies krijgt. De datum bovenaan laat zien wanneer het voor het laatst is bijgewerkt. Bij belangrijke wijzigingen laten we dat weten in de app of op deze website.</p>
+
     <h2>Contact</h2>
-    <p>Heb je een privacyvraag? Mail naar <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a> en vermeld of je vraag over de website of de app gaat.</p>
+    <p>Heb je een privacyvraag? Mail naar <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>. Lees ook onze <a href="/voorwaarden/">algemene voorwaarden</a>.</p>
 </Page>

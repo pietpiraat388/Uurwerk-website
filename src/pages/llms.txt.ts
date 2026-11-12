@@ -14,7 +14,8 @@ Urenregistreren.com is de officiële website van Uurwerk. Uurwerk ondersteunt ee
 - [App Store](${SITE.appStoreUrl}): download en actuele appgegevens
 - [Over de maker](${SITE.url}/over-uurwerk/)
 - [Contact](${SITE.url}/contact/)
-- [Privacy](${SITE.url}/privacy/)
+- [Privacybeleid](${SITE.url}/privacy/)
+- [Algemene voorwaarden en abonnementen](${SITE.url}/voorwaarden/)
 
 ## Productgegevens als JSON
 
