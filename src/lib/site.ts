@@ -53,17 +53,17 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'uren-bijhouden',
-    title: 'Uren bijhouden: stappenplan met dagvoorbeeld',
+    title: 'Uren bijhouden: stappenplan en voorbeeld urenregistratie',
     navTitle: 'Uren bijhouden',
-    description: 'Houd je werkuren dagelijks bij met een timer of handmatig. Met een voorbeeld voor pauzes, klantwerk en administratie.',
-    hook: 'Een vaste routine voor je werkuren, pauzes en weekcontrole.',
+    description: 'Houd je gewerkte uren dagelijks bij met een timer of handmatig. Met een voorbeeld urenregistratie en uitleg over pauzes, overuren en uren per project.',
+    hook: 'Een vaste routine voor je werkuren, pauzes, overuren en weekcontrole.',
   },
   {
     slug: 'urenregistratie-excel',
-    title: 'Urenregistratie Excel: gratis template en formules',
+    title: 'Urenregistratie Excel: gratis template, voorbeeld en formules',
     navTitle: 'Urenregistratie Excel',
-    description: 'Download een gratis Excel-template voor urenregistratie. Met ingevuld voorbeeld, formules, pauzes en uitleg over decimale uren.',
-    hook: 'Download een template en controleer je uren met rekenvoorbeelden.',
+    description: 'Download een gratis Excel-template voor urenregistratie of bouw zelf een urenlijst. Met voorbeeldweek, formules voor pauzes, overuren en totalen per klant.',
+    hook: 'Download een template, bouw je eigen urenlijst en controleer de formules.',
   },
   {
     slug: 'urenregistratie-personeel',
@@ -81,26 +81,26 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'uren-factureren',
-    title: 'Uren factureren: van urenstaat naar factuur',
+    title: 'Uren factureren: voorbeeldfactuur en stappenplan',
     navTitle: 'Uren factureren',
-    description: 'Maak van geregistreerde uren een factuur. Met rekenvoorbeeld, controlelijst en de stappen in Uurwerk voor iPhone.',
-    hook: 'Van klant en uren kiezen naar een gecontroleerde factuur.',
+    description: 'Maak van gewerkte uren een factuur. Met een voorbeeld van een urenfactuur, rekenvoorbeeld, controlelijst en de stappen in Uurwerk voor iPhone.',
+    hook: 'Bekijk een voorbeeldfactuur met uren en loop de controle stap voor stap door.',
   },
   {
     slug: 'urenregistratie-app',
-    title: 'Urenregistratie app: zo kies je de juiste',
-    navTitle: 'Urenregistratie app',
+    title: 'Beste urenregistratie app voor zzp’ers: zo kies je',
+    navTitle: 'Beste urenregistratie app kiezen',
     description:
-      'Wat is een urenregistratie app, welke functies heb je echt nodig en waar let je op bij het kiezen? Een praktische gids voor zzp’ers en kleine ondernemers.',
-    hook: 'Welke functies heb je echt nodig en waar let je op?',
+      'Welke urenregistratie app is de beste voor jouw werk? Kies op apparaat, facturatie, teamgebruik en kosten. Een praktische keuzehulp voor zzp’ers en kleine ondernemers.',
+    hook: 'Welke app past bij je apparaat, je facturen en je budget?',
   },
   {
     slug: 'urenregistratie-zzp',
-    title: 'Urenregistratie voor zzp’ers: zo houd je je uren bij',
+    title: 'Urenregistratie voor zzp’ers: voorbeeld, regels en aanpak',
     navTitle: 'Urenregistratie zzp',
     description:
-      'Hoe houd je als zzp’er je uren bij? Waarom het belangrijk is, welke uren je registreert en hoe een app dit eenvoudiger maakt dan Excel.',
-    hook: 'Praktische gids voor het bijhouden van je uren als zelfstandige.',
+      'Hoe houd je als zzp’er je uren bij? Met een voorbeeldweek, uitleg over verplichting en urenverantwoording en een vergelijking van app, Excel en software.',
+    hook: 'Voorbeeldweek, regels en de keuze tussen app en Excel voor zelfstandigen.',
   },
   {
     slug: 'urencriterium',
@@ -119,14 +119,6 @@ export const GUIDES: Guide[] = [
     hook: 'Wat leg je vast en hoe lang bewaar je je administratie?',
   },
   {
-    slug: 'uren-bijhouden-zonder-excel',
-    title: 'Uren bijhouden zonder Excel',
-    navTitle: 'Uren bijhouden zonder Excel',
-    description:
-      'Excel is een veelgebruikt startpunt voor urenregistratie, maar kent nadelen. Zo stap je over op een eenvoudiger manier van uren bijhouden.',
-    hook: 'Waarom een urenlijst in Excel vaak misgaat en wat het alternatief is.',
-  },
-  {
     slug: 'urenregistratie-bouw',
     title: 'Urenregistratie in de bouw',
     navTitle: 'Urenregistratie bouw',
@@ -139,44 +131,43 @@ export const GUIDES: Guide[] = [
     title: 'Online urenregistratie: zo werkt online tijdschrijven',
     navTitle: 'Online urenregistratie',
     description:
-      'Wat is online urenregistratie en hoe werkt online tijdschrijven? Zo kies je een digitale werkwijze die bij je past.',
-    hook: 'De voordelen van online tijdschrijven ten opzichte van papier en Excel.',
+      'Wat is online urenregistratie en hoe werkt online tijdschrijven? Uitleg over digitale urenregistratie, online tijdregistratie en digitale urenbriefjes.',
+    hook: 'Digitale urenregistratie en online tijdschrijven tegenover papier en Excel.',
   },
   {
     slug: 'urenstaat-maken',
     title: 'Urenstaat maken: voorbeeld en gratis sjabloon',
     navTitle: 'Urenstaat maken',
     description:
-      'Maak een urenstaat met een ingevuld voorbeeld en gratis Excel- en PDF-sjablonen. Met uitleg over uren, pauzes en bedragen.',
-    hook: 'Download een gratis Excel- of PDF-sjabloon en bekijk het ingevulde voorbeeld.',
+      'Maak een urenstaat met een ingevuld voorbeeld en gratis Excel- en PDF-sjablonen. Ook te gebruiken als urenlijst, urenbriefje of weekstaat.',
+    hook: 'Download een gratis urenstaat of urenlijst in Excel of PDF en bekijk het voorbeeld.',
   },
   {
     slug: 'urenregistratie-app-gratis',
-    title: 'Gratis urenregistratie app: wat krijg je bij Uurwerk?',
+    title: 'Gratis urenregistratie app voor zzp’ers: wat is echt gratis?',
     navTitle: 'Gratis urenregistratie app',
     description:
-      'Eerlijke uitleg over wat gratis is in Uurwerk: urenregistratie, klanten, projecten en conceptfacturen. Alleen voor het versturen van facturen is Uurwerk Pro nodig.',
-    hook: 'Eerlijk overzicht van wat gratis is en waarvoor je Pro nodig hebt.',
+      'Welke gratis urenregistratie is echt gratis? Vergelijk een app, Excel-template en proefperiode. In Uurwerk zijn uren, klanten, projecten en conceptfacturen gratis.',
+    hook: 'Wat gratis echt betekent, en wat je in Uurwerk zonder betalen gebruikt.',
   },
 ];
 
 export const RELATED_GUIDES: Record<string, string[]> = {
-  'urenregistratie': ['urenregistratie-zzp', 'urenregistratie-app', 'urenregistratie-excel', 'urencriterium'],
-  'urenregistratie-software': ['urenregistratie-app', 'urenregistratie-app-gratis', 'urenregistratie-personeel'],
-  'uren-bijhouden': ['urenregistratie-zzp', 'urenregistratie-excel', 'tijdregistratie'],
-  'urenregistratie-excel': ['urenstaat-maken', 'uren-bijhouden-zonder-excel', 'urenregistratie-app'],
-  'urenregistratie-personeel': ['urenregistratie-software', 'tijdregistratie', 'urenregistratie-bouw'],
-  'tijdregistratie': ['uren-bijhouden', 'uren-factureren', 'urenregistratie-software'],
-  'urenstaat-maken': ['uren-factureren', 'uren-bijhouden-zonder-excel', 'urenregistratie-zzp'],
+  'urenregistratie': ['urenregistratie-zzp', 'urenregistratie-app', 'online-urenregistratie', 'urenregistratie-excel', 'urencriterium'],
+  'urenregistratie-software': ['urenregistratie-app', 'urenregistratie-app-gratis', 'online-urenregistratie', 'urenregistratie-personeel'],
+  'uren-bijhouden': ['urenregistratie-zzp', 'online-urenregistratie', 'urenregistratie-excel', 'tijdregistratie'],
+  'urenregistratie-excel': ['urenstaat-maken', 'uren-bijhouden', 'online-urenregistratie', 'urenregistratie-app'],
+  'urenregistratie-personeel': ['online-urenregistratie', 'urenregistratie-software', 'tijdregistratie', 'urenregistratie-bouw'],
+  'tijdregistratie': ['online-urenregistratie', 'uren-bijhouden', 'uren-factureren', 'urenregistratie-software'],
+  'urenstaat-maken': ['uren-factureren', 'urenregistratie-excel', 'uren-bijhouden', 'urenregistratie-zzp'],
   'uren-factureren': ['urenstaat-maken', 'urenregistratie-app-gratis', 'urenregistratie-app'],
-  'urenregistratie-app': ['uren-factureren', 'urenregistratie-app-gratis', 'urenregistratie-software'],
-  'urenregistratie-app-gratis': ['urenregistratie-app', 'uren-factureren', 'urenstaat-maken'],
-  'urenregistratie-zzp': ['urencriterium', 'urenstaat-maken', 'uren-factureren'],
+  'urenregistratie-app': ['urenregistratie-app-gratis', 'online-urenregistratie', 'uren-factureren', 'urenregistratie-software'],
+  'urenregistratie-app-gratis': ['urenregistratie-app', 'uren-factureren', 'urenregistratie-excel'],
+  'urenregistratie-zzp': ['urencriterium', 'urenstaat-maken', 'uren-factureren', 'urenregistratie-bouw'],
   'urencriterium': ['urenregistratie-belastingdienst', 'urenregistratie-zzp', 'urenstaat-maken'],
   'urenregistratie-belastingdienst': ['urencriterium', 'urenregistratie-zzp', 'urenstaat-maken'],
   'urenregistratie-bouw': ['urenstaat-maken', 'uren-factureren', 'urenregistratie-zzp'],
-  'uren-bijhouden-zonder-excel': ['urenstaat-maken', 'urenregistratie-app', 'uren-factureren'],
-  'online-urenregistratie': ['urenregistratie-app', 'urenregistratie-app-gratis', 'uren-bijhouden-zonder-excel'],
+  'online-urenregistratie': ['urenregistratie-app-gratis', 'urenregistratie-software', 'tijdregistratie', 'uren-bijhouden'],
 };
 
 export const PRODUCT_FEATURES = [

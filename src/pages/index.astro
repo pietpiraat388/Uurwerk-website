@@ -28,7 +28,7 @@ import featureFactuur from '../assets/uurwerk-factuur-maken-van-uren-iphone.png'
 
 const title = 'Urenregistratie app voor zzp’ers | Uurwerk voor iPhone';
 const description =
-  'Uurwerk voor iPhone: registreer gratis uren per klant en project met een timer of handmatig. Maak conceptfacturen en bekijk je gewerkte tijd.';
+  'Uurwerk is een urenregistratie app voor iPhone. Houd gratis uren bij per klant en project, met timer of handmatig, en maak er conceptfacturen van.';
 
 const schemas = [softwareApplicationSchema(), websiteSchema(), faqSchema(faqEntries)];
 
@@ -107,8 +107,10 @@ const features = [
   <section class="hero" data-placement="home-hero">
     <div class="container hero-copy">
       <Image src={appIcon} alt="" width={104} height={104} class="hero-icon" loading="eager" />
-      <p class="hero-eyebrow">Urenregistratie app voor iPhone</p>
-      <h1>Uren bijhouden zonder gedoe, <span class="h1-line">gemaakt voor zzp&rsquo;ers</span></h1>
+      <h1>
+        <span class="hero-eyebrow">Urenregistratie app voor iPhone</span>
+        <span class="hero-title">Uren bijhouden zonder gedoe, <span class="h1-line">gemaakt voor zzp&rsquo;ers</span></span>
+      </h1>
       <p class="hero-sub">
         Uurwerk is een eenvoudige urenregistratie app voor zzp&rsquo;ers, freelancers en kleine
         ondernemers. Start een timer of voer uren handmatig in, houd uren bij per klant en
@@ -388,6 +390,24 @@ const features = [
   <section class="about">
     <div class="container reading" data-reveal>
       <ProductIdentity variant="plain" />
+      <div class="app-fit">
+        <h2>Urenregistratie app voor zzp&rsquo;ers: voor wie is Uurwerk?</h2>
+        <p>
+          Zoek je een app om uren bij te houden, dan kom je veel namen tegen: urenapp,
+          tijdregistratie app, tijdschrijven app. Ze doen hetzelfde: je legt gewerkte tijd vast en
+          ziet per klant wat er nog openstaat. Uurwerk is zo&rsquo;n app, gemaakt voor &eacute;&eacute;n
+          persoon op een iPhone. Je houdt uren bij met een timer of achteraf, per klant en project,
+          en maakt van openstaande uren een factuur.
+        </p>
+        <p>
+          Uurwerk past als je alleen werkt en per uur factureert. Heb je Android, personeel of een
+          volledige boekhouding nodig, dan past een andere oplossing beter. De
+          gids <a href="/urenregistratie-app/">beste urenregistratie app kiezen</a> zet die afweging
+          op een rij. Lees ook hoe <a href="/urenregistratie-zzp/">urenregistratie voor zzp&rsquo;ers</a> werkt
+          en wat <a href="/online-urenregistratie/">online urenregistratie</a> oplevert tegenover
+          Excel.
+        </p>
+      </div>
       <p class="guide-pointer"><Icon name="book-open" size={20} /><span>Nieuw met uren vastleggen? Begin bij de <a href="/urenregistratie/">complete gids over urenregistratie</a> en kies een aanpak voor jouw werk.</span></p>
     </div>
   </section>
@@ -516,12 +536,24 @@ const features = [
     line-height: 1.3;
   }
 
+  /* De h1 omvat het label en de kopregel; de typografie staat op de delen zelf. */
   .hero h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 960px;
     margin: 0 0 20px;
+    font: inherit;
+    letter-spacing: normal;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
     font-size: clamp(2.375rem, 6vw, 4rem);
+    font-weight: 600;
     line-height: 1.03;
     letter-spacing: -0.0375em;
+    text-wrap: pretty;
   }
 
   @media (min-width: 768px) {
@@ -883,6 +915,27 @@ const features = [
     max-width: calc(680px + 2 * var(--gutter));
   }
 
+  .app-fit {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 64px;
+  }
+
+  .app-fit h2 {
+    margin: 0;
+    font-size: clamp(1.625rem, 3.2vw, 2.125rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .app-fit p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: clamp(1.03125rem, 1.5vw, 1.125rem);
+    line-height: 1.7;
+  }
+
   .guide-pointer {
     display: flex;
     align-items: center;
@@ -1114,6 +1167,9 @@ const features = [
 
     .hero h1 {
       margin-bottom: 16px;
+    }
+
+    .hero-title {
       line-height: 1.05;
       letter-spacing: -0.026em;
     }
