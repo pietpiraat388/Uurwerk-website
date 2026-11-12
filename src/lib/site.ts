@@ -74,10 +74,17 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: 'tijdregistratie',
-    title: 'Tijdregistratie: tijdschrijven per taak en project',
+    title: 'Tijdregistratie per taak en project: voorbeeld en nacalculatie',
     navTitle: 'Tijdregistratie',
-    description: 'Ontdek waar je werktijd naartoe gaat. Met een voorbeeld van tijdschrijven, projectnacalculatie en declarabele uren.',
+    description: 'Ontdek waar je werktijd naartoe gaat. Met een voorbeeld van projectnacalculatie en het vergelijken van begrote en bestede tijd.',
     hook: 'Gebruik je geregistreerde tijd om projecten beter te begroten.',
+  },
+  {
+    slug: 'tijdschrijven',
+    title: 'Tijdschrijven: wat het is en hoe je uren schrijft',
+    navTitle: 'Tijdschrijven',
+    description: 'Tijdschrijven uitgelegd: uren schrijven per klant en project, declarabele uren, declarabiliteit berekenen en afronden. Met een voorbeeld van een werkdag.',
+    hook: 'Uren schrijven per klant, declarabiliteit berekenen en afronden per eenheid.',
   },
   {
     slug: 'uren-factureren',
@@ -155,19 +162,20 @@ export const GUIDES: Guide[] = [
 export const RELATED_GUIDES: Record<string, string[]> = {
   'urenregistratie': ['urenregistratie-zzp', 'urenregistratie-app', 'online-urenregistratie', 'urenregistratie-excel', 'urencriterium'],
   'urenregistratie-software': ['urenregistratie-app', 'urenregistratie-app-gratis', 'online-urenregistratie', 'urenregistratie-personeel'],
-  'uren-bijhouden': ['urenregistratie-zzp', 'online-urenregistratie', 'urenregistratie-excel', 'tijdregistratie'],
+  'uren-bijhouden': ['urenregistratie-zzp', 'online-urenregistratie', 'urenregistratie-excel', 'tijdschrijven'],
   'urenregistratie-excel': ['urenstaat-maken', 'uren-bijhouden', 'online-urenregistratie', 'urenregistratie-app'],
   'urenregistratie-personeel': ['online-urenregistratie', 'urenregistratie-software', 'tijdregistratie', 'urenregistratie-bouw'],
-  'tijdregistratie': ['online-urenregistratie', 'uren-bijhouden', 'uren-factureren', 'urenregistratie-software'],
+  'tijdregistratie': ['tijdschrijven', 'online-urenregistratie', 'uren-bijhouden', 'urenregistratie-software'],
+  'tijdschrijven': ['tijdregistratie', 'online-urenregistratie', 'uren-factureren', 'urenregistratie-app'],
   'urenstaat-maken': ['uren-factureren', 'urenregistratie-excel', 'uren-bijhouden', 'urenregistratie-zzp'],
-  'uren-factureren': ['urenstaat-maken', 'urenregistratie-app-gratis', 'urenregistratie-app'],
+  'uren-factureren': ['urenstaat-maken', 'tijdschrijven', 'urenregistratie-app-gratis', 'urenregistratie-app'],
   'urenregistratie-app': ['urenregistratie-app-gratis', 'online-urenregistratie', 'uren-factureren', 'urenregistratie-software'],
   'urenregistratie-app-gratis': ['urenregistratie-app', 'uren-factureren', 'urenregistratie-excel'],
   'urenregistratie-zzp': ['urencriterium', 'urenstaat-maken', 'uren-factureren', 'urenregistratie-bouw'],
   'urencriterium': ['urenregistratie-belastingdienst', 'urenregistratie-zzp', 'urenstaat-maken'],
   'urenregistratie-belastingdienst': ['urencriterium', 'urenregistratie-zzp', 'urenstaat-maken'],
   'urenregistratie-bouw': ['urenstaat-maken', 'uren-factureren', 'urenregistratie-zzp'],
-  'online-urenregistratie': ['urenregistratie-app-gratis', 'urenregistratie-software', 'tijdregistratie', 'uren-bijhouden'],
+  'online-urenregistratie': ['tijdschrijven', 'urenregistratie-app-gratis', 'urenregistratie-software', 'tijdregistratie'],
 };
 
 export const PRODUCT_FEATURES = [

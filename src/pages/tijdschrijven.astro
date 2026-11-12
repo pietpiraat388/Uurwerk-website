@@ -1,0 +1,104 @@
+---
+import Guide from '../layouts/Guide.astro';
+import Icon from '../components/Icon.astro';
+import type { FaqEntry } from '../lib/schema';
+
+const faq: FaqEntry[] = [
+  { question: 'Wat is tijdschrijven?', answer: 'Tijdschrijven is het vastleggen van de tijd die je aan een taak, klant of project besteedt. Je noteert per werkblok de datum, de duur, een omschrijving en of de tijd declarabel is. Het wordt ook uren schrijven of tijd schrijven genoemd.' },
+  { question: 'Wat is het verschil tussen tijdschrijven en urenregistratie?', answer: 'Inhoudelijk is het hetzelfde: je legt gewerkte tijd vast. Tijdschrijven is de term die dienstverleners gebruiken voor het noteren van declarabele tijd per klant of dossier. Urenregistratie is breder en omvat ook werktijden van werknemers en uren voor het urencriterium.' },
+  { question: 'Hoe bereken je declarabiliteit?', answer: 'Deel je declarabele uren door je gewerkte uren en vermenigvuldig met 100. Bij 5,75 declarabele uren op een werkdag van 7,5 uur is de declarabiliteit 77%. Sommige kantoren delen door de beschikbare contracturen. Gebruik steeds dezelfde noemer, anders zijn perioden niet vergelijkbaar.' },
+  { question: 'Moet je niet-declarabele uren ook schrijven?', answer: 'Ja. Zonder je niet-declarabele uren weet je niet hoeveel tijd je in totaal werkt en kun je geen declarabiliteit berekenen. Als ondernemer heb je ze ook nodig om je uren voor het <a href="/urencriterium/">urencriterium</a> aannemelijk te maken.' },
+  { question: 'Is tijdschrijven verplicht?', answer: 'Er is geen algemene wettelijke plicht om tijd per taak te schrijven. Een werkgever kan het wel van je vragen, en moet zelf de arbeidstijden van werknemers registreren. Als ondernemer moet je je ondernemingsuren aannemelijk kunnen maken als je het urencriterium gebruikt.' },
+  { question: 'Wat is tijdschrijven in het Engels?', answer: 'Tijdschrijven heet in het Engels time tracking of timekeeping. De lijst waarop je de uren noteert is een timesheet. Declarabele uren zijn billable hours.' },
+];
+---
+
+<Guide
+  slug="tijdschrijven"
+  metaTitle="Tijdschrijven: wat is het en hoe doe je het goed? | Uurwerk"
+  description="Tijdschrijven uitgelegd: uren schrijven per klant en project, declarabele uren, declarabiliteit berekenen en afronden. Met een voorbeeld van een werkdag."
+  h1="Tijdschrijven: wat het is en hoe je uren schrijft"
+  datePublished="2026-11-12"
+  dateModified="2026-11-12"
+  answer="Tijdschrijven is het vastleggen van de tijd die je aan taken, klanten en projecten besteedt. Je noteert per werkblok de datum, de duur, een omschrijving en of de tijd declarabel is. Met die gegevens factureer je je uren, bereken je je declarabiliteit en zie je of een project binnen de begroting blijft. Schrijf je tijd op de dag zelf, dan kost het een paar minuten."
+  faq={faq}
+  ctaTitle="Schrijf je uren terwijl je werkt"
+  ctaText="Start in Uurwerk een timer per klant en project. Aan het einde van de maand staan je declarabele uren klaar voor de factuur."
+>
+  <h2>Wat is tijdschrijven?</h2>
+  <p>Bij tijdschrijven houd je bij waaraan je werktijd opgaat. Elke regel beantwoordt vier vragen: wanneer werkte je, hoe lang, voor wie en waaraan. Advocaten, accountants, consultants en bureaus doen het per klant of dossier, omdat hun omzet uit gewerkte uren bestaat. Zzp&rsquo;ers doen hetzelfde op kleinere schaal.</p>
+  <p>De termen <strong>tijdschrijven</strong>, <strong>uren schrijven</strong> en <strong>tijd schrijven</strong> betekenen hetzelfde. Spreekt iemand van urenregistratie of tijdregistratie, dan gaat het meestal om dezelfde gegevens met een ander doel. Het verschil met <a href="/tijdregistratie/">tijdregistratie per taak en project</a> is vooral het accent: tijdschrijven draait om declarabele tijd, tijdregistratie ook om planning en nacalculatie.</p>
+
+  <h2>Waarom uren schrijven?</h2>
+  <ul>
+    <li><strong>Factureren.</strong> Werk je op uurbasis, dan is je geschreven tijd je omzet. Wat je niet noteert, factureer je niet.</li>
+    <li><strong>Nacalculatie.</strong> Bij een vaste prijs zie je achteraf of de opdracht meer tijd kostte dan begroot.</li>
+    <li><strong>Inzicht in je week.</strong> Je ziet welk deel van je tijd naar betaald werk gaat en welk deel naar overleg, acquisitie en administratie.</li>
+    <li><strong>Onderbouwing.</strong> Een opdrachtgever kan om een specificatie vragen. Als ondernemer heb je je uren nodig voor het <a href="/urencriterium/">urencriterium</a>.</li>
+  </ul>
+
+  <h2>Uren schrijven in vijf stappen</h2>
+  <ol>
+    <li><strong>Leg je klanten en projecten vast.</strong> Gebruik vaste namen en maak een apart project voor eigen tijd, zoals administratie en acquisitie.</li>
+    <li><strong>Schrijf per werkblok.</strong> Start een timer als je begint of noteer begin- en eindtijd zodra je klaar bent. Wissel je van klant, begin dan een nieuwe regel.</li>
+    <li><strong>Geef elke regel een omschrijving.</strong> &ldquo;Conceptrapport hoofdstuk 2&rdquo; kun je over een maand nog uitleggen; &ldquo;werk&rdquo; niet.</li>
+    <li><strong>Markeer wat declarabel is.</strong> Dat volgt uit de afspraak met je klant. Niet alles wat je voor een klant doet, mag op de factuur.</li>
+    <li><strong>Controleer per week.</strong> Kijk of er dagen ontbreken, of een timer is blijven lopen en welke uren nog gefactureerd moeten worden.</li>
+  </ol>
+
+  <h2>Voorbeeld: een dag tijdschrijven</h2>
+  <p>Een fictieve werkdag van een zelfstandig adviseur met twee klanten:</p>
+  <div class="table-scroll"><table>
+    <caption>Fictieve werkdag; de lunch van 12:30 tot 13:00 telt niet mee</caption>
+    <thead><tr><th scope="col">Tijd</th><th scope="col">Klant en werkzaamheden</th><th scope="col" class="num">Uren</th><th scope="col">Declarabel</th></tr></thead>
+    <tbody>
+      <tr><td>09:00–10:30</td><td>Klant A, adviesrapport schrijven</td><td class="num">1,50</td><td>Ja</td></tr>
+      <tr><td>10:30–11:00</td><td>E-mail en planning</td><td class="num">0,50</td><td>Nee</td></tr>
+      <tr><td>11:00–12:30</td><td>Klant B, overleg en verslag</td><td class="num">1,50</td><td>Ja</td></tr>
+      <tr><td>13:00–15:45</td><td>Klant A, adviesrapport schrijven</td><td class="num">2,75</td><td>Ja</td></tr>
+      <tr><td>15:45–16:30</td><td>Offerte voor een nieuwe klant</td><td class="num">0,75</td><td>Nee</td></tr>
+      <tr><td>16:30–17:00</td><td>Eigen administratie</td><td class="num">0,50</td><td>Nee</td></tr>
+      <tr class="total-row"><th scope="row" colspan="2">Totaal gewerkt</th><th class="num">7,50</th><th>5,75 declarabel</th></tr>
+    </tbody>
+  </table></div>
+  <p>Klant A krijgt 4,25 uur op de factuur en klant B 1,50 uur. De overige 1,75 uur is eigen tijd. Zonder die laatste regels zou je denken dat je werkdag 5,75 uur duurde.</p>
+
+  <h2 id="declarabiliteit">Declarabele uren en declarabiliteit berekenen</h2>
+  <p><strong>Declarabele uren</strong> zijn uren die je volgens afspraak aan een klant doorberekent. Ze heten ook facturabele of factureerbare uren. <strong>Niet-declarabele uren</strong>, ook wel indirecte uren, besteed je aan je bedrijf zonder dat een klant ervoor betaalt: acquisitie, administratie, scholing en intern overleg.</p>
+  <p><strong>Declarabiliteit</strong> is het aandeel van je werktijd dat declarabel is:</p>
+  <p class="callout"><Icon name="calculator" size={20} /><span>Declarabiliteit = declarabele uren ÷ gewerkte uren × 100</span></p>
+  <p>In het voorbeeld is dat 5,75 ÷ 7,5 × 100 = 77%. Over een maand met 152 gewerkte uren waarvan 104 declarabel kom je op 68%.</p>
+  <p>Let op de noemer. Sommige kantoren delen door de beschikbare uren volgens contract, zonder verlof en ziekte. Dat geeft een ander percentage bij dezelfde declarabele uren. Spreek af welke berekening je gebruikt en vergelijk alleen perioden die op dezelfde manier zijn berekend. Een enkele week zegt weinig: een week vol offertes kan later betaald werk opleveren.</p>
+
+  <h2>Per minuut, per zes minuten of per kwartier?</h2>
+  <p>Hoe fijn je schrijft, hangt af van je vak en je afspraken. In de advocatuur is een eenheid van zes minuten gebruikelijk, omdat dat precies een tiende uur is. Veel zzp&rsquo;ers rekenen per kwartier.</p>
+  <div class="table-scroll"><table>
+    <thead><tr><th scope="col">Eenheid</th><th scope="col" class="num">Decimale uren</th><th scope="col">Voorbeeld: 50 minuten gewerkt</th></tr></thead>
+    <tbody>
+      <tr><td>Per minuut</td><td class="num">0,0167</td><td>0,83 uur</td></tr>
+      <tr><td>Per 6 minuten</td><td class="num">0,10</td><td>0,90 uur (9 eenheden, naar boven afgerond)</td></tr>
+      <tr><td>Per kwartier</td><td class="num">0,25</td><td>1,00 uur (4 eenheden, naar boven afgerond)</td></tr>
+    </tbody>
+  </table></div>
+  <p>Schrijf de werkelijk bestede tijd en pas een afronding pas toe bij het factureren, op de manier die je met je klant hebt afgesproken. Dan blijft je eigen tijdsoverzicht kloppen en kun je uitleggen hoe een factuurbedrag tot stand kwam.</p>
+
+  <h2>Tijdschrijven in Excel, een app of online</h2>
+  <ul>
+    <li><strong>Excel.</strong> Vrij in te delen en gratis, maar je vult achteraf in en bewaakt zelf de formules. Zie <a href="/urenregistratie-excel/">tijdschrijven in Excel met template en formules</a>.</li>
+    <li><strong>Een app op je telefoon.</strong> Je schrijft op het moment zelf met een timer. <a href="/">Uurwerk is een urenregistratie app voor zzp&rsquo;ers</a> op iPhone.</li>
+    <li><strong>Online software voor kantoren.</strong> Meerdere medewerkers schrijven tijd op dossiers, met accordering en rapportages. Lees wat <a href="/online-urenregistratie/">online tijdschrijven</a> inhoudt en vergelijk <a href="/urenregistratie-software/">software op functies en kosten</a>.</li>
+  </ul>
+
+  <h2>Veelgemaakte fouten bij uren schrijven</h2>
+  <ul>
+    <li><strong>Achteraf invullen.</strong> Op vrijdag weet je niet meer wat je dinsdag deed. Je schat, en een schatting kun je niet onderbouwen.</li>
+    <li><strong>Te grove blokken.</strong> &ldquo;Hele dag klant A&rdquo; verbergt het uur dat je aan iets anders werkte.</li>
+    <li><strong>Vage omschrijvingen.</strong> Een klant die een specificatie opvraagt, wil zien wat er is gedaan.</li>
+    <li><strong>Eigen tijd niet schrijven.</strong> Dan ontbreekt de helft van het beeld en klopt je declarabiliteit niet.</li>
+    <li><strong>Een vergeten timer.</strong> Controleer aan het einde van de dag of er niets is blijven lopen.</li>
+  </ul>
+
+  <h2>Tijdschrijven met Uurwerk</h2>
+  <p>Uurwerk is gemaakt voor één persoon die zijn eigen tijd schrijft. Je start een timer of vult begin, einde en pauze in, kiest klant en project en geeft de regel een omschrijving. Het tarief hangt aan de klant, dus het bedrag volgt uit de uren. Voor eigen tijd maak je een apart project aan, zodat declarabele en niet-declarabele uren gescheiden blijven.</p>
+  <p>Aan het einde van de periode kies je de openstaande uren van een klant en maak je er een conceptfactuur van. Hoe dat gaat lees je bij <a href="/uren-factureren/">uren factureren met voorbeeldfactuur</a>. Uurwerk berekent geen declarabiliteit en heeft geen accordering of medewerkersaccounts. Schrijf je tijd met een team, kies dan software die dat ondersteunt.</p>
+</Guide>
