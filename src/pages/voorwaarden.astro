@@ -1,0 +1,88 @@
+---
+import Page from '../layouts/Page.astro';
+import { PRO_PRICING, SITE } from '../lib/site';
+---
+<Page title="Algemene voorwaarden en abonnementen | Uurwerk" description="De voorwaarden voor de Uurwerk-app en Uurwerk Pro: prijzen, automatische verlenging, opzeggen via je Apple-account en terugbetaling." h1="Algemene voorwaarden">
+    <p><strong>Laatst bijgewerkt: {SITE.legalUpdated}</strong></p>
+    <p>Deze voorwaarden gelden voor het gebruik van de iPhone- en iPad-app {SITE.fullName} (hierna: Uurwerk of de app), het abonnement Uurwerk Pro en de website urenregistreren.com.</p>
+
+    <h2>1. Wie zijn wij?</h2>
+    <p>Uurwerk wordt gemaakt door {SITE.developer}, handelend onder de naam {SITE.publisher}, gevestigd in Nederland. Contact: <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a>.</p>
+
+    <h2>2. Licentieovereenkomst van Apple</h2>
+    <p>Je downloadt Uurwerk via de App Store. Op het gebruik van de app is de <a href={SITE.appleEulaUrl} rel="noopener">standaard licentieovereenkomst voor eindgebruikers van Apple (Licensed Application End User License Agreement)</a> van toepassing. Deze voorwaarden vullen die licentieovereenkomst aan. Als er een tegenstrijdigheid is, gaat de licentieovereenkomst van Apple voor.</p>
+
+    <h2 id="abonnementen">3. Uurwerk Pro: abonnementen</h2>
+    <p>Uurwerk is gratis te downloaden en te gebruiken. Voor extra functies, zoals facturen versturen vanuit de app, heb je Uurwerk Pro nodig. In de app heet dit ook Premium. Uurwerk Pro is een automatisch verlengbaar abonnement.</p>
+
+    <h3>Abonnementen en prijzen</h3>
+    <div class="table-scroll">
+      <table>
+        <caption>Uurwerk Pro</caption>
+        <thead><tr><th scope="col">Abonnement</th><th scope="col">Looptijd</th><th scope="col">Prijs</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Uurwerk Maand</th><td>1 maand, automatisch verlengd</td><td>{PRO_PRICING.monthlyLabel} per maand</td></tr>
+          <tr><th scope="row">Uurwerk Jaar</th><td>1 jaar, automatisch verlengd</td><td>{PRO_PRICING.yearlyLabel} per jaar</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Prijzen zijn in euro&rsquo;s en inclusief btw, zoals ze in de Nederlandse App Store gelden. In andere landen kan de prijs afwijken. De prijs die de app en de App Store tonen vóór je aankoop is altijd leidend.</p>
+
+    <h3>Betaling en automatische verlenging</h3>
+    <ul>
+      <li>De betaling wordt bij bevestiging van je aankoop in rekening gebracht via je Apple-account.</li>
+      <li>Je abonnement wordt automatisch verlengd voor dezelfde periode, tenzij je de automatische verlenging uiterlijk 24 uur vóór het einde van de lopende periode uitzet.</li>
+      <li>De verlenging wordt binnen 24 uur vóór het einde van de lopende periode via je Apple-account in rekening gebracht, tegen de dan geldende prijs.</li>
+      <li>Verandert de prijs, dan laat Apple je dat vooraf weten. Bij een prijsverhoging vraagt Apple waar nodig eerst je toestemming.</li>
+    </ul>
+
+    <h3>Gratis proefperiode</h3>
+    <p>Biedt de app een gratis proefperiode aan, dan zie je de duur daarvan vóór je aankoop. Na de proefperiode gaat het abonnement automatisch over in een betaald abonnement, tenzij je uiterlijk 24 uur vóór het einde van de proefperiode opzegt. Koop je tijdens de proefperiode een abonnement, dan vervalt het ongebruikte deel van de proefperiode.</p>
+
+    <h3>Abonnement beheren en opzeggen</h3>
+    <p>Je beheert en annuleert je abonnement in de instellingen van je Apple-account:</p>
+    <ol>
+      <li>Open de app Instellingen op je iPhone of iPad.</li>
+      <li>Tik op je naam en daarna op Abonnementen.</li>
+      <li>Kies Uurwerk en tik op Annuleer abonnement.</li>
+    </ol>
+    <p>Dit kan ook via de App Store-app: tik op je profielfoto en kies Abonnementen. Zie ook de <a href="https://support.apple.com/nl-nl/118428" rel="noopener">uitleg van Apple over abonnementen opzeggen</a>. Het verwijderen van de app zegt je abonnement niet op.</p>
+    <p>Na het opzeggen houd je Uurwerk Pro tot het einde van de periode die je al hebt betaald. Daarna stopt het abonnement. Je gegevens blijven bewaard en de gratis functies blijven werken.</p>
+
+    <h3>Aankopen herstellen</h3>
+    <p>Heb je een nieuw apparaat of heb je de app opnieuw geïnstalleerd? Tik in de app op Herstel aankopen. Gebruik daarvoor hetzelfde Apple-account als waarmee je het abonnement hebt gekocht.</p>
+
+    <h3>Terugbetaling</h3>
+    <p>Alle betalingen lopen via Apple. Wij kunnen zelf geen bedragen terugstorten. Wil je een terugbetaling aanvragen, dan doe je dat bij Apple via <a href="https://reportaproblem.apple.com/" rel="noopener">reportaproblem.apple.com</a>. Apple beoordeelt het verzoek volgens zijn eigen beleid. Je wettelijke rechten als consument blijven daarbij gelden.</p>
+
+    <h2>4. Gebruik van de app</h2>
+    <ul>
+      <li>Uurwerk is een hulpmiddel om uren bij te houden en facturen te maken. Je bent zelf verantwoordelijk voor de juistheid van je uren, tarieven, btw-bedragen en facturen. Controleer ze voordat je ze verstuurt.</li>
+      <li>De app en de gidsen op deze website zijn geen fiscaal, juridisch of boekhoudkundig advies, bijvoorbeeld over het urencriterium. Raadpleeg bij twijfel de Belastingdienst of een adviseur.</li>
+      <li>Je gebruikt de app niet voor onrechtmatige doelen en probeert de app niet te kraken, na te maken of te omzeilen.</li>
+    </ul>
+
+    <h2>5. Je gegevens en back-ups</h2>
+    <p>Je gegevens staan op je apparaat en, als je dat aanzet, in je eigen iCloud. Wij hebben er geen toegang toe en kunnen ze dus ook niet terughalen als ze verloren gaan. Zorg zelf voor back-ups, bijvoorbeeld via iCloud of een export. Hoe we met gegevens omgaan, lees je in het <a href="/privacy/">privacybeleid</a>.</p>
+
+    <h2>6. Intellectueel eigendom</h2>
+    <p>De app, het ontwerp, de teksten en de sjablonen zijn van {SITE.publisher}. Je krijgt een persoonlijk, niet-overdraagbaar recht om de app te gebruiken volgens de licentieovereenkomst van Apple. De urenstaatsjablonen op deze website mag je vrij gebruiken voor je eigen administratie. Wat je zelf in de app of een sjabloon invult, blijft van jou.</p>
+
+    <h2>7. Beschikbaarheid en wijzigingen in de app</h2>
+    <p>We doen ons best om Uurwerk goed te laten werken en te verbeteren. We kunnen functies toevoegen, aanpassen of beëindigen. Verdwijnt een functie die onder Uurwerk Pro valt, dan zorgen we dat je abonnement redelijk blijft of laten we je tijdig weten welke mogelijkheden je hebt.</p>
+
+    <h2>8. Aansprakelijkheid</h2>
+    <p>We leveren Uurwerk zoals de app is. We zijn niet aansprakelijk voor indirecte schade, zoals gederfde inkomsten of verloren gegevens. Onze aansprakelijkheid is in ieder geval beperkt tot het bedrag dat je in de twaalf maanden vóór de schade voor Uurwerk Pro hebt betaald. Deze beperkingen gelden niet bij opzet of grove nalatigheid, en niet voor zover de wet dat niet toestaat.</p>
+
+    <h2>9. Ondersteuning</h2>
+    <p>Voor vragen over de app kun je bij ons terecht via <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a> of de <a href="/contact/">contactpagina</a>. Apple is niet verantwoordelijk voor ondersteuning van de app. Voor vragen over een betaling of je Apple-account kun je terecht bij de <a href="https://support.apple.com/nl-nl/billing" rel="noopener">ondersteuning van Apple</a>.</p>
+
+    <h2>10. Wijziging van deze voorwaarden</h2>
+    <p>We kunnen deze voorwaarden aanpassen. De datum bovenaan laat zien wanneer ze voor het laatst zijn bijgewerkt. Bij belangrijke wijzigingen laten we dat vooraf weten in de app of op deze website.</p>
+
+    <h2>11. Toepasselijk recht</h2>
+    <p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland. Woon je als consument in een ander land, dan houd je de bescherming die de wet van dat land je biedt.</p>
+
+    <h2>12. Contact</h2>
+    <p>{SITE.publisher} &middot; {SITE.developer} &middot; Nederland &middot; <a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></p>
+</Page>
