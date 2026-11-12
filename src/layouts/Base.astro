@@ -15,9 +15,11 @@ interface Props {
   ogImage?: string;
   /** Gidsen en tools: zwevende download-balk op mobiel */
   stickyBar?: boolean;
+  /** Homepage: transparante header over de donkere hero */
+  headerOverlay?: boolean;
 }
 
-const { title, description, schemas = [], ogImage = '/og-default.png', stickyBar = false } = Astro.props;
+const { title, description, schemas = [], ogImage = '/og-default.png', stickyBar = false, headerOverlay = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImageUrl = new URL(ogImage, SITE.url).href;
@@ -61,7 +63,7 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
     ))}
   </head>
   <body>
-    <Header stickyBar={stickyBar} />
+    <Header stickyBar={stickyBar} overlay={headerOverlay} />
     <main>
       <slot />
     </main>

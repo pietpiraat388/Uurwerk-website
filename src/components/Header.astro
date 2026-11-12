@@ -6,9 +6,11 @@ import { GUIDES, NAV_LINKS, SITE, guideUrl } from '../lib/site';
 interface Props {
   /** Op gidsen en tools neemt de sticky download-balk de downloadknop over op mobiel. */
   stickyBar?: boolean;
+  /** Homepage: header ligt transparant over de donkere hero tot je scrolt. */
+  overlay?: boolean;
 }
 
-const { stickyBar = false } = Astro.props;
+const { stickyBar = false, overlay = false } = Astro.props;
 const path = Astro.url.pathname;
 const guidePaths = GUIDES.map((guide) => guideUrl(guide.slug));
 
@@ -18,7 +20,7 @@ const activeHref =
   (guidePaths.includes(path) ? '/#gidsen' : undefined);
 ---
 
-<header class:list={['site-header', { 'has-sticky-bar': stickyBar }]} data-placement="header">
+<header class:list={['site-header', { 'has-sticky-bar': stickyBar, 'header-overlay': overlay }]} data-placement="header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="Uurwerk homepage">
       <Image src={appIcon} alt="" width={32} height={32} class="brand-icon" loading="eager" />
@@ -60,6 +62,12 @@ const activeHref =
   };
   toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
   navigation?.addEventListener('click', (event) => { if (event.target instanceof Element && event.target.closest('a')) setOpen(false); });
+  const header = document.querySelector<HTMLElement>('.header-overlay');
+  if (header) {
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setOpen(false); toggle.focus(); } });
 </script>
 <noscript><style>.nav-toggle{display:none!important}@media(max-width:899px){.header-inner{height:auto!important;flex-wrap:wrap;padding-block:12px}.site-nav{display:block!important;position:static!important;width:100%;box-shadow:none!important;border:0!important;padding:0!important}}</style></noscript>
@@ -257,6 +265,48 @@ const activeHref =
 
     .nav-toggle[aria-expanded='true'] span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
+    }
+  }
+
+  /* Homepage: transparant over de donkere hero */
+  .header-overlay {
+    transition: background-color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+  }
+
+  .header-overlay:not(.is-scrolled) {
+    background: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .header-overlay:not(.is-scrolled) .brand,
+  .header-overlay:not(.is-scrolled) .brand:hover {
+    color: #fff;
+  }
+
+  .header-overlay:not(.is-scrolled) .nav-cta {
+    background: #fff;
+    color: #22362c;
+  }
+
+  .header-overlay:not(.is-scrolled) .nav-toggle span {
+    background: #fff;
+  }
+
+  .header-overlay:not(.is-scrolled) .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (min-width: 900px) {
+    .header-overlay:not(.is-scrolled) .site-nav a {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .header-overlay:not(.is-scrolled) .site-nav a:hover,
+    .header-overlay:not(.is-scrolled) .site-nav a.is-active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
     }
   }
 
