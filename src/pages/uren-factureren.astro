@@ -2,12 +2,42 @@
 import Guide from '../layouts/Guide.astro';
 import InvoiceSteps from '../components/InvoiceSteps.astro';
 const faq = [
+  { question: 'Wat zet je op een factuur voor gewerkte uren?', answer: 'Naast de verplichte factuurgegevens vermeld je per regel de werkzaamheden, het aantal uren, het uurtarief en het bedrag exclusief btw. Daaronder komen het subtotaal, het btw-bedrag en het totaal. Bij veel regels zet je één totaalregel op de factuur en stuur je een urenstaat mee als specificatie.' },
   { question: 'Hoe bereken ik het bedrag van mijn gewerkte uren?', answer: 'Vermenigvuldig de uren met het afgesproken uurtarief. Bij 4,25 uur en 85 euro per uur is het bedrag 361,25 euro exclusief btw. Gebruik decimale uren: een kwartier is 0,25 uur.' },
   { question: 'Moet ik een urenstaat meesturen met mijn factuur?', answer: 'Stem de gewenste specificatie af met je opdrachtgever. Een urenstaat maakt duidelijk op welke datums je aan welke werkzaamheden hebt gewerkt. Je kunt hem gebruiken als onderbouwing naast de factuur.' },
   { question: 'Kan ik gratis facturen maken in Uurwerk?', answer: 'Conceptfacturen maken is gratis. Voor het versturen van facturen vanuit Uurwerk is de betaalde Pro-upgrade nodig.' },
 ];
 ---
-<Guide slug="uren-factureren" metaTitle="Uren factureren: voorbeeld en stappenplan | Uurwerk" description="Zet gewerkte uren om in een factuur. Met een rekenvoorbeeld, controlelijst en echte schermen van de factuurstappen in Uurwerk voor iPhone." h1="Uren factureren: van urenstaat naar factuur" answer="Uren factureren begint met een gecontroleerd urenoverzicht per klant en periode. Vermenigvuldig de gewerkte uren met het afgesproken tarief, maak de factuur en controleer de gegevens en btw. In Uurwerk kies je de openstaande uren voor een conceptfactuur; voor versturen vanuit de app is Pro nodig." faq={faq} datePublished="2026-09-09" dateModified="2026-09-09">
+<Guide slug="uren-factureren" metaTitle="Uren factureren: voorbeeld factuur en stappenplan | Uurwerk" description="Zet gewerkte uren om in een factuur. Met een voorbeeld van een urenfactuur voor zzp’ers, rekenvoorbeeld, controlelijst en de factuurstappen in Uurwerk." h1="Uren factureren: voorbeeldfactuur en stappenplan" answer="Uren factureren begint met een gecontroleerd urenoverzicht per klant en periode. Vermenigvuldig de gewerkte uren met het afgesproken tarief, maak de factuur en controleer de gegevens en btw. In Uurwerk kies je de openstaande uren voor een conceptfactuur; voor versturen vanuit de app is Pro nodig." faq={faq} datePublished="2026-09-09" dateModified="2026-11-12">
+  <h2>Voorbeeld: factuur met gewerkte uren</h2>
+  <p>Zo ziet een factuur op uurbasis eruit voor een zzp&rsquo;er. Alle gegevens zijn fictief:</p>
+  <div class="table-scroll sheet-table invoice-example">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5" class="sheet-head">
+            <span class="sheet-title">Factuur 2026-014 &middot; Studio Noord</span><br />
+            <span class="sheet-meta">Aan: Acme Bouw B.V. &middot; Project: websiteonderhoud</span><br />
+            <span class="sheet-meta">Factuurdatum 30 juni 2026 &middot; Betaaltermijn 14 dagen</span><br />
+            <span class="sheet-meta">KVK 00000000 &middot; Btw-id NL000000000B00</span>
+          </th>
+        </tr>
+        <tr><th scope="col">Datum</th><th scope="col">Werkzaamheden</th><th scope="col" class="num">Uren</th><th scope="col" class="num">Tarief</th><th scope="col" class="num">Bedrag</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>17 juni</td><td>Controle urenstaat en factuurregels</td><td class="num">1,50</td><td class="num">&euro; 85,00</td><td class="num">&euro; 127,50</td></tr>
+        <tr><td>18 juni</td><td>Homepage bijgewerkt, nieuw menu</td><td class="num">2,50</td><td class="num">&euro; 85,00</td><td class="num">&euro; 212,50</td></tr>
+        <tr><td>18 juni</td><td>Timerregistratie, kleine fixes</td><td class="num">0,25</td><td class="num">&euro; 85,00</td><td class="num">&euro; 21,25</td></tr>
+        <tr><th scope="row" colspan="2">Subtotaal exclusief btw</th><td class="num">4,25</td><td></td><td class="num">&euro; 361,25</td></tr>
+        <tr><th scope="row" colspan="4">Btw 21%</th><td class="num">&euro; 75,86</td></tr>
+        <tr class="total-row"><th scope="row" colspan="4">Totaal inclusief btw</th><th class="num">&euro; 437,11</th></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Dit voorbeeld toont de regels en bedragen. Een echte factuur bevat ook de adressen van beide partijen en je betaalgegevens; de volledige lijst staat bij <a href="#factuurgegevens">stap 4</a>. Gebruik je eigen nummers en het btw-tarief dat voor jouw dienst geldt.</p>
+  <h3>Uren per regel of als bijlage?</h3>
+  <p>Bij een paar werkblokken zet je elke regel op de factuur, zoals hierboven. Factureer je een hele maand, dan wordt dat onleesbaar. Zet dan één regel op de factuur, bijvoorbeeld &ldquo;Websiteonderhoud juni, 32,50 uur à &euro; 85,00&rdquo;, en stuur de urenspecificatie mee als bijlage. Daarvoor gebruik je een <a href="/urenstaat-maken/">urenstaat met voorbeeld en gratis sjabloon</a>.</p>
+
   <h2>1. Controleer je uren per klant</h2>
   <p>Selecteer de periode die je met je opdrachtgever hebt afgesproken. Controleer de datum, het project en de omschrijving van iedere regel. Houd al gefactureerde uren apart, zodat hetzelfde werk niet opnieuw op een factuur terechtkomt.</p>
   <p>Heb je nog geen overzicht? Gebruik het <a href="/urenstaat-maken/">urenstaatvoorbeeld met gratis Excel- en PDF-sjablonen</a>. Neem alleen de uren op die je volgens de afspraak in rekening brengt. Uren voor je eigen administratie horen niet automatisch op een klantfactuur.</p>
@@ -17,8 +47,8 @@ const faq = [
   <p>Bij een toepasselijk btw-tarief van 21% komt daar in dit voorbeeld € 75,86 btw bij: totaal € 437,11. Het juiste tarief of een eventuele vrijstelling hangt af van je dienst en situatie. Pas dit voorbeeld daarop aan.</p>
   <h2>3. Maak en controleer je factuur in Uurwerk</h2>
   <InvoiceSteps />
-  <p>De appbeelden laten het urenoverzicht, de controle van de conceptfactuur en het versturen van de PDF zien. Vergelijk de <a href="/urenregistratie-app-gratis/">gratis functies en Uurwerk Pro</a> voordat je kiest.</p>
-  <h2>4. Controleer de factuurgegevens</h2>
+  <p>De appbeelden laten het urenoverzicht, de controle van de conceptfactuur en het versturen van de PDF zien. Vergelijk de <a href="/urenregistratie-app-gratis/">gratis functies en Uurwerk Pro</a> voordat je kiest. Meer over de app zelf lees je op de pagina van <a href="/">Uurwerk, de urenregistratie app voor iPhone</a>.</p>
+  <h2 id="factuurgegevens">4. Controleer de factuurgegevens</h2>
   <p>Controleer onder meer de namen en adressen van beide partijen, je btw-identificatienummer, je KVK-nummer als je bent ingeschreven, een uniek opeenvolgend factuurnummer, de factuurdatum, de geleverde dienst en leverdatum, bedragen en btw. Bij sommige situaties gelden aangepaste regels. De volledige uitleg staat bij de <a href="https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/facturen_maken/factuureisen/factuureisen">Belastingdienst: factuureisen</a>.</p>
   <p>Controleer ook praktische afspraken: het referentie- of inkoopnummer van je klant, de betaaltermijn en het e-mailadres van de ontvanger. Een correct bedrag alleen maakt de factuur nog niet compleet.</p>
   <h2>5. Bewaar je factuur en de onderbouwing</h2>

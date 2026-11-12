@@ -17,7 +17,7 @@ const { variant = 'card' } = Astro.props;
   </div>
   <p>
     Urenregistreren.com is de officiële website van <strong>Uurwerk</strong>, een
-    Nederlandstalige urenregistratie-app voor iPhone. Zzp’ers, freelancers en kleine
+    Nederlandstalige {variant === 'card' ? <a href="/">urenregistratie app voor iPhone</a> : 'urenregistratie-app voor iPhone'}. Zzp’ers, freelancers en kleine
     ondernemers registreren er hun eigen werkuren per klant en project met een timer
     of handmatige invoer. Van openstaande uren kunnen zij conceptfacturen maken.
   </p>

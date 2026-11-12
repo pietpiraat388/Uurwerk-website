@@ -9,6 +9,11 @@ export const HOME_FAQ: FaqEntry[] = [
       'Uurwerk is een Nederlandstalige urenregistratie app voor iPhone, gemaakt voor zzp&rsquo;ers, freelancers en kleine ondernemers. Je registreert uren met een timer of handmatig, koppelt ze aan klanten en projecten en maakt er facturen van.',
   },
   {
+    question: 'Wat is de beste urenregistratie app voor zzp&rsquo;ers?',
+    answer:
+      'Dat hangt af van je apparaat en van wat je met je uren doet. Werk je alleen, heb je een iPhone en factureer je per uur, dan past Uurwerk: timer, klanten, projecten en conceptfacturen zijn gratis. Voor Android, personeel of een complete boekhouding kies je een ander type oplossing. De gids <a href="/urenregistratie-app/">beste urenregistratie app kiezen</a> zet de afweging op een rij.',
+  },
+  {
     question: 'Is Uurwerk gratis?',
     answer:
       'Ja. Urenregistratie, klanten, projecten en conceptfacturen zijn gratis te gebruiken. Alleen voor het versturen van facturen heb je Uurwerk Pro nodig. Lees meer op de pagina <a href="/urenregistratie-app-gratis/">gratis urenregistratie app</a>.',
