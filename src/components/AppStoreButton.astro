@@ -7,14 +7,16 @@ interface Props {
   label?: string;
   /** Hoogte van de badge: md = 52px, lg = 56px, xl = 58px */
   size?: 'md' | 'lg' | 'xl';
+  /** light = witte badge voor donkere achtergronden */
+  tone?: 'dark' | 'light';
 }
 
-const { variant = 'badge', label = 'Download in de App Store', size = 'md' } = Astro.props;
+const { variant = 'badge', label = 'Download in de App Store', size = 'md', tone = 'dark' } = Astro.props;
 ---
 
 {
   variant === 'badge' ? (
-    <a class:list={['appstore-badge', `appstore-${size}`]} href={SITE.appStoreUrl} rel="noopener">
+    <a class:list={['appstore-badge', `appstore-${size}`, { 'appstore-light': tone === 'light' }]} href={SITE.appStoreUrl} rel="noopener">
       <Icon name="apple" size={24} class="appstore-logo" />
       <span class="appstore-badge-text">
         <small>Download in de</small>
@@ -57,6 +59,20 @@ const { variant = 'badge', label = 'Download in de App Store', size = 'md' } = A
     color: #fff;
     transform: translateY(-1px);
     box-shadow: 0 10px 22px -10px rgba(17, 20, 18, 0.55);
+  }
+
+  .appstore-light,
+  .appstore-light:hover {
+    background: #fff;
+    color: var(--appstore);
+  }
+
+  .appstore-light .appstore-badge-text small {
+    color: rgba(17, 20, 18, 0.7);
+  }
+
+  .appstore-light:hover {
+    box-shadow: 0 12px 26px -12px rgba(0, 0, 0, 0.45);
   }
 
   .appstore-badge-text {

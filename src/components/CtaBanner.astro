@@ -1,27 +1,52 @@
 ---
 import { Image } from 'astro:assets';
 import appIcon from '../assets/app-icon.png';
+import ctaIpad from '../assets/v2/hero-ipad-schuin.png';
+import ctaIphone from '../assets/v2/hero-iphone-schuin.png';
 import AppStoreButton from './AppStoreButton.astro';
 
 interface Props {
   title?: string;
   text?: string;
+  /** dark = donkergroene variant met iPad en iPhone (homepage) */
+  variant?: 'light' | 'dark';
 }
 
 const {
   title = 'Begin vandaag met uren bijhouden',
   text = 'Registreer je uren met een timer of handmatige invoer en houd overzicht per klant en project. Urenregistratie en conceptfacturen zijn gratis; voor facturen versturen is Pro nodig.',
+  variant = 'light',
 } = Astro.props;
 ---
 
-<section class="cta-section" data-placement="bottom-cta">
-  <div class="container cta-inner" data-reveal>
-    <Image src={appIcon} alt="" width={88} height={88} class="cta-icon" loading="lazy" />
-    <h2>{title}</h2>
-    <p>{text}</p>
-    <AppStoreButton size="xl" />
-  </div>
-</section>
+{
+  variant === 'dark' ? (
+    <section class="cta-section cta-dark" data-placement="bottom-cta">
+      <div class="container cta-split" data-reveal>
+        <div class="cta-copy">
+          <Image src={appIcon} alt="" width={88} height={88} class="cta-icon" loading="lazy" />
+          <h2>{title}</h2>
+          <p>{text}</p>
+          <AppStoreButton size="xl" tone="light" />
+        </div>
+        <div class="cta-visual" aria-hidden="true">
+          <span class="cta-glow"></span>
+          <Image src={ctaIpad} alt="" width={380} widths={[300, 380, 760]} sizes="(max-width: 767px) 64vw, 380px" loading="lazy" class="cta-ipad" />
+          <Image src={ctaIphone} alt="" width={220} widths={[180, 220, 440]} sizes="(max-width: 767px) 37vw, 220px" loading="lazy" class="cta-iphone" />
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="cta-section" data-placement="bottom-cta">
+      <div class="container cta-inner" data-reveal>
+        <Image src={appIcon} alt="" width={88} height={88} class="cta-icon" loading="lazy" />
+        <h2>{title}</h2>
+        <p>{text}</p>
+        <AppStoreButton size="xl" />
+      </div>
+    </section>
+  )
+}
 
 <style>
   .cta-section {
@@ -60,9 +85,100 @@ const {
     line-height: 1.6;
   }
 
+  /* Donkere variant */
+  .cta-dark {
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(200deg, #4c7360 0%, #2f4a3d 60%, #22362c 100%);
+  }
+
+  .cta-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 560px);
+    align-items: center;
+    gap: 40px;
+    min-height: 640px;
+  }
+
+  .cta-copy {
+    padding: 96px 0;
+  }
+
+  .cta-dark h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(2rem, 4.6vw, 3.25rem);
+  }
+
+  .cta-dark p {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .cta-dark :global(.cta-icon) {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.45);
+  }
+
+  .cta-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 560 / 640;
+  }
+
+  .cta-glow {
+    position: absolute;
+    inset: 6% -6% -6% -6%;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(141, 181, 160, 0.4), rgba(141, 181, 160, 0));
+  }
+
+  .cta-visual :global(img) {
+    position: absolute;
+    height: auto;
+    filter: drop-shadow(0 28px 40px rgba(8, 18, 12, 0.45));
+  }
+
+  .cta-visual :global(.cta-ipad) {
+    left: 7%;
+    top: 11%;
+    width: 64%;
+  }
+
+  .cta-visual :global(.cta-iphone) {
+    left: 62%;
+    top: 23%;
+    width: 37.5%;
+  }
+
+  @media (max-width: 899px) {
+    .cta-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      min-height: 0;
+    }
+
+    .cta-copy {
+      padding: 80px 0 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-visual {
+      max-width: 420px;
+      margin: 0 auto;
+      aspect-ratio: 560 / 600;
+    }
+  }
+
   @media (max-width: 767px) {
     .cta-section {
       padding: 88px 0;
+    }
+
+    .cta-dark {
+      padding: 0;
     }
 
     :global(.cta-icon) {
